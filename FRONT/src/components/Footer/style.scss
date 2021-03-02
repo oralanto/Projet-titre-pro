@@ -3,11 +3,10 @@
   border: 1px solid black;
   width: 100%;
   margin-bottom: 0;
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #fff;
   &__link {
     text-decoration: underline;
   }
