@@ -1,0 +1,33 @@
+.home {
+  display: block;
+
+}
+.home__search {
+  margin: 2rem 0;
+  &__bar {
+    margin-top: 1rem;
+    border-radius: 10px;
+    width: 20%;
+  }
+}
+.home__center {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home__text {
+ display: flex;
+ align-items: left;
+ max-width: 20%;
+}
+.home__logo {
+  max-width: 40%;
+}
+.home__categories{
+  margin-top: 2rem;
+  &__cat {
+    margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+}
