@@ -5,13 +5,15 @@ import React from 'react';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
+import LegalNotes from 'src/components/LegalNotes';
 import './styles.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
     <Header />
-    <Home />
+    {/* <Home /> */}
+    <LegalNotes />
     <Footer />
   </div>
 );
