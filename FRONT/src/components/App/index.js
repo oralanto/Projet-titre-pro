@@ -8,8 +8,8 @@ import Footer from 'src/components/Footer';
 // import LegalNotes from 'src/components/LegalNotes';
 // import AboutUs from 'src/components/AboutUs';
 // import Contact from 'src/components/Contact';
-// import Adverts from 'src/components/Adverts';
-import Advert from 'src/components/Advert';
+import Adverts from 'src/components/Adverts';
+// import Advert from 'src/components/Advert';
 // import UserManagement from 'src/components/UserManagement';
 // import Login from 'src/components/Login';
 // import Profil from 'src/components/Profil';
@@ -27,8 +27,8 @@ const App = () => (
     {/* <LegalNotes /> */}
     {/* <AboutUs /> */}
     {/* <Contact /> */}
-    {/* <Adverts /> */}
-    <Advert />
+    <Adverts />
+    {/* <Advert /> */}
     {/* <UserManagement /> */}
     {/* <Login /> */}
     {/* <Profil /> */}
