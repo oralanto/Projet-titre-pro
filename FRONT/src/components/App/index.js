@@ -4,11 +4,11 @@ import React from 'react';
 // == Import
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-// import Home from 'src/components/Home';
+import Home from 'src/components/Home';
 // import LegalNotes from 'src/components/LegalNotes';
 // import AboutUs from 'src/components/AboutUs';
 // import Contact from 'src/components/Contact';
-import Adverts from 'src/components/Adverts';
+// import Adverts from 'src/components/Adverts';
 // import Advert from 'src/components/Advert';
 // import UserManagement from 'src/components/UserManagement';
 // import Login from 'src/components/Login';
@@ -23,11 +23,11 @@ import './styles.scss';
 const App = () => (
   <div className="app">
     <Header />
-    {/* <Home /> */}
+    <Home />
     {/* <LegalNotes /> */}
     {/* <AboutUs /> */}
     {/* <Contact /> */}
-    <Adverts />
+    {/* <Adverts /> */}
     {/* <Advert /> */}
     {/* <UserManagement /> */}
     {/* <Login /> */}

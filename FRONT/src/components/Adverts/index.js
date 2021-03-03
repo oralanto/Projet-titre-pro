@@ -1,8 +1,8 @@
 // == Import npm
-import React from "react";
+import React from 'react';
 
 // == Import
-import "./style.scss";
+import './style.scss';
 
 // == Composant
 const Adverts = () => (
