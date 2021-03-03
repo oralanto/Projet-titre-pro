@@ -7,6 +7,8 @@
   justify-content: space-around;
   align-items: center;
   background-color: #fff;
+  flex-shrink: 0;
+  
   &__link {
     text-decoration: underline;
   }
