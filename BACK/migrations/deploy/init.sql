@@ -37,7 +37,8 @@ CREATE TABLE "user" (
 CREATE TABLE game (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title varchar(128) NOT NULL,
-    author varchar(128),
+    author varchar(128) NOT NULL,
+    editor varchar(128) NOT NULL,
     release_year text,
     avg_duration text NOT NULL,
     min_players int NOT NULL, 
@@ -76,7 +77,7 @@ CREATE TABLE game_has_category (
     PRIMARY KEY (game_id, category_id)
 );
 
-CREATE TABLE user_has_favorite (
+CREATE TABLE user_has_favourite (
     user_id int NOT NULL REFERENCES "user"(id) ON DELETE CASCADE,
     advert_id int NOT NULL REFERENCES advert(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, advert_id)
