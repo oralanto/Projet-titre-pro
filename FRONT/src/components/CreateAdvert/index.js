@@ -18,7 +18,7 @@ const CreateAdvert = () => (
     <p className="CreateAdvert__form__title">Minimum</p><input className="CreateAdvert__form__input" placeholder="1" type="text" />
     <p className="CreateAdvert__form__title">Maximum</p><input className="CreateAdvert__form__input" placeholder="99" type="text" />
     <p className="CreateAdvert__form__title">Age minimum :</p>
-    <input className="CreateAdvert__form__input" placeholder="3" type="text" value="ans" /><p>ans</p>
+    <input className="CreateAdvert__form__input" placeholder="3" type="text"/><p>ans</p>
     <p className="CreateAdvert__form__title">Ajouter une catégorie :</p>
     <input className="CreateAdvert__form__input" placeholder="Stratégie" type="text"/>
     <input className="CreateAdvert__form__input" placeholder="En Famille" type="text"/>
