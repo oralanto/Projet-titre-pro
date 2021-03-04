@@ -17,7 +17,7 @@ import Home from 'src/components/Home';
 // import UserDashboard from 'src/components/UserDashboard';
 // import CreateAdvert from 'src/components/CreateAdvert';
 // import SearchBar from 'src/components/SearchBar';
-// 
+
 import './styles.scss';
 
 // == Composant
