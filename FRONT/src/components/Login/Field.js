@@ -19,4 +19,15 @@ const Field = ({ label, name, type }) => (
     />
   </div>
 );
+
+Field.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
+
+Field.defaultProps = {
+  type: 'text',
+};
+
 export default Field;
