@@ -1,0 +1,12 @@
+.Login {
+  &__form {
+    &__fields {
+    display: flex;
+    flex-direction: column;
+    margin: .5em;
+    &__label {
+      text-align: left;
+      margin-bottom: .2em;
+    }
+  }}
+  }

@@ -16,7 +16,7 @@ import Contact from 'src/components/Contact';
 import Adverts from 'src/components/Adverts';
 import Advert from 'src/components/Advert';
 import UserManagement from 'src/components/UserManagement';
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
 import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';

@@ -1,7 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-// == Import npm
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import Field from 'src/containers/Field';
 
