@@ -1,12 +1,15 @@
 /* eslint-disable no-underscore-dangle */
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import debug from 'src/middlewares/debug';
+import auth from 'src/middlewares/auth';
 import reducer from 'src/reducers';
 
-// le store est le gardien du state
-// la fonction createStore prend en argument le reducer
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeWithDevTools(
+    applyMiddleware(debug, auth),
+  ),
 );
 
 export default store;

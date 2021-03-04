@@ -13,15 +13,7 @@ const Login = ({ onSubmitForm }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     console.log('submit du form');
-    // onSubmitForm();
-    axios.post('http://localhost:3001/login', {
-      email: 'toto@coucou.com',
-      password: 'coucou',
-    })
-      .then((response) => {
-        console.log('response', response);
-      })
-      .catch((err) => console.log('err', err));
+    onSubmitForm();
   };
   return (
     <div className="Login">

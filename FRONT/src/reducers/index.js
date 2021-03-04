@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
+  console.log('reducer');
   switch (action.type) {
     case CHANGE_INPUT_VALUE:
       return {
