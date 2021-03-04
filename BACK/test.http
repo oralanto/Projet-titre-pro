@@ -30,8 +30,8 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "mail": "jpp.superdev@gmail.com",
-    "password": "moula"
+    "mail": "vincent.superdev@gmail.com",
+    "password": "flute"
     
 }
 
@@ -43,11 +43,11 @@ POST {{baseUrl}}/signin
 Content-Type: application/json
 
 {
-    "firstname":"Yann",
-    "lastname":"Guilloux",
-    "pseudo":"killPas-Yann",
-    "mail": "yannguilloux.superdev@gmail.com",
-    "password": "moulaga",
-    "phoneNumber":1577465952,
-    "localisationId": 1
+    "firstname":"MaKi",
+    "lastname":"Pavoisier",
+    "pseudo":"SiameseBro",
+    "mail": "maki.superdevgmail.com",
+    "password": "double",
+    "phoneNumber":1554725495,
+    "localisationId": 4
 }

@@ -14,6 +14,7 @@ const userController = {
         
         try {
             const user = await User.checkIfExist(data);
+            request.session.isConnected = true;
             response.json(user)
         } catch (error) {
             response.status(400).json(error.message)
@@ -27,6 +28,7 @@ const userController = {
         try {
             const user = new User(data);
             const result = await user.save();
+            request.session.isConnected = true;
             response.json(result);
         } catch (error) {
             response.status(400).json(error.message);

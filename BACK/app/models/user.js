@@ -59,6 +59,7 @@ class User {
         const match = await hashService.comparePassword(data.password, rows[0].password);
         
         if(match) {
+
             return new User({
                 firstname: rows[0].firstname,
                 lastname: rows[0].lastname,

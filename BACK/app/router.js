@@ -2,6 +2,8 @@ const { Router } = require('express');
 const router = Router();
 
 const { gameController, advertController, userController  } = require('./controllers/index');
+const connexionService = require('./middlewares/checkConnexion');
+const validatorService = require('./services/validator');
 
 router.get('/games', gameController.getAllGames);
 router.get('/games/:id', gameController.getOneGame);
@@ -13,7 +15,7 @@ router.get('/adverts/:id', advertController.getOneAdvert);
 
 // router.get('/login', userController.login);
 router.post('/login', userController.login);
-router.post('/signin', userController.signin);
+router.post('/signin', validatorService.validateBody, userController.signin);
 
 // router.get('/handle-users', );
 
