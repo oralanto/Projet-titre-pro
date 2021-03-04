@@ -2,8 +2,8 @@ import { CHANGE_INPUT_VALUE } from 'src/actions';
 
 const initialState = {
   user: {
-    email: 'toto@coucou.com',
-    password: 'coucou',
+    email: '',
+    password: '',
   },
 };
 
