@@ -1,26 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import npm
 import React from 'react';
+import Field from './Field';
 
 // == Import
 import './style.scss';
 
 // == Composant
 const Login = () => (
-  <div className="login">
-    <p>Connexion</p>
-    <form className="login__connexion">
-      <label className="login__connexion__field"> E mail
-        <input className="login__connexion__bar" name=" Ecrivez ici..." type="text" />
-      </label>
-      <label className="login__connexion__field"> Mot de passe
-        <input className="login__connexion__bar" name=" Ecrivez ici..." type="text" />
-      </label>
-      <a href="/mot-de-passe-oublie" className="login__connexion__password">Mot de passe oublié ?</a>
-      <input className="login__connexion__button" type="submit" value="Se connecter" />
-
+  <div className="Login">
+    <p className="Login__title">Connexion</p>
+    <form className="Login__form">
+      <Field
+        type="Email"
+        label="Email"
+        name="email"
+      />
+      <Field
+        type="password"
+        label="password"
+        name="password"
+      />
+      <button type="submit" className="Login__form__submit">Se connecter</button>
     </form>
-    <button className="login__button" type="button">Creer un compte</button>
   </div>
 );
 
