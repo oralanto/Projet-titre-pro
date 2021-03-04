@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Field = ({ label, name, type }) => (
+const Field = ({
+  label,
+  name,
+  type,
+  inputValue,
+}) => (
   <div className="Login__form__fields">
     <label
       htmlFor={name}
@@ -16,6 +21,7 @@ const Field = ({ label, name, type }) => (
       type={type}
       placeholder={label}
       className="Login__form__fields__field"
+      value={inputValue}
     />
   </div>
 );
@@ -23,6 +29,7 @@ const Field = ({ label, name, type }) => (
 Field.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  inputValue: PropTypes.string.isRequired,
   type: PropTypes.string,
 };
 

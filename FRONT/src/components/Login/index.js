@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import npm
 import React from 'react';
-import Field from './Field';
+import Field from 'src/containers/Field';
 
 // == Import
 import './style.scss';
