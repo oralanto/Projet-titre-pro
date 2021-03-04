@@ -13,4 +13,41 @@ GET {{baseUrl}}/games/5
 GET {{baseUrl}}/adverts
 
 ### GET /adverts/:id
-GET {{baseUrl}}/adverts/5
+GET {{baseUrl}}/adverts/2
+
+### POST /login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "firstname": "Barack ",
+    "lastname": "Obama"
+    
+}
+
+### POST /login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "mail": "jpp.superdev@gmail.com",
+    "password": "moula"
+    
+}
+
+### URL encoded (le format par défaut pour les formulaires)
+### ATTENTION : ne marche pas pour cette application
+
+### POST /login
+POST {{baseUrl}}/signin
+Content-Type: application/json
+
+{
+    "firstname":"Yann",
+    "lastname":"Guilloux",
+    "pseudo":"killPas-Yann",
+    "mail": "yannguilloux.superdev@gmail.com",
+    "password": "moulaga",
+    "phoneNumber":1577465952,
+    "localisationId": 1
+}

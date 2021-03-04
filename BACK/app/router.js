@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { gameController, advertController } = require('./controllers/index');
+const { gameController, advertController, userController  } = require('./controllers/index');
 
 router.get('/games', gameController.getAllGames);
 router.get('/games/:id', gameController.getOneGame);
@@ -11,7 +11,9 @@ router.get('/adverts/:id', advertController.getOneAdvert);
 // router.get('/adverts/:id/update', );
 // router.get('/create-advert', );
 
-// router.get('/login', );
+// router.get('/login', userController.login);
+router.post('/login', userController.login);
+router.post('/signin', userController.signin);
 
 // router.get('/handle-users', );
 

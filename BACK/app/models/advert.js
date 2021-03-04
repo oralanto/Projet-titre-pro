@@ -15,7 +15,7 @@ class Advert {
     advertMaxPlayers;
     advertSuggestedAge;
     userId;
-    advertId;
+    gameId;
 
     set publication_date(val) {
         this.publicationDate = val;
@@ -62,7 +62,7 @@ class Advert {
         this.userId = val;
     }
 
-    set advert_id(val) {
+    set game_id(val) {
         this.advertId = val;
     }
 
