@@ -7,29 +7,37 @@ const Field = ({
   name,
   type,
   inputValue,
-}) => (
-  <div className="Login__form__fields">
-    <label
-      htmlFor={name}
-      className="Login__form__fields__label"
-    >
-      {label}
-    </label>
-    <input
-      id={name}
-      name={name}
-      type={type}
-      placeholder={label}
-      className="Login__form__fields__field"
-      value={inputValue}
-    />
-  </div>
-);
+  onChangeInputValue,
+}) => {
+  const handleOnChange = (e) => {
+    onChangeInputValue(e.target.value);
+  };
+  return (
+    <div className="Login__form__fields">
+      <label
+        htmlFor={name}
+        className="Login__form__fields__label"
+      >
+        {label}
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        placeholder={label}
+        className="Login__form__fields__field"
+        value={inputValue}
+        onChange={handleOnChange}
+      />
+    </div>
+  );
+};
 
 Field.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
+  onChangeInputValue: PropTypes.func.isRequired,
   type: PropTypes.string,
 };
 
