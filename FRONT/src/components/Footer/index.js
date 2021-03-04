@@ -1,5 +1,8 @@
 // == Import npm
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 // == Import
 import './style.scss';
@@ -7,9 +10,9 @@ import './style.scss';
 // == Composant
 const Footer = () => (
   <nav className="footer">
-    <a href="/contact" className="footer__link">Contact</a>
-    <a href="/legal-notes" className="footer__link">Mentions légales</a>
-    <a href="/about-us" className="footer__link">A propos de nous</a>
+    <Link to="/contact" className="footer__link">Contact</Link>
+    <Link to="/mentions-legales" className="footer__link">Mentions légales</Link>
+    <Link to="/a-propos-de-nous" className="footer__link">A propos de nous</Link>
   </nav>
 );
 

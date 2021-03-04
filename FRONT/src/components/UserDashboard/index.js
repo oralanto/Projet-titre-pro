@@ -1,5 +1,8 @@
 // == Import npm
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 // == Import
 import './style.scss';
@@ -8,8 +11,8 @@ import './style.scss';
 const UserDashboard = () => (
   <div className="UserDashboard">
     <h1 className="UserDashboard__title">Tableau de bord Utilisateur</h1>
-      <a href="/Gestion-annonces" className="UserDashboard__card">Gestion des annonces</a>
-      <a href="/Profil" className="UserDashboard__card">Profil</a>
+    <Link to="/Gestion-annonces" className="UserDashboard__card">Gestion des annonces</Link>
+    <Link to="/Profil" className="UserDashboard__card">Profil</Link>
   </div>
 );
 

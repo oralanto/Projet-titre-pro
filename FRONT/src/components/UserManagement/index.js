@@ -53,7 +53,6 @@ const UserDashboard = () => (
         <td>Mail</td>
         <td><button type="button">X</button></td>
       </tbody>
-      
     </table>
   </div>
 );
