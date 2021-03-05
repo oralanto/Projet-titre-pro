@@ -9,7 +9,7 @@ import './style.scss';
 const Login = ({ onSubmitForm }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log('submit du form');
+    console.log('submit');
     onSubmitForm();
   };
   return (

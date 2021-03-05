@@ -10,6 +10,7 @@ const Field = ({
   onChangeInputValue,
 }) => {
   const handleOnChange = (e) => {
+    console.log(e.target.value);
     onChangeInputValue(e.target.value);
   };
   return (
