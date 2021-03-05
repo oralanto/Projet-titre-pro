@@ -10,7 +10,7 @@ app.use(session({
     // mot de passe servant à crypter les infos
     secret: process.env.SECRET,
     // va sauvegarder une nouvelle session même si elle n'est pas modifiée
-    saveUnitialized : true,
+    saveUninitialized : true,
     // Resauvegarde une session à chaque requête même sans modifications (pas de date d'expiration)
     resave : true
 }));

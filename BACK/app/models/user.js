@@ -12,7 +12,7 @@ class User {
     roleId;
     localisationId;
 
-    constructor(data = {}) {
+    constructor(data) {
         for (const prop in data) {
             this[prop] = data[prop];
         }
@@ -77,7 +77,7 @@ class User {
         const query = {
             text: `
                 INSERT INTO "user" (firstname, lastname, pseudo, mail, password, phone_number, localisation_id)
-                VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;
+                VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING pseudo;
             `,
             values: [this.firstname, this.lastname, this.pseudo, this.mail, this.password, this.phoneNumber, this.localisationId]
         }
