@@ -2,8 +2,13 @@ import { CHANGE_INPUT_VALUE } from 'src/actions';
 
 const initialState = {
   user: {
+    firstname: '',
+    lastname: '',
+    pseudo: '',
     email: '',
     password: '',
+    localisation_id: '',
+    phone_number: '',
   },
 };
 

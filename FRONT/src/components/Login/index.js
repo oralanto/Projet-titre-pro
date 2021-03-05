@@ -10,7 +10,7 @@ import './style.scss';
 const Login = ({ onSubmitForm }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log('submit');
+    console.log('submit Login');
     onSubmitForm();
   };
   return (
