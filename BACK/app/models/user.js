@@ -6,7 +6,7 @@ class User {
     firstname;
     lastname;
     pseudo;
-    mail;
+    email;
     password;
     phoneNumber;
     roleId;
@@ -31,23 +31,10 @@ class User {
     }
 
     static async checkIfExist(data) {
-    
-        // const query = {
-        //     text: `SELECT firstname, lastname, pseudo FROM "user" WHERE "user".mail = $1 AND "user"."password" = $2`,
-        //     values: [data.mail, data.password]
-        // }
-
-        // const {rows} = await db.query(query);
-
-        // if(rows[0]) {
-        //     return new User(rows[0]);
-        // } else {
-        //     throw new Error('Wrong email or password')
-        // }
 
         const query = {
-            text: `SELECT firstname, lastname, pseudo, password FROM "user" WHERE "user".mail = $1`,
-            values: [data.mail]
+            text: `SELECT firstname, lastname, pseudo, password FROM "user" WHERE "user".email = $1`,
+            values: [data.email]
         }
 
         const { rows } = await db.query(query);
@@ -76,10 +63,10 @@ class User {
 
         const query = {
             text: `
-                INSERT INTO "user" (firstname, lastname, pseudo, mail, password, phone_number, localisation_id)
+                INSERT INTO "user" (firstname, lastname, pseudo, email, password, phone_number, localisation_id)
                 VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING pseudo;
             `,
-            values: [this.firstname, this.lastname, this.pseudo, this.mail, this.password, this.phoneNumber, this.localisationId]
+            values: [this.firstname, this.lastname, this.pseudo, this.email, this.password, this.phoneNumber, this.localisationId]
         }
 
         const { rows } = await db.query(query);

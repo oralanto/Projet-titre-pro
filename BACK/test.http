@@ -13,7 +13,7 @@ GET {{baseUrl}}/games/5
 GET {{baseUrl}}/adverts
 
 ### GET /adverts/:id
-GET {{baseUrl}}/adverts/4
+GET {{baseUrl}}/adverts/3
 
 ### POST /login
 POST {{baseUrl}}/login
@@ -30,7 +30,7 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "mail": "jaja.superdev@gmail.com",
+    "email": "jaja.superdv@gmail.com",
     "password": "1234"
     
 }
@@ -46,7 +46,7 @@ Content-Type: application/json
     "firstname":"Jael",
     "lastname":"Pati",
     "pseudo":"jaja",
-    "mail": "jaja.superdev@gmail.com",
+    "email": "jaja.superdev@gmail.com",
     "password": "1234",
     "phoneNumber":1554725495,
     "localisationId": 4

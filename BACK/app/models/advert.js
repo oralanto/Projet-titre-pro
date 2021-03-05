@@ -86,7 +86,7 @@ class Advert {
             text: 
             `
                 SELECT 
-                    advert.*, advert.id advert_id, "user".mail, "user".pseudo, "user".phone_number, category.*, localisation.*
+                    advert.*, advert.id advert_id, "user".email, "user".pseudo, "user".phone_number, category.*, localisation.*
                 FROM advert
                 JOIN "user" ON advert.user_id = "user".id
                 JOIN advert_has_category ON advert_has_category.advert_id = $1
@@ -105,7 +105,7 @@ class Advert {
             const data = {
                 user: new User({
                     pseudo: rows[0].pseudo,
-                    mail: rows[0].mail,
+                    email: rows[0].email,
                     phone_number: rows[0].phone_number
                 }),
                 advert: new Advert({

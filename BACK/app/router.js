@@ -8,7 +8,7 @@ const validatorService = require('./services/validator');
 router.get('/games', gameController.getAllGames);
 router.get('/games/:id', gameController.getOneGame);
 
-router.get('/adverts', advertController.getFilteredAdverts);
+// router.get('/adverts', advertController.getFilteredAdverts);
 router.get('/adverts/:id', advertController.getOneAdvert);
 // router.get('/adverts/:id/update', );
 // router.get('/create-advert', );
