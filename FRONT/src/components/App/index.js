@@ -17,6 +17,7 @@ import Adverts from 'src/components/Adverts';
 import Advert from 'src/components/Advert';
 import UserManagement from 'src/components/UserManagement';
 import Login from 'src/containers/Login';
+import SignIn from 'src/components/SignIn';
 import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
@@ -55,6 +56,9 @@ const App = () => {
           </Route>
           <Route path="/connexion">
             <Login />
+          </Route>
+          <Route path="/creer-compte">
+            <SignIn />
           </Route>
           <Route path="/profil">
             <Profil />
