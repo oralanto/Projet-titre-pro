@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import SignIn from 'src/components/SignIn';
-import { login } from 'src/actions';
+import { signIn } from 'src/actions';
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch) => ({
   onSubmitForm: () => {
-    dispatch(login());
+    dispatch(signIn());
   },
 });
 
