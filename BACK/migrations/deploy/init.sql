@@ -18,7 +18,7 @@ CREATE TABLE "role" (
 CREATE TABLE localisation (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     city text NOT NULL,
-    postal_code int NOT NULL,
+    postal_code text NOT NULL,
     department text NOT NULL
 );
 

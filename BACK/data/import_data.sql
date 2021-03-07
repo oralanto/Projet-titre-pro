@@ -20,14 +20,14 @@ INSERT INTO "role" (name) VALUES
 ('contributor'),
 ('admin');
 
--- INSERT INTO localisation (city, postal_code, department) VALUES
--- ('Lyon', 69000, 'Rhône'),
--- ('Lille', 59000, 'Nord'),
--- ('Paris', 75000, 'Ile de France'),
--- ('Bordeaux', 33000, 'Gironde'),
--- ('Marseille', 13000, 'Bouches du Rhône'),
--- ('Grenoble', 38000, 'Isère'),
--- ('Chamonix', 74440, 'Haute-Savoie');
+INSERT INTO localisation (city, postal_code, department) VALUES
+('Lyon', 69000, 'Rhône'),
+('Lille', 59000, 'Nord'),
+('Paris', 75000, 'Ile de France'),
+('Bordeaux', 33000, 'Gironde'),
+('Marseille', 13000, 'Bouches du Rhône'),
+('Grenoble', 38000, 'Isère'),
+('Chamonix', 74440, 'Haute-Savoie');
 
 INSERT INTO "user" (firstname, lastname, pseudo, email, "password", phone_number, role_id, localisation_id) VALUES
 ('Killian', 'Courvoisier', 'Kiki', 'dev.killian.courvoisier@gmail.com', 1234, 0624589461, 3, 2),
