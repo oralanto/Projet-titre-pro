@@ -50,3 +50,12 @@ Content-Type: application/json
     "phoneNumber":1624725495,
     "localisationId": 2
 }
+
+### POST /cities
+
+POST {{baseUrl}}/api/cities
+Content-Type: application/json
+
+{
+    "city": "perri"
+}

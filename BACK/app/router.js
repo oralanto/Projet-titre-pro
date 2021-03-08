@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { gameController, advertController, userController  } = require('./controllers/index');
+const { gameController, advertController, userController, localisationController  } = require('./controllers/index');
 const connexionService = require('./middlewares/checkConnexion');
 const validatorService = require('./services/validator');
 
@@ -18,6 +18,8 @@ router.post('/api/login', userController.login);
 router.post('/api/signin', validatorService.validateBody, userController.signin);
 
 // router.get('/api/handle-users', );
+
+router.post('/api/cities', localisationController.getFilteredCities);
 
 // router.get('/api/profil', );
 
