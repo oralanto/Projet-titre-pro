@@ -69,11 +69,26 @@ class User {
             values: [this.firstname, this.lastname, this.pseudo, this.email, this.password, this.phoneNumber, this.localisationId]
         }
 
-        const { rows } = await db.query(query);
-        if(rows[0]) {
-            return rows[0];
-        } else {
-            throw new Error('inscription failed');
+        try {
+            const { rows } = await db.query(query);
+            if(rows[0]) {
+                return rows[0];
+            } 
+        } catch (error) {
+            switch (error.constraint) {
+                case 'unique_email':
+                    throw new Error('This email already exists');
+                    break;
+                case 'unique_pseudo':
+                    throw new Error('This pseudo already exists');
+                    break;
+                case 'unique_phone_number':
+                    throw new Error('This phone number already exists for another user');
+                    break;
+                default:
+                    throw new Error('Inscription failed, please try again');
+                    break;
+            }
         }
     }
 

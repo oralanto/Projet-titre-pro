@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
     "email": "killian.dev@gmail.com",
-    "password": "5678"
+    "password": "7890"
     
 }
 
@@ -42,11 +42,11 @@ POST {{baseUrl}}/api/signin
 Content-Type: application/json
 
 {
-    "firstname":"yop",
-    "lastname":"yop",
-    "pseudo":"test",
+    "firstname":"traced",
+    "lastname":"ploa",
+    "pseudo":"tesdqt",
     "email": "killian.dev@gmail.com",
-    "password": "5678",
-    "phoneNumber":1554725495,
-    "localisationId": 4
+    "password": "7890",
+    "phoneNumber":1624725495,
+    "localisationId": 2
 }
