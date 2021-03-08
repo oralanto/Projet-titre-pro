@@ -9,14 +9,17 @@ import './style.scss';
 // == Composant
 const Login = ({
   onSubmitForm,
-  handleLogout,
   isLogged,
+  Logouute,
   loading,
   loggedMessage,
 }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     onSubmitForm();
+  };
+  const handleLogout = () => {
+    Logouute();
   };
   return (
     <div className="Login">
@@ -61,7 +64,7 @@ const Login = ({
 Login.propTypes = {
   onSubmitForm: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  handleLogout: PropTypes.func.isRequired,
+  Logouute: PropTypes.func.isRequired,
   isLogged: PropTypes.bool,
   loggedMessage: PropTypes.string,
 

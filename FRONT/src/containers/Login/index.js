@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
   onSubmitForm: () => {
     dispatch(login());
   },
-  handleLogout: () => dispatch(logout()),
+  Logouute: () => dispatch(logout()),
 
 });
 

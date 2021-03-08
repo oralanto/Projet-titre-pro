@@ -9,6 +9,7 @@ const initialState = {
   user: {
     email: '',
     password: '',
+    pseudo: '',
     isLogged: false,
     loading: false,
   },
@@ -32,22 +33,18 @@ const reducer = (state = initialState, action = {}) => {
         user: {
           ...state.user,
           loading: true,
+          isLogged: true,
+          pseudo: action.pseudo,
 
         },
-        onLogin: 'LOGGED_IN',
       };
     case LOGGED:
       return {
         ...state,
-        loading: false,
-        isLogged: true,
-        pseudo: action.pseudo,
       };
     case LOGOUT:
       return {
-        ...state,
-        isLogged: false,
-        pseudo: null,
+        ...initialState,
       };
     default:
       return state;
