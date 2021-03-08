@@ -4,6 +4,8 @@ export const LOGIN = 'LOGIN';
 export const SET_USER_LOADING_STATE = 'SET_USER_LOADING_STATE';
 export const LOGOUT = 'LOGOUT';
 export const LOGGED = 'LOGGED';
+export const SIGN_IN = 'SIGN_IN';
+
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -36,4 +38,7 @@ export const logout = () => ({
 export const setUserLoadingState = (loading) => ({
   type: SET_USER_LOADING_STATE,
   loading,
+
+export const signIn = () => ({
+  type: SIGN_IN,
 });

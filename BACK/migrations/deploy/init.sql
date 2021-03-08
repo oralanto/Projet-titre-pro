@@ -18,7 +18,7 @@ CREATE TABLE "role" (
 CREATE TABLE localisation (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     city text NOT NULL,
-    postal_code int NOT NULL,
+    postal_code text NOT NULL,
     department text NOT NULL
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE "user" (
     firstname varchar(64) NOT NULL,
     lastname varchar(64) NOT NULL,
     pseudo varchar(32) NOT NULL,
-    mail varchar(310) NOT NULL,
+    email varchar(310) NOT NULL,
     "password" text NOT NULL,
     phone_number int ,
     role_id int NOT NULL REFERENCES role(id) DEFAULT 1,

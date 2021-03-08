@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Field from 'src/containers/Field';
 
 // == Import
@@ -16,6 +17,7 @@ const Login = ({
 }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
+
     onSubmitForm();
   };
   const handleLogout = () => {
@@ -23,6 +25,7 @@ const Login = ({
   };
   return (
     <div className="Login">
+
       {isLogged && (
         <div className="Login__form__logged">
           <p className="Login__form__message">
@@ -57,6 +60,7 @@ const Login = ({
           </form>
         </div>
       )}
+
     </div>
   );
 };

@@ -1,0 +1,52 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}
+
+### GET /games
+GET {{baseUrl}}/games
+
+### GET /games/:id
+GET {{baseUrl}}/games/5
+
+### GET /adverts
+GET {{baseUrl}}/adverts
+
+### GET /adverts/:id
+GET {{baseUrl}}/adverts/3
+
+### POST /login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "firstname": "Barack ",
+    "lastname": "Obama"
+}
+
+### POST /login
+POST {{baseUrl}}/api/login
+Content-Type: application/json
+
+{
+    "email": "killian.dev@gmail.com",
+    "password": "5678"
+    
+}
+
+### URL encoded (le format par défaut pour les formulaires)
+### ATTENTION : ne marche pas pour cette application
+
+### POST /signin
+POST {{baseUrl}}/api/signin
+Content-Type: application/json
+
+{
+    "firstname":"yop",
+    "lastname":"yop",
+    "pseudo":"test",
+    "email": "killian.dev@gmail.com",
+    "password": "5678",
+    "phoneNumber":1554725495,
+    "localisationId": 4
+}

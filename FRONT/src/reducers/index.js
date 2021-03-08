@@ -7,11 +7,15 @@ import {
 
 const initialState = {
   user: {
+    firstname: '',
+    lastname: '',
+    pseudo: '',
     email: '',
     password: '',
-    pseudo: '',
     isLogged: false,
     loading: false,
+    localisation_id: '',
+    phone_number: '',
   },
 
 };
