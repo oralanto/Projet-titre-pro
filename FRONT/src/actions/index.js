@@ -38,6 +38,7 @@ export const logout = () => ({
 export const setUserLoadingState = (loading) => ({
   type: SET_USER_LOADING_STATE,
   loading,
+});
 
 export const signIn = () => ({
   type: SIGN_IN,
