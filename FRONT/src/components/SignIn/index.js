@@ -44,7 +44,7 @@ const SignIn = ({ onSubmitForm }) => {
         />
         <Field
           type="text"
-          label="Code postal"
+          label="localisation Id (1-5)"
           name="localisation_id"
         />
         <Field
