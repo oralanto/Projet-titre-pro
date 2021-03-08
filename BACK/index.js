@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT;
 
 const router = require('./app/router');
@@ -14,6 +15,8 @@ app.use(session({
     // Resauvegarde une session à chaque requête même sans modifications (pas de date d'expiration)
     resave : true
 }));
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

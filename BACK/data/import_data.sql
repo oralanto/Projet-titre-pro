@@ -30,15 +30,15 @@ INSERT INTO localisation (city, postal_code, department) VALUES
 ('Chamonix', 74440, 'Haute-Savoie');
 
 INSERT INTO "user" (firstname, lastname, pseudo, email, "password", phone_number, role_id, localisation_id) VALUES
-('Killian', 'Courvoisier', 'Kiki', 'dev.killian.courvoisier@gmail.com', 1234, 0624589461, 3, 2),
-('Monsieur', 'Ladmin', 'adminsys', 'admin.sys@gmail.com', 12356 , 0784612598, 3, 1),
-('Mathis', 'Pati', 'Thisma', 'mathis.pati@gmail.com', 0000, 0325648792, 3, 2),
-('Gertrude', 'Dupont', 'Gege', 'gege@gmail.com', 5678, 0784626562, 1, 5);
+('Killian', 'Courvoisier', 'Kiki', 'dev.killian.courvoisier@gmail.com', '1234', 0624589461, 3, 2),
+('Monsieur', 'Ladmin', 'adminsys', 'admin.sys@gmail.com', '12356' , 0784612598, 3, 1),
+('Mathis', 'Pati', 'Thisma', 'mathis.pati@gmail.com', '0000', 0325648792, 3, 2),
+('Gertrude', 'Dupont', 'Gege', 'gege@gmail.com', '5678', 0784626562, 1, 5);
 
 INSERT INTO "user" (firstname, lastname, pseudo, email, "password", phone_number, localisation_id) VALUES
-('Roger', 'Osef', 'roro', 'roro@hotmail.com', 8912, 0245662794, 4),
-('Rodolphe', 'Classique', 'dodo', 'dodo@hotmail.com', 5825, 0452897112, 6),
-('Jacqueline', 'du74', 'jaja', 'jaja@hotmail.com', 7658, 0125641558, 7);
+('Roger', 'Osef', 'roro', 'roro@hotmail.com', '8912', 0245662794, 4),
+('Rodolphe', 'Classique', 'dodo', 'dodo@hotmail.com', '5825', 0452897112, 6),
+('Jacqueline', 'du74', 'jaja', 'jaja@hotmail.com', '7658', 0125641558, 7);
 
 
 

@@ -5,21 +5,21 @@ const { gameController, advertController, userController  } = require('./control
 const connexionService = require('./middlewares/checkConnexion');
 const validatorService = require('./services/validator');
 
-router.get('/games', gameController.getAllGames);
-router.get('/games/:id', gameController.getOneGame);
+// router.get('/api/games', gameController.getAllGames);
+// router.get('/api/games/:id', gameController.getOneGame);
 
-// router.get('/adverts', advertController.getFilteredAdverts);
-router.get('/adverts/:id', advertController.getOneAdvert);
-// router.get('/adverts/:id/update', );
-// router.get('/create-advert', );
+// router.get('/api/adverts', advertController.getFilteredAdverts);
+router.get('/api/adverts/:id', advertController.getOneAdvert);
+// router.get('/api/adverts/:id/update', );
+// router.get('/api/create-advert', );
 
-// router.get('/login', userController.login);
-router.post('/login', userController.login);
-router.post('/signin', validatorService.validateBody, userController.signin);
+// router.get('/api/login', userController.login);
+router.post('/api/login', userController.login);
+router.post('/api/signin', validatorService.validateBody, userController.signin);
 
-// router.get('/handle-users', );
+// router.get('/api/handle-users', );
 
-// router.get('/profil', );
+// router.get('/api/profil', );
 
 // 404 for the API
 router.use((request, response) => {

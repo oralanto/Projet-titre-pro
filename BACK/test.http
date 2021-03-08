@@ -22,16 +22,15 @@ Content-Type: application/json
 {
     "firstname": "Barack ",
     "lastname": "Obama"
-    
 }
 
 ### POST /login
-POST {{baseUrl}}/login
+POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-    "email": "jaja.superdv@gmail.com",
-    "password": "1234"
+    "email": "killian.dev@gmail.com",
+    "password": "5678"
     
 }
 
@@ -39,15 +38,15 @@ Content-Type: application/json
 ### ATTENTION : ne marche pas pour cette application
 
 ### POST /signin
-POST {{baseUrl}}/signin
+POST {{baseUrl}}/api/signin
 Content-Type: application/json
 
 {
-    "firstname":"Jael",
-    "lastname":"Pati",
-    "pseudo":"jaja",
-    "email": "jaja.superdev@gmail.com",
-    "password": "1234",
+    "firstname":"yop",
+    "lastname":"yop",
+    "pseudo":"test",
+    "email": "killian.dev@gmail.com",
+    "password": "5678",
     "phoneNumber":1554725495,
     "localisationId": 4
 }
