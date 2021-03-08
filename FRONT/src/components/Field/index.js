@@ -6,7 +6,6 @@ const Field = ({
   label,
   name,
   type,
-  inputValue,
   onChangeInputValue,
 }) => {
   const handleOnChange = (e) => {
@@ -27,7 +26,6 @@ const Field = ({
         type={type}
         placeholder={label}
         className="Login__form__fields__field"
-        value={inputValue}
         onChange={handleOnChange}
       />
     </div>
@@ -37,7 +35,6 @@ const Field = ({
 Field.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
   onChangeInputValue: PropTypes.func.isRequired,
   type: PropTypes.string,
 };
