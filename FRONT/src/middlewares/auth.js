@@ -1,20 +1,31 @@
+/* eslint-disable consistent-return */
 import axios from 'axios';
-import { LOGIN, SIGN_IN } from 'src/actions';
+
+import {
+  LOGIN,
+  SIGN_IN,
+  logged,
+
+} from 'src/actions';
+
 
 const auth = (store) => (next) => (action) => {
+  const state = store.getState();
   switch (action.type) {
-    case LOGIN: {
-      const state = store.getState();
-      axios.post('http://34.207.234.22/api/login', {
+    case LOGIN:
+     axios.post('http://34.207.234.22/api/login', JSON.stringify({
         email: state.user.email,
         password: state.user.password,
+      }), {
+        headers: {
+          'content-type': 'application/json'
+        }
       })
-        .then((response) => {
-          console.log('response', response);
+        .then((result) => {
+          store.dispatch(logged(result.data.pseudo));
         })
-        .catch((err) => console.log('err', err));
-
-      // next(action);
+        .catch(() =>
+          console.warn('Erreur d\'authentification'));
       break;
     }
     case SIGN_IN: {

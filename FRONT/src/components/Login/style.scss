@@ -19,6 +19,11 @@
     &__submit {
       width: 80%;
       margin: 1em auto;
+      &:disabled {
+        opacity: 0.90;
+        background-color: #F0F;
+        color: black;
+      }
     }
     &__link {
       width: 80%;

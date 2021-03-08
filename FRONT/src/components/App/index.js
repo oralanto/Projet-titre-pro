@@ -25,7 +25,7 @@ import CreateAdvert from 'src/components/CreateAdvert';
 
 import './styles.scss';
 
-// == Composant
+
 const App = () => {
   console.log('coucou');
   return (

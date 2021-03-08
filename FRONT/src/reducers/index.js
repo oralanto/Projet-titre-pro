@@ -1,4 +1,9 @@
-import { CHANGE_INPUT_VALUE } from 'src/actions';
+import {
+  CHANGE_INPUT_VALUE,
+  LOGIN,
+  LOGGED,
+  LOGOUT,
+} from 'src/actions';
 
 const initialState = {
   user: {
@@ -7,9 +12,12 @@ const initialState = {
     pseudo: '',
     email: '',
     password: '',
+    isLogged: false,
+    loading: false,
     localisation_id: '',
     phone_number: '',
   },
+
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,6 +30,27 @@ const reducer = (state = initialState, action = {}) => {
           ...state.user,
           [action.name]: action.value,
         },
+      };
+    case LOGIN:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          pseudo: action.pseudo,
+        },
+      };
+    case LOGGED:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          pseudo: action.pseudo,
+          isLogged: true,
+        },
+      };
+    case LOGOUT:
+      return {
+        ...initialState,
       };
     default:
       return state;
