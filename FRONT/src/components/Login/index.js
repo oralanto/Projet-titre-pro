@@ -1,28 +1,42 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-// == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import Field from 'src/containers/Field';
 
 // == Import
 import './style.scss';
 
 // == Composant
-const Login = () => (
-  <div className="login">
-    <p>Connexion</p>
-    <form className="login__connexion">
-      <label className="login__connexion__field"> E mail
-        <input className="login__connexion__bar" name=" Ecrivez ici..." type="text" />
-      </label>
-      <label className="login__connexion__field"> Mot de passe
-        <input className="login__connexion__bar" name=" Ecrivez ici..." type="text" />
-      </label>
-      <a href="/mot-de-passe-oublie" className="login__connexion__password">Mot de passe oublié ?</a>
-      <input className="login__connexion__button" type="submit" value="Se connecter" />
+const Login = ({ onSubmitForm }) => {
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    console.log('submit Login');
+    onSubmitForm();
+  };
+  return (
+    <div className="Login">
+      <p className="Login__title">Connexion</p>
+      <form className="Login__form" onSubmit={handleOnSubmit}>
+        <Field
+          type="Email"
+          label="Email"
+          name="email"
+        />
+        <Field
+          type="password"
+          label="password"
+          name="password"
+        />
+        <button type="submit" className="Login__form__submit">Se connecter</button>
+        <Link to="/creer-compte" className="Login__form__link">Créer un compte</Link>
+      </form>
+    </div>
+  );
+};
 
-    </form>
-    <button className="login__button" type="button">Creer un compte</button>
-  </div>
-);
+Login.propTypes = {
+  onSubmitForm: PropTypes.func.isRequired,
+};
 
 // == Export
 export default Login;

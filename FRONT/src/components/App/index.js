@@ -4,9 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-
 
 // == Import
 import Header from 'src/components/Header';
@@ -18,7 +16,8 @@ import Contact from 'src/components/Contact';
 import Adverts from 'src/components/Adverts';
 import Advert from 'src/components/Advert';
 import UserManagement from 'src/components/UserManagement';
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
+import SignIn from 'src/containers/SignIn';
 import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
@@ -33,7 +32,7 @@ const App = () => {
     <Router>
       <div className="app">
         <Header />
-        <switch>
+        <Switch>
           <Route path="/accueil">
             <Home />
           </Route>
@@ -58,6 +57,9 @@ const App = () => {
           <Route path="/connexion">
             <Login />
           </Route>
+          <Route path="/creer-compte">
+            <SignIn />
+          </Route>
           <Route path="/profil">
             <Profil />
           </Route>
@@ -70,7 +72,7 @@ const App = () => {
           <Route path="/creer-une-annonce">
             <CreateAdvert />
           </Route>
-        </switch>
+        </Switch>
         <Footer />
       </div>
     </Router>
