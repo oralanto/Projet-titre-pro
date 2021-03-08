@@ -32,15 +32,17 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         user: {
           ...state.user,
-          loading: true,
-          isLogged: true,
           pseudo: action.pseudo,
-
         },
       };
     case LOGGED:
       return {
         ...state,
+        user: {
+          ...state.user,
+          pseudo: action.pseudo,
+          isLogged: true,
+        },
       };
     case LOGOUT:
       return {

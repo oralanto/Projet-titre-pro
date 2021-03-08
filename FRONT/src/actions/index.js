@@ -1,7 +1,6 @@
 // Action types
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const LOGIN = 'LOGIN';
-export const SET_PSEUDO = 'SET_PSEUDO';
 export const SET_USER_LOADING_STATE = 'SET_USER_LOADING_STATE';
 export const LOGOUT = 'LOGOUT';
 export const LOGGED = 'LOGGED';
@@ -21,11 +20,6 @@ export const login = () => ({
 
 export const logged = (pseudo) => ({
   type: LOGGED,
-  pseudo,
-});
-
-export const setPseudo = (pseudo) => ({
-  type: SET_PSEUDO,
   pseudo,
 });
 
