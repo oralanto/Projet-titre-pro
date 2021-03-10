@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 /* eslint-disable consistent-return */
 import axios from 'axios';
 
@@ -7,7 +6,9 @@ import {
   SIGN_IN,
   logged,
   CREATE_ADVERT,
+
 } from 'src/actions';
+
 
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
@@ -22,7 +23,8 @@ const auth = (store) => (next) => (action) => {
         },
       })
         .then((result) => {
-          store.dispatch(logged(result.data.pseudo));
+          console.log("JWT", result.data.accessToken);
+          store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
         .catch(() =>
           console.warn('Erreur d\'authentification'));
@@ -76,6 +78,7 @@ const auth = (store) => (next) => (action) => {
         .catch(() =>
           console.warn("Echec de l'envoi"));
       break;
+
     default:
       next(action);
   }
