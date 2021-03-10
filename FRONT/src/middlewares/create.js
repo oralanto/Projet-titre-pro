@@ -1,4 +1,4 @@
-import axios from 'axios';
+/* import axios from 'axios';
 
 import {
   CREATE_ADVERT,
@@ -11,17 +11,17 @@ const create = (store) => (next) => (action) => {
     case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
         title: state.title,
-        gameTitle: state.gameTitle,
-        locationPrice: state.locationPrice,
-        gameAvgDuration: state.gameAvgDuration,
-        advertMinPlayers: state.advertMinPlayers,
-        advertMaxPlayers: state.advertMaxPlayers,
-        advertSuggestedAge: state.advertSuggestedAge,
-        advertImage: state.advertImage,
-        gameLocalisationId: state.gameLocalisationId,
-        description: state.description,
-        gameAuthor: state.gameAuthor,
-        gameReleaseYear: state.ReleaseYear,
+        gameTitle: state.user.gameTitle,
+        locationPrice: state.user.locationPrice,
+        gameAvgDuration: state.user.gameAvgDuration,
+        advertMinPlayers: state.user.advertMinPlayers,
+        advertMaxPlayers: state.user.advertMaxPlayers,
+        advertSuggestedAge: state.user.advertSuggestedAge,
+        advertImage: state.user.advertImage,
+        gameLocalisationId: state.user.gameLocalisationId,
+        description: state.user.description,
+        gameAuthor: state.user.gameAuthor,
+        gameReleaseYear: state.user.ReleaseYear,
       }), {
         headers: {
           'content-type': 'application/json',
@@ -40,3 +40,4 @@ const create = (store) => (next) => (action) => {
 };
 
 export default create;
+ */

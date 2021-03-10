@@ -6,6 +6,7 @@ import {
   LOGIN,
   SIGN_IN,
   logged,
+  CREATE_ADVERT,
 } from 'src/actions';
 
 const auth = (store) => (next) => (action) => {
@@ -50,6 +51,31 @@ const auth = (store) => (next) => (action) => {
       // next(action);
       break;
     }
+    case CREATE_ADVERT:
+      axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
+        title: state.title,
+        gameTitle: state.user.gameTitle,
+        locationPrice: state.user.locationPrice,
+        gameAvgDuration: state.user.gameAvgDuration,
+        advertMinPlayers: state.user.advertMinPlayers,
+        advertMaxPlayers: state.user.advertMaxPlayers,
+        advertSuggestedAge: state.user.advertSuggestedAge,
+        advertImage: state.user.advertImage,
+        gameLocalisationId: state.user.gameLocalisationId,
+        description: state.user.description,
+        gameAuthor: state.user.gameAuthor,
+        gameReleaseYear: state.user.ReleaseYear,
+      }), {
+        headers: {
+          'content-type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log('response', response);
+        })
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
+      break;
     default:
       next(action);
   }
