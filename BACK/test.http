@@ -43,12 +43,12 @@ POST {{baseUrl}}/api/signin
 Content-Type: application/json
 
 {
-    "firstname":"yop",
-    "lastname":"yop",
-    "pseudo":"yopyop",
-    "email": "yop@gmail.com",
-    "password": "1234",
-    "phoneNumber":"0312797689",
+    "firstname":"Mathis",
+    "lastname":"SecretLeadDev",
+    "pseudo":"Thismadu59",
+    "email": "mathis.dev@gmail.com",
+    "password": "7890",
+    "phoneNumber":"0314597689",
     "localisationId": 2
 }
 
@@ -63,3 +63,31 @@ Content-Type: application/json
 
 ### GET /api/test/27
 GET {{baseUrl}}/api/test/27
+
+### POST /api/create-advert
+
+POST {{baseUrl}}/api/create-advert
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsInBzZXVkbyI6IlRoaXNtYWR1NTkiLCJpYXQiOjE2MTUzNzEzODIsImV4cCI6MTYxNTM3NDk4Mn0.GIDf0kaPn12n7HRbz-neCWMnIp85ScNr4cVF3cD7adY
+Content-Type: 'application/json'
+
+{
+    "title": "Location de Jungle speed",
+    "description": "je loue Risk , je me suis trompé",
+    "locationPrice": "10.00",
+    "advertImage": "http://urlencarton.com", 
+    "gameTitle": "Risk",
+    "gameAuthor": "Albert Lamorisse",
+    "gameReleaseYear": "1998",
+    "gameAvgDuration": "30 minutes",
+    "gameMinPlayers": 3,
+    "gameMaxPlayers": 5,
+    "gameSuggestedAge": 5,
+    "gameLocalisationId": 4,
+    "gameId": ,
+    "categories":[
+        {"id" : 1},
+        {"id" : 6}
+    ]
+}
+
