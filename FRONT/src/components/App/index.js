@@ -21,10 +21,9 @@ import SignIn from 'src/containers/SignIn';
 import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
-import CreateAdvert from 'src/components/CreateAdvert';
+import CreateAdvert from 'src/containers/CreateAdvert';
 
 import './styles.scss';
-
 
 const App = () => {
   console.log('coucou');

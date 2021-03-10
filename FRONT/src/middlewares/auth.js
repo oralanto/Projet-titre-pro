@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable consistent-return */
 import axios from 'axios';
 
@@ -5,9 +6,7 @@ import {
   LOGIN,
   SIGN_IN,
   logged,
-
 } from 'src/actions';
-
 
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
@@ -18,8 +17,8 @@ const auth = (store) => (next) => (action) => {
         password: state.user.password,
       }), {
         headers: {
-          'content-type': 'application/json'
-        }
+          'content-type': 'application/json',
+        },
       })
         .then((result) => {
           store.dispatch(logged(result.data.pseudo));

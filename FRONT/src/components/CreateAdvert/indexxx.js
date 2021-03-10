@@ -7,17 +7,27 @@ import Field from 'src/containers/Field';
 import './style.scss';
 
 // == Composant
-const CreateAdvert = ({ onSubmitFormAdvert }) => {
-  const thisOnSubmit = (event) => {
+const CreateAdvert = ({
+  onSubmitFormAdvert,
+  isLogged,
+  loggedMessage,
+}) => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     console.log('submit create Advert');
     onSubmitFormAdvert();
   };
   return (
     <div className="CreateAdvert">
-      <h1 className="CreateAdvert__title">Création d'annonce</h1>
-      <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
-      <form className="CreateAdvert__form" onSubmit={thisOnSubmit}>
+      {!isLogged && (
+          <div className="Login__form__logged">
+            <p className="Login__form__message">
+              {loggedMessage}
+            </p>
+          </div>
+      )}
+        {isLogged && (
+          <form className="CreateAdvert__form" onSubmit={handleOnSubmit}>
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Nom de l'annonce"
@@ -78,15 +88,22 @@ const CreateAdvert = ({ onSubmitFormAdvert }) => {
           label="Année de sortie:"
           name="gameReleaseYear"
         />
-        <input className="CreateAdvert__form__button" type="submit" value="Poster votre annonce" />
-      </form>
-
+          <input className="CreateAdvert__form__button" type="submit" value="Poster votre annonce" />
+        </form>
+      )}
     </div>
   );
 };
 
 CreateAdvert.propTypes = {
+  isLogged: PropTypes.bool,
   onSubmitFormAdvert: PropTypes.func.isRequired,
+  loggedMessage: PropTypes.string,
+
+};
+CreateAdvert.defaultProps = {
+  loggedMessage: 'Vous devez vous connecter',
+  isLogged: false,
 };
 
 // == Export

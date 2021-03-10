@@ -5,7 +5,7 @@ export const SET_USER_LOADING_STATE = 'SET_USER_LOADING_STATE';
 export const LOGOUT = 'LOGOUT';
 export const LOGGED = 'LOGGED';
 export const SIGN_IN = 'SIGN_IN';
-
+export const CREATE_ADVERT = 'CREATE_ADVERT';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -42,4 +42,8 @@ export const setUserLoadingState = (loading) => ({
 
 export const signIn = () => ({
   type: SIGN_IN,
+});
+
+export const createAdvert = () => ({
+  type: CREATE_ADVERT,
 });
