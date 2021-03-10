@@ -58,6 +58,7 @@ const Login = ({
               {loading ? 'Chargement ...' : 'Envoyer'}
             </button>
           </form>
+          <Link to="/creer-compte">Creer un compte</Link>
         </div>
       )}
 
