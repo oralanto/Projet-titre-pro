@@ -24,6 +24,7 @@ const auth = (store) => (next) => (action) => {
       })
         .then((result) => {
           console.log("JWT", result.data.accessToken);
+          axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
         .catch(() =>
@@ -55,18 +56,19 @@ const auth = (store) => (next) => (action) => {
     }
     case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
-        title: state.title,
+        title: state.user.title,
         gameTitle: state.user.gameTitle,
         locationPrice: state.user.locationPrice,
         gameAvgDuration: state.user.gameAvgDuration,
-        advertMinPlayers: state.user.advertMinPlayers,
-        advertMaxPlayers: state.user.advertMaxPlayers,
-        advertSuggestedAge: state.user.advertSuggestedAge,
+        gameMinPlayers: state.user.gameMinPlayers,
+        gameMaxPlayers: state.user.gameMaxPlayers,
+        gameSuggestedAge: state.user.gameSuggestedAge,
         advertImage: state.user.advertImage,
         gameLocalisationId: state.user.gameLocalisationId,
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,
+        categories: [{ id: state.user.categories }],
       }), {
         headers: {
           'content-type': 'application/json',

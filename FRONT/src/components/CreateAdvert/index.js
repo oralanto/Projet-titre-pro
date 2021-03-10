@@ -41,17 +41,17 @@ const CreateAdvert = ({ onSubmitFormAdvert }) => {
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Nombre de joueurs-min"
-          name="advertMinPlayers"
+          name="gameMinPlayers"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Nombre de joueurs-max"
-          name="advertMaxPlayers"
+          name="gameMaxPlayers"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Age minimum"
-          name="advertSuggestedAge"
+          name="gameSuggestedAge"
         />
         <Field className="CreateAdvert__form__title"
           type="file"
@@ -72,6 +72,11 @@ const CreateAdvert = ({ onSubmitFormAdvert }) => {
           type="text"
           label="Auteur :"
           name="gameAuthor"
+        />
+        <Field className="CreateAdvert__form__title"
+          type="text"
+          label="categories"
+          name="categories"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
