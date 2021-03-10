@@ -20,9 +20,10 @@ export const login = () => ({
 
 // Fonction permettant de mettre a jour le statut connecté du user
 
-export const logged = (pseudo) => ({
+export const logged = (pseudo, accessToken) => ({
   type: LOGGED,
   pseudo,
+  accessToken,
 });
 
 /**

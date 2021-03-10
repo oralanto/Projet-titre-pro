@@ -22,7 +22,8 @@ const auth = (store) => (next) => (action) => {
         }
       })
         .then((result) => {
-          store.dispatch(logged(result.data.pseudo));
+          console.log("JWT", result.data.accessToken);
+          store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
         .catch(() =>
           console.warn('Erreur d\'authentification'));
