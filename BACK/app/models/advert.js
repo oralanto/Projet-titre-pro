@@ -143,6 +143,55 @@ class Advert {
             throw new Error('No such advert');
         }
     }
+
+    static async save(theAdvert){
+        let query;
+    
+        const advertData = [
+            theAdvert.title,
+            theAdvert.description,
+            theAdvert.locationPrice,
+            theAdvert.advertImage,
+            theAdvert.gameTitle,
+            theAdvert.gameAuthor,
+            theAdvert.gameReleaseYear,
+            theAdvert.gameAvgDuration,
+            theAdvert.gameMinPlayers,
+            theAdvert.gameMaxPlayers,
+            theAdvert.gameSuggestedAge,
+            theAdvert.userId
+        ];
+        const categoryData = [];
+        
+        theAdvert.categories.forEach(theCategory => {
+            categoryData.push(theCategory.id)
+        })
+
+        if (theAdvert.userId){
+            query = `
+            INSERT INTO advert (title, description, location_price, advert_image, game_title, game_author, game_release_year, game_avg_duration, game_min_players, game_max_players, game_suggested_age, "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING id;
+            `;
+        }
+
+        try {
+            const {rows} = await db.query(query, advertData);
+
+            for (let i=0; i < categoryData.length; i++) {
+                const query2 = {
+                    text: `
+                        INSERT INTO advert_has_category (advert_id, category_id) VALUES ($1, $2)
+                    `,
+                    values: [rows[0].id, categoryData[i]]
+                }
+                await db.query(query2);
+            }
+            return 'Votre annonce a bien été mise en ligne.'
+        } catch (error) {
+            throw new Error('Votre annonce n\'a pas été enregistrée')
+        }
+    
+    }
+
 }
 
 module.exports = Advert;
