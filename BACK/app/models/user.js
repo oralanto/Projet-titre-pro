@@ -33,7 +33,7 @@ class User {
     static async checkIfExist(data) {
 
         const query = {
-            text: `SELECT firstname, lastname, pseudo, password FROM "user" WHERE "user".email = $1`,
+            text: `SELECT id, pseudo, password FROM "user" WHERE "user".email = $1`,
             values: [data.email]
         }
 
@@ -48,8 +48,7 @@ class User {
         if(match) {
 
             return new User({
-                firstname: rows[0].firstname,
-                lastname: rows[0].lastname,
+                id: rows[0].id,
                 pseudo: rows[0].pseudo 
             })
         } else {

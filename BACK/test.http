@@ -10,13 +10,14 @@ GET {{baseUrl}}/games
 GET {{baseUrl}}/games/5
 
 ### GET /adverts
-GET {{baseUrl}}/adverts
+GET {{baseUrl}}/api/adverts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicHNldWRvIjoiemh6dGh0cmh6IiwiaWF0IjoxNjE1MzM4OTkzLCJleHAiOjE2MTUzNDI1OTN9.61mIQQA9XunbfRnjop0dyvNySwZp4cz9jbDV7HfXz3I
 
-### GET /adverts/:id
-GET {{baseUrl}}/adverts/3
+### GET /api/adverts/:id
+GET {{baseUrl}}/api/adverts/3
 
 ### POST /login
-POST {{baseUrl}}/login
+POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
@@ -29,7 +30,7 @@ POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-    "email": "killian.dev@gmail.com",
+    "email": "mathis.dev@gmail.com",
     "password": "7890"
     
 }
@@ -42,12 +43,12 @@ POST {{baseUrl}}/api/signin
 Content-Type: application/json
 
 {
-    "firstname":"traced",
-    "lastname":"ploa",
-    "pseudo":"tesdqt",
-    "email": "killian.dev@gmail.com",
-    "password": "7890",
-    "phoneNumber":1624725495,
+    "firstname":"yop",
+    "lastname":"yop",
+    "pseudo":"yopyop",
+    "email": "yop@gmail.com",
+    "password": "1234",
+    "phoneNumber":"0312797689",
     "localisationId": 2
 }
 
@@ -57,5 +58,8 @@ POST {{baseUrl}}/api/cities
 Content-Type: application/json
 
 {
-    "city": "perri"
+    "city": "lyo"
 }
+
+### GET /api/test/27
+GET {{baseUrl}}/api/test/27

@@ -1,4 +1,6 @@
 const { User } = require('../models/index');
+const jwt = require('jsonwebtoken');
+const { response } = require('express');
 
 const userController = {
 
@@ -14,8 +16,13 @@ const userController = {
         
         try {
             const user = await User.checkIfExist(data);
-            request.session.isConnected = true;
-            response.json(user)
+            const userPlainObject = {
+                id: user.id,
+                pseudo: user.pseudo
+            }
+    
+            const accessToken = jwt.sign(userPlainObject, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h'});
+            response.json({accessToken: accessToken, pseudo: user.pseudo})
         } catch (error) {
             response.status(400).json(error.message)
         }

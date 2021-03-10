@@ -74,9 +74,9 @@ class Advert {
         }
     }
 
-    static async findAll() {
+    static async findAll(id) {
 
-        const { rows } = await db.query('SELECT * FROM advert;');
+        const { rows } = await db.query(`SELECT * FROM advert WHERE user_id = ${id}`);
 
         return rows.map(advert => new Advert(advert));
     }
@@ -140,7 +140,7 @@ class Advert {
             })
             return data; 
         } else {
-            throw new Error('No such endpoint');
+            throw new Error('No such advert');
         }
     }
 }

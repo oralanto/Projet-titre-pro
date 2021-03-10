@@ -2,6 +2,10 @@ const { Advert } = require('../models/index');
 
 const advertController = {
 
+    async getAllAdvert(req, res) {
+        res.json(await Advert.findAll(req.user.id))
+    },
+
     getFilteredAdverts : async (request, response) => {
         const adverts = await Advert.findAll();
 
