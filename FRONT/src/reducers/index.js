@@ -16,6 +16,7 @@ const initialState = {
     loading: false,
     localisation_id: '',
     phone_number: '',
+    accessToken: '',
   },
 
 };
@@ -45,6 +46,7 @@ const reducer = (state = initialState, action = {}) => {
         user: {
           ...state.user,
           pseudo: action.pseudo,
+          accessToken: action.accessToken,
           isLogged: true,
         },
       };
