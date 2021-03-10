@@ -10,13 +10,13 @@ class Advert {
     publicationDate;
     locationPrice;
     advertImage;
-    advertTitle;
-    advertAuthor;
-    advertReleaseYear;
-    advertAvgDuration;
-    advertMinPlayers;
-    advertMaxPlayers;
-    advertSuggestedAge;
+    gameTitle;
+    gameAuthor;
+    gameReleaseYear;
+    gameAvgDuration;
+    gameMinPlayers;
+    gameMaxPlayers;
+    gameSuggestedAge;
     userId;
     gameId;
 
@@ -190,6 +190,77 @@ class Advert {
             throw new Error('Votre annonce n\'a pas été enregistrée')
         }
     
+    }
+
+    static async update (theAdvert) {
+        
+        let query ;
+
+        const advertData = [
+            theAdvert.id,
+            theAdvert.title,
+            theAdvert.description,
+            theAdvert.locationPrice,
+            theAdvert.advertImage,
+            theAdvert.gameTitle,
+            theAdvert.gameAuthor,
+            theAdvert.gameReleaseYear,
+            theAdvert.gameAvgDuration,
+            theAdvert.gameMinPlayers,
+            theAdvert.gameMaxPlayers,
+            theAdvert.gameSuggestedAge
+        ];
+
+        const categoryData = [];
+
+        theAdvert.categories.forEach(theCategory => {
+            categoryData.push(theCategory.id)
+        })
+        
+        if (theAdvert.id){
+            query = `
+                UPDATE advert
+                SET
+                    title = $2,
+                    description = $3,
+                    location_price = $4,
+                    advert_image = $5,
+                    game_title = $6,
+                    game_author= $7,
+                    game_release_year = $8,
+                    game_avg_duration= $9,
+                    game_min_players = $10,
+                    game_max_players = $11,
+                    game_suggested_age = $12
+                WHERE id = $1
+                RETURNING id;
+            `;  
+        }
+        try {
+            const {rows} = await db.query(query, advertData);
+
+            const deleteRequest = {
+                text: `
+                    DELETE FROM advert_has_category WHERE advert_id = $1;
+                `,
+                values: [theAdvert.id]
+            }
+
+            await db.query(deleteRequest);
+
+            for (let i=0; i < categoryData.length; i++) {
+                const query2 = {
+                    text: `
+                        INSERT INTO advert_has_category (advert_id, category_id) VALUES ($1, $2)
+                    `,
+                    values: [rows[0].id, categoryData[i]]
+                }
+                await db.query(query2);
+            }
+            return 'Votre annonce a bien été mise à jour.'
+        } catch (error) {
+            throw new Error('Votre annonce n\'a pas été mise à jour')
+        }
     }
 
 }

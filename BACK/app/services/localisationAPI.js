@@ -5,7 +5,7 @@ const getLocalisations = async () => {
     const { Pool } = require('pg');
     const db = new Pool();
     
-    const response = await fetch('https://geo.api.gouv.fr/communes?&fields=code,nom,departement');
+    const response = await fetch('https://geo.api.gouv.fr/communes?&fields=nom,codesPostaux,departement');
 
     const frLocalisations = await response.json();
 
@@ -15,7 +15,7 @@ const getLocalisations = async () => {
             text: `
                 INSERT INTO localisation (city, postal_code, department) VALUES ($1, $2, $3)
             `,
-            values: [localisation.nom, localisation.code, localisation.departement.nom]
+            values: [localisation.nom, localisation.codesPostaux[0], localisation.departement.nom]
         }
         
         try {

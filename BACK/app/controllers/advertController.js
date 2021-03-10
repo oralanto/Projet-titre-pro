@@ -38,6 +38,18 @@ const advertController = {
         } catch (err) {
             response.status(403).json(err.message);
         }
+    },
+
+    patchAdvert : async (request, response) => {
+        const theAdvert = new Advert(request.body);
+        theAdvert.id = request.params.id;
+
+        try{
+            const result = await Advert.update(theAdvert);
+            response.json(result);
+        }catch (err) {
+            response.status(404).json(err.message);
+        }
     }
 
 };
