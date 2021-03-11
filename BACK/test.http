@@ -6,6 +6,8 @@
 ### GET /games
 GET {{baseUrl}}/games
 
+
+
 ### GET /games/:id
 GET {{baseUrl}}/games/5
 
