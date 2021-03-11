@@ -5,7 +5,7 @@ const getLocalisations = async () => {
     const { Pool } = require('pg');
     const db = new Pool();
     
-    const response = await fetch('https://geo.api.gouv.fr/communes?&fields=code,nom,departement');
+    const response = await fetch('https://geo.api.gouv.fr/communes?&fields=nom,codesPostaux,departement');
 
     const frLocalisations = await response.json();
 

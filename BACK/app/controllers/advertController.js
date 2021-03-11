@@ -7,8 +7,9 @@ const advertController = {
     },
 
     getFilteredAdverts : async (request, response) => {
-        const adverts = await Advert.findAll();
 
+        const query = request.query;
+        const adverts = await Advert.findFilteredAdverts(query);
         response.json(adverts);
     },
 
