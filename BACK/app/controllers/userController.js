@@ -22,7 +22,7 @@ const userController = {
             }
     
             const accessToken = jwt.sign(userPlainObject, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h'});
-            response.json({accessToken: accessToken, pseudo: user.pseudo})
+            response.json({accessToken: accessToken, pseudo: user.pseudo, role: user.role})
         } catch (error) {
             response.status(400).json(error.message)
         }

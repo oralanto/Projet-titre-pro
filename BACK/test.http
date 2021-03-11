@@ -95,4 +95,4 @@ Content-Type: application/json
 
 ### GET /adverts
 
-GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=3,4
+GET {{baseUrl}}/api/adverts?text=7Wo

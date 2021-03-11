@@ -9,7 +9,7 @@ const validatorService = require('./services/validator');
 // router.get('/api/games/:id', gameController.getOneGame);
 
 router.get('/api/adverts', advertController.getFilteredAdverts);
-
+router.get('/api/alladverts', advertController.getAllAdverts)
 // router.get('/api/adverts', authenticateToken, advertController.getAllAdvert); // test for JWT
 router.get('/api/adverts/:id', advertController.getOneAdvert);
 // router.patch('/api/adverts/:id/update', autheneticateToken);

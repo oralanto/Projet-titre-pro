@@ -2,7 +2,6 @@ const db = require('../database');
 const User = require('./user');
 const Category = require('./category');
 const Localisation = require('./localisation');
-const { concat } = require('../schemas/userSchema');
 
 class Advert {
     id;
@@ -73,6 +72,37 @@ class Advert {
         for (const prop in data) {
             this[prop] = data[prop];
         }
+    }
+
+    static async findAll() {
+        const query = `
+            SELECT advert.*, localisation.department, localisation.postal_code, localisation.city, "user".pseudo FROM advert 
+            JOIN localisation ON localisation.id = advert.localisation_id
+            JOIN "user" ON "user".id = advert.user_id
+            ORDER BY publication_date DESC LIMIT 30
+        `;
+        const {rows} = await db.query(query);
+        return rows.map(advert => {
+            advert.postalCode = advert.postal_code;
+            delete advert.postal_code;
+            delete advert.localisation_id;
+            return {
+                advert: new Advert({
+                    id: advert.id,
+                    title: advert.title,
+                    advertImage: advert.advert_image,
+                    publicationDate: advert.publication_date
+                }),
+                user: new User({
+                    pseudo: advert.pseudo
+                }),
+                localisation: new Localisation({
+                    city: advert.city,
+                    department: advert.department
+                })
+            }
+            
+        })
     }
 
     static async findFilteredAdverts(queryString) {
