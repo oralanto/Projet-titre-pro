@@ -38,6 +38,7 @@ const reducer = (state = initialState, action = {}) => {
         user: {
           ...state.user,
           pseudo: action.pseudo,
+          isLogged: true,
         },
       };
     case LOGGED:
@@ -50,7 +51,7 @@ const reducer = (state = initialState, action = {}) => {
           isLogged: true,
         },
       };
-    case LOGOUT:
+      case LOGOUT:
       return {
         ...initialState,
       };

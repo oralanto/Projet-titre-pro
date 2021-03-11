@@ -5,6 +5,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { useState } from "react";
+
 
 // == Import
 import Header from 'src/components/Header';
@@ -28,7 +30,7 @@ import './styles.scss';
 
 const App = () => {
   console.log('coucou');
-  return (
+    return (
     <Router>
       <div className="app">
         <Header />
