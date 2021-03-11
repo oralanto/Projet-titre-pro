@@ -12,8 +12,8 @@ GET {{baseUrl}}/games
 GET {{baseUrl}}/games/5
 
 ### GET /adverts
-GET {{baseUrl}}/api/adverts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicHNldWRvIjoiemh6dGh0cmh6IiwiaWF0IjoxNjE1MzM4OTkzLCJleHAiOjE2MTUzNDI1OTN9.61mIQQA9XunbfRnjop0dyvNySwZp4cz9jbDV7HfXz3I
+GET {{baseUrl}}/api/adverts?text=bonjourr&categories=1,2&city=8
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInBzZXVkbyI6InlvcHlvcCIsImlhdCI6MTYxNTM2NzM5MSwiZXhwIjoxNjE1MzcwOTkxfQ._fR0__zUDkyvwztEIQOgB1Ih4daRNeRNWvUAZOvUdE8
 
 ### GET /api/adverts/:id
 GET {{baseUrl}}/api/adverts/3
@@ -32,8 +32,8 @@ POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-    "email": "mathis.dev@gmail.com",
-    "password": "7890"
+    "email": "yop@gmail.com",
+    "password": "1234"
     
 }
 
@@ -86,10 +86,20 @@ Content-Type: 'application/json'
     "gameMaxPlayers": 5,
     "gameSuggestedAge": 5,
     "gameLocalisationId": 4,
-    "gameId": ,
-    "categories":[
-        {"id" : 1},
-        {"id" : 6}
-    ]
-}
+    "gameId": "2",
+    "categories": [
+			{
+				"id": 5
+			},
+			{
+				"id": 2
+			}
+		  ]
+},
+
+
+### GET /adverts
+
+GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=3,4
+
 

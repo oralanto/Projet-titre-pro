@@ -2,6 +2,7 @@ const db = require('../database');
 const User = require('./user');
 const Category = require('./category');
 const Localisation = require('./localisation');
+const { concat } = require('../schemas/userSchema');
 
 class Advert {
     id;
@@ -74,11 +75,36 @@ class Advert {
         }
     }
 
-    static async findAll(id) {
+    static async findFilteredAdverts(queryString) {
 
-        const { rows } = await db.query(`SELECT * FROM advert WHERE user_id = ${id}`);
+        let text;
+        const values = [queryString.text]
+        
+        text = `
+            SELECT DISTINCT ON (advert.id) advert.id AS advertId, advert.* FROM advert
+            JOIN advert_has_category ON advert_has_category.advert_id = advert.id
+            JOIN localisation ON localisation.id = advert.localisation_id
+            WHERE advert.title ILIKE '%' || $1 || '%'
+                OR advert.description ILIKE '%' || $1 || '%' 
+                OR advert.game_title ILIKE '%' || $1 || '%'
+        `;
 
-        return rows.map(advert => new Advert(advert));
+        // if(queryString.categoriesId) {
+        //     const categoriesNumber = queryString.categoriesId.split(',').map(category => parseInt(category, 10));
+        //     console.log(categoriesNumber)
+        //     values.push(queryString.categoriesId);
+        //     text += 'AND advert_has_category.category_id IN ($2)';
+        // }
+
+        // if(queryString.localisationId) {
+        //     values.push(parseInt(queryString.localisationId, 10));
+        //     text += `AND localisation.department = (
+        //         SELECT department FROM localisation WHERE localisation.id = $${values.length}
+        //     )`
+        // }
+
+        const { rows } = await db.query(text, values);
+        return rows
     }
 
     static async findOne(id) {
