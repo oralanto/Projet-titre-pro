@@ -12,7 +12,7 @@ const CreateAdvert = ({
   isLogged,
   loggedMessage,
 }) => {
-  const handleOnSubmit = (event) => {
+  const thisOnSubmit = (event) => {
     event.preventDefault();
     console.log('submit create Advert');
     onSubmitFormAdvert();
@@ -20,14 +20,14 @@ const CreateAdvert = ({
   return (
     <div className="CreateAdvert">
       {!isLogged && (
-          <div className="Login__form__logged">
-            <p className="Login__form__message">
-              {loggedMessage}
-            </p>
-          </div>
+        <div className="Login__form__logged">
+          <p className="Login__form__message">
+            {loggedMessage}
+          </p>
+        </div>
       )}
-        {isLogged && (
-          <form className="CreateAdvert__form" onSubmit={handleOnSubmit}>
+      {isLogged && (
+      <form className="CreateAdvert__form" onSubmit={thisOnSubmit}>
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Nom de l'annonce"
@@ -51,17 +51,17 @@ const CreateAdvert = ({
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Nombre de joueurs-min"
-          name="advertMinPlayers"
+          name="gameMinPlayers"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Nombre de joueurs-max"
-          name="advertMaxPlayers"
+          name="gameMaxPlayers"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Age minimum"
-          name="advertSuggestedAge"
+          name="gameSuggestedAge"
         />
         <Field className="CreateAdvert__form__title"
           type="file"
@@ -85,11 +85,16 @@ const CreateAdvert = ({
         />
         <Field className="CreateAdvert__form__title"
           type="text"
+          label="categories"
+          name="categories"
+        />
+        <Field className="CreateAdvert__form__title"
+          type="text"
           label="Année de sortie:"
           name="gameReleaseYear"
         />
-          <input className="CreateAdvert__form__button" type="submit" value="Poster votre annonce" />
-        </form>
+        <input className="CreateAdvert__form__button" type="submit" />
+      </form>
       )}
     </div>
   );
