@@ -18,11 +18,12 @@ const userController = {
             const user = await User.checkIfExist(data);
             const userPlainObject = {
                 id: user.id,
-                pseudo: user.pseudo
+                pseudo: user.pseudo,
+                role: user.role
             }
     
             const accessToken = jwt.sign(userPlainObject, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h'});
-            response.json({accessToken: accessToken, pseudo: user.pseudo, role: user.role})
+            response.json({accessToken: accessToken, id: user.id, pseudo: user.pseudo, role: user.role})
         } catch (error) {
             response.status(400).json(error.message)
         }

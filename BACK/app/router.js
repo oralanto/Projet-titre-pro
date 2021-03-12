@@ -10,6 +10,7 @@ router.get('/api/alladverts', advertController.getAllAdverts)
 router.get('/api/adverts/:id', advertController.getOneAdvert);
 router.patch('/api/adverts/:id/update', authenticateToken, advertController.patchAdvert);
 router.post('/api/create-advert', authenticateToken, advertController.newAdvert);
+router.delete('/api/adverts/:id', authenticateToken, advertController.deleteOneAdvert)
 
 router.post('/api/login', userController.login);
 router.post('/api/signin', validatorService.validateBody, userController.signin);

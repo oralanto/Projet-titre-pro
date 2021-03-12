@@ -12,7 +12,7 @@ GET {{baseUrl}}/games
 GET {{baseUrl}}/games/5
 
 ### GET /api/adverts/:id
-GET {{baseUrl}}/api/adverts/15
+GET {{baseUrl}}/api/adverts/4
 
 ### POST /login
 POST {{baseUrl}}/api/login
@@ -56,7 +56,7 @@ POST {{baseUrl}}/api/cities
 Content-Type: application/json
 
 {
-    "city": "chamo"
+    "city": "lyo"
 }
 
 ### GET /api/test/27
@@ -104,6 +104,9 @@ GET {{baseUrl}}/api/alladverts
 GET {{baseUrl}}/api/categories
 
 ### GET /adverts?7Won
-GET {{baseUrl}}/api/adverts?text=jun&categoriesId=5
+GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=5&localisationId=15
+
+### DELETE /adverts/:id
+DELETE {{baseUrl}}/api/adverts/15
 
 

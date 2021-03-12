@@ -92,7 +92,8 @@ class Advert {
                     id: advert.id,
                     title: advert.title,
                     advertImage: advert.advert_image,
-                    publicationDate: advert.publication_date
+                    publicationDate: advert.publication_date,
+                    locationPrice: advert.location_price
                 }),
                 user: new User({
                     pseudo: advert.pseudo
@@ -151,7 +152,8 @@ class Advert {
                         id: advert.id,
                         title: advert.title,
                         advertImage: advert.advert_image,
-                        publicationDate: advert.publication_date
+                        publicationDate: advert.publication_date,
+                        locationPrice: advert.location_price
                     }),
                     user: new User({
                         pseudo: advert.pseudo
@@ -351,6 +353,36 @@ class Advert {
             return 'Votre annonce a bien été mise à jour.'
         } catch (error) {
             throw new Error('Votre annonce n\'a pas été mise à jour')
+        }
+    }
+
+    static async deleteOne(id, userInfo) {
+        const checkRightsQuery = {
+            text: `SELECT user_id FROM advert WHERE id = $1`,
+            values: [id]
+        }
+
+        const deleteQuery = {
+            text: 'DELETE FROM advert WHERE id = $1',
+            values: [id]
+        }
+
+        
+        try {
+            const {rows} = await db.query(checkRightsQuery);
+            if(!rows[0]) {
+                throw new Error('Impossible de supprimer cette annonce');
+            }
+
+            if(rows[0].user_id === userInfo.id || userInfo.role === 'admin') {
+                await db.query(deleteQuery);
+                return 'Votre annonce a bien été supprimée';
+            } else {
+                throw new Error('Vous n\'avez pas les droits pour supprimer cette annonce');
+            }
+         
+        } catch (error) {
+            throw new Error(error.message);
         }
     }
 
