@@ -6,6 +6,7 @@ export const LOGOUT = 'LOGOUT';
 export const LOGGED = 'LOGGED';
 export const SIGN_IN = 'SIGN_IN';
 export const CREATE_ADVERT = 'CREATE_ADVERT';
+export const UPDATE_ADVERT = 'UPDATE_ADVERT';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -47,4 +48,8 @@ export const signIn = () => ({
 
 export const createAdvert = () => ({
   type: CREATE_ADVERT,
+});
+
+export const updateAdvert = () => ({
+  type: UPDATE_ADVERT,
 });

@@ -22,6 +22,7 @@ import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
 import CreateAdvert from 'src/containers/CreateAdvert';
+import UpdateAdvert from 'src/containers/UpdateAdvert';
 
 import './styles.scss';
 
@@ -70,6 +71,9 @@ const App = () => {
           </Route>
           <Route path="/creer-une-annonce">
             <CreateAdvert />
+          </Route>
+          <Route path="/modifier-une-annonce">
+            <UpdateAdvert />
           </Route>
         </Switch>
         <Footer />

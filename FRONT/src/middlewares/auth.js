@@ -6,6 +6,7 @@ import {
   SIGN_IN,
   logged,
   CREATE_ADVERT,
+  UPDATE_ADVERT,
 
 } from 'src/actions';
 
@@ -56,6 +57,33 @@ const auth = (store) => (next) => (action) => {
     }
     case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
+        title: state.user.title,
+        gameTitle: state.user.gameTitle,
+        locationPrice: state.user.locationPrice,
+        gameAvgDuration: state.user.gameAvgDuration,
+        gameMinPlayers: state.user.gameMinPlayers,
+        gameMaxPlayers: state.user.gameMaxPlayers,
+        gameSuggestedAge: state.user.gameSuggestedAge,
+        advertImage: state.user.advertImage,
+        gameLocalisationId: state.user.gameLocalisationId,
+        description: state.user.description,
+        gameAuthor: state.user.gameAuthor,
+        gameReleaseYear: state.user.ReleaseYear,
+        categories: [{ id: state.user.categories }],
+      }), {
+        headers: {
+          'content-type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log('response', response);
+        })
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
+      break;
+
+      case UPDATE_ADVERT:
+      axios.patch('http://34.207.234.22/api/adverts/:id/update', JSON.stringify({
         title: state.user.title,
         gameTitle: state.user.gameTitle,
         locationPrice: state.user.locationPrice,
