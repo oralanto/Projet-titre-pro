@@ -22,17 +22,18 @@ router.post('/api/create-advert', authenticateToken, advertController.newAdvert)
 router.post('/api/login', userController.login);
 router.post('/api/signup', validatorService.validateBody, userController.signup);
 
-// router.get('/api/handle-users', authenticateToken);
-
 router.post('/api/cities', localisationController.getFilteredCities);
 
-router.get('/api/profil', authenticateToken, userController.getUsers);
+router.get('/api/handle-users', authenticateToken, userController.getUsers);
+
 router.delete('/api/profil', authenticateToken, userController.accountDeletion);
+router.get('/api/profil', authenticateToken, userController.getAccount);
+router.patch('/api/profil', authenticateToken, userController.updateAccount)
 
 
 // 404 for the API
 router.use((request, response) => {
-    response.status(404).json('No such endpoint');
+    response.status(404).json('Unknown Territories (404)');
 });
 
 module.exports = router;

@@ -37,6 +37,23 @@ class User {
         return rows.map(user => new User(user));
     }
 
+    static async findOne(data) {
+        const query = {
+            text : `SELECT "user".*, localisation.city FROM "user" JOIN localisation ON localisation.id = "user".localisation_id WHERE "user".id = $1`,
+            values : [data]
+        }
+            
+        try {
+            const { rows } = await db.query(query);
+            delete rows[0].role_id;
+            delete rows[0].localisation_id;
+            delete rows[0].password;
+            return new User(rows[0]);
+        }catch (error){
+            throw new Error('Aucun profil correspondant au vôtre.');
+        }
+    }
+
     static async checkIfExist(data) {
 
         const query = {
@@ -47,7 +64,7 @@ class User {
         const { rows } = await db.query(query);
 
         if(!rows[0]) {
-            throw new Error('Wrong email or password')
+            throw new Error('Mauvais email ou mot de passe')
         }
 
         const match = await hashService.comparePassword(data.password, rows[0].password);
@@ -59,7 +76,7 @@ class User {
                 pseudo: rows[0].pseudo 
             })
         } else {
-            throw new Error('Wrong email or password')
+            throw new Error('Mauvais email ou mot de passe')
         }
             
     }
@@ -79,20 +96,22 @@ class User {
             const { rows } = await db.query(query);
             if(rows[0]) {
                 return rows[0];
-            } 
+            } else {
+                throw new Error('Mise à jour invalidée, veuillez réessayer');
+            }
         } catch (error) {
             switch (error.constraint) {
                 case 'unique_email':
-                    throw new Error('This email already exists');
+                    throw new Error('Cet Email existe déjà');
                     break;
                 case 'unique_pseudo':
-                    throw new Error('This pseudo already exists');
+                    throw new Error('Ce pseudo existe déjà');
                     break;
                 case 'unique_phone_number':
-                    throw new Error('This phone number already exists for another user');
+                    throw new Error('Ce numéro de téléphone existe déjà');
                     break;
                 default:
-                    throw new Error('Inscription failed, please try again');
+                    throw new Error('Inscription invalidée, veuillez réessayer');
                     break;
             }
         }
@@ -106,13 +125,54 @@ class User {
             
         try {
             const { rows } = await db.query(query);
-            return 'Your account has been deleted succesfully';
+            return 'Votre compte a bien été supprimé.';
         }catch (error){
-            throw new Error('Something went wrong, please try again');
+            throw new Error('Quelque chose s\'est mal passée, veuillez réessayez.');
         }
     }
 
+    async update() {
+
+        const query = {
+            text: `
+                UPDATE "user" SET
+                    firstname = $2,
+                    lastname = $3,
+                    pseudo = $4,
+                    email = $5,
+                    phone_number = $6,
+                    localisation_id = $7
+                WHERE id = $1
+                RETURNING id
+            `,
+            values: [this.id, this.firstname, this.lastname, this.pseudo, this.email, this.phoneNumber, this.localisationId]
+        }
+
+        try {
+            const { rows } = await db.query(query);
+            if(rows[0]) {
+                return 'Votre profil a bien été mis à jour';
+            } 
+            
+        } catch (error) {
+            switch (error.constraint) {
+                case 'unique_email':
+                    throw new Error('Cet Email existe déjà');
+                    break;
+                case 'unique_pseudo':
+                    throw new Error('Ce pseudo existe déjà');
+                    break;
+                case 'unique_phone_number':
+                    throw new Error('Ce numéro de téléphone existe déjà');
+                    break;
+                default:
+                    throw new Error('Mise à jour invalidée, veuillez réessayer');
+                    break;
+            }
+        }
+    
+    }
 
 }
 
-module.exports = User;
+module.exports = User; 
