@@ -11,10 +11,6 @@ GET {{baseUrl}}/games
 ### GET /games/:id
 GET {{baseUrl}}/games/5
 
-### GET /adverts
-GET {{baseUrl}}/api/adverts?text=bonjourr&categories=1,2&city=8
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInBzZXVkbyI6InlvcHlvcCIsImlhdCI6MTYxNTM2NzM5MSwiZXhwIjoxNjE1MzcwOTkxfQ._fR0__zUDkyvwztEIQOgB1Ih4daRNeRNWvUAZOvUdE8
-
 ### GET /api/adverts/:id
 GET {{baseUrl}}/api/adverts/3
 
@@ -32,7 +28,7 @@ POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-    "email": "yop@gmail.com",
+    "email": "yo@gmail.com",
     "password": "1234"
     
 }
@@ -45,22 +41,22 @@ POST {{baseUrl}}/api/signin
 Content-Type: application/json
 
 {
-    "firstname":"Mathis",
-    "lastname":"SecretLeadDev",
-    "pseudo":"Thismadu59",
-    "email": "mathis.dev@gmail.com",
-    "password": "7890",
-    "phoneNumber":"0314597689",
+
+    "firstname":"yop",
+    "lastname":"yop",
+    "pseudo":"yopop",
+    "email": "yo@gmail.com",
+    "password": "1234",
+    "phoneNumber":"0317797689",
     "localisationId": 2
 }
 
 ### POST /cities
-
 POST {{baseUrl}}/api/cities
 Content-Type: application/json
 
 {
-    "city": "lyo"
+    "city": "chamo"
 }
 
 ### GET /api/test/27
@@ -95,11 +91,20 @@ Content-Type: 'application/json'
 				"id": 2
 			}
 		  ]
-},
+}
 
 
 ### GET /adverts
+GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=5,2&localisationId=15
 
+### GET /alladverts
+GET {{baseUrl}}/api/alladverts
+
+
+### GET /categories
+GET {{baseUrl}}/api/categories
+
+### GET /adverts?7Won
 GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=3,4
 
 
