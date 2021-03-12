@@ -111,30 +111,55 @@ class Advert {
         const values = [queryString.text]
         
         text = `
-            SELECT DISTINCT ON (advert.id) advert.id AS advertId, advert.* FROM advert
+            SELECT DISTINCT ON (advert.id) advert.id AS advertId, advert.*, "user".pseudo, localisation.city, localisation.department FROM advert
+            JOIN "user" ON "user".id = advert.user_id
             JOIN advert_has_category ON advert_has_category.advert_id = advert.id
             JOIN localisation ON localisation.id = advert.localisation_id
-            WHERE advert.title ILIKE '%' || $1 || '%'
+            WHERE (advert.title ILIKE '%' || $1 || '%'
                 OR advert.description ILIKE '%' || $1 || '%' 
-                OR advert.game_title ILIKE '%' || $1 || '%'
+                OR advert.game_title ILIKE '%' || $1 || '%')
         `;
 
-        // if(queryString.categoriesId) {
-        //     const categoriesNumber = queryString.categoriesId.split(',').map(category => parseInt(category, 10));
-        //     console.log(categoriesNumber)
-        //     values.push(queryString.categoriesId);
-        //     text += 'AND advert_has_category.category_id IN ($2)';
-        // }
+        if(queryString.categoriesId) {
+            const categoriesNumber = queryString.categoriesId.split(',').map(category => parseInt(category, 10));
+            categoriesNumber.forEach(number => values.push(number));
+            text += `AND (advert_has_category.category_id IN (`;
+            for(let i = 1; i < values.length; i++) {
+                if(i === values.length - 1) text+= `$${i+1}))`;
+                else if(values[i]) text+= `$${i+1},`;
+            }
+        }
 
-        // if(queryString.localisationId) {
-        //     values.push(parseInt(queryString.localisationId, 10));
-        //     text += `AND localisation.department = (
-        //         SELECT department FROM localisation WHERE localisation.id = $${values.length}
-        //     )`
-        // }
+        if(queryString.localisationId) {
+            values.push(parseInt(queryString.localisationId, 10));
+            text += `AND (localisation.department = (
+                SELECT department FROM localisation WHERE localisation.id = $${values.length}
+            ))`
+        }
 
         const { rows } = await db.query(text, values);
-        return rows
+        return rows.map(advert => {
+            advert.postalCode = advert.postal_code;
+            delete advert.postal_code;
+            delete advert.localisation_id;
+            return {
+                advert: new Advert({
+                    id: advert.id,
+                    title: advert.title,
+                    advertImage: advert.advert_image,
+                    publicationDate: advert.publication_date
+                }),
+                user: new User({
+                    pseudo: advert.pseudo
+                }),
+                localisation: new Localisation({
+                    city: advert.city,
+                    department: advert.department
+                })
+            }
+            
+        })
+        
     }
 
     static async findOne(id) {
