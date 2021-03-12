@@ -41,7 +41,7 @@ INSERT INTO "user" (firstname, lastname, pseudo, email, "password", phone_number
 ('Jacqueline', 'du74', 'jaja', 'jaja@hotmail.com', '7658', 0125641558, 7);
 
 
-
+.
 INSERT INTO game (title, author, editor, release_year, avg_duration, min_players, max_players, suggested_age, image) VALUES 
 ('Monopoly', 'Charles Darrow', 'Hasbro', 1935, '60-120 min', 2, 6, 8, 'https://www.shutterstock.com/image-photo/bangkok-thailand-feb-11-2019-monopoly-1309724374'),
 ('Uno', 'Merle Robbins', 'Mattel', 1985, '30 min', 2, 10, 7, 'https://commons.wikimedia.org/wiki/File:Baraja_de_UNO.JPG#/media/Fichier:Baraja_de_UNO.JPG'),

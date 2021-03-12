@@ -6,6 +6,8 @@
 ### GET /games
 GET {{baseUrl}}/games
 
+
+
 ### GET /games/:id
 GET {{baseUrl}}/games/5
 
@@ -39,6 +41,7 @@ POST {{baseUrl}}/api/signin
 Content-Type: application/json
 
 {
+
     "firstname":"yop",
     "lastname":"yop",
     "pseudo":"yopop",
@@ -60,14 +63,17 @@ Content-Type: application/json
 GET {{baseUrl}}/api/test/27
 
 ### POST /api/create-advert
+
 POST {{baseUrl}}/api/create-advert
-Content-Type: application/json
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsInBzZXVkbyI6IlRoaXNtYWR1NTkiLCJpYXQiOjE2MTUzNzEzODIsImV4cCI6MTYxNTM3NDk4Mn0.GIDf0kaPn12n7HRbz-neCWMnIp85ScNr4cVF3cD7adY
+Content-Type: 'application/json'
 
 {
-    "title": "Risk",
-    "description": "je loue Risk",
+    "title": "Location de Jungle speed",
+    "description": "je loue Risk , je me suis trompé",
     "locationPrice": "10.00",
-    "advertImage": "", 
+    "advertImage": "http://urlencarton.com", 
     "gameTitle": "Risk",
     "gameAuthor": "Albert Lamorisse",
     "gameReleaseYear": "1998",
@@ -94,5 +100,11 @@ GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=5,2&localisationId=15
 ### GET /alladverts
 GET {{baseUrl}}/api/alladverts
 
+
 ### GET /categories
 GET {{baseUrl}}/api/categories
+
+### GET /adverts?7Won
+GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=3,4
+
+

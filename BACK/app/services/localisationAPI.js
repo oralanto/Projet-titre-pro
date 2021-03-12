@@ -22,7 +22,7 @@ const getLocalisations = async () => {
             text: `
                 INSERT INTO localisation (city, postal_code, department) VALUES ($1, $2, $3)
             `,
-            values: [localisation.nom, localisation.code, localisation.departement.nom]
+            values: [localisation.nom, localisation.codesPostaux[0], localisation.departement.nom]
         }
         
         try {
