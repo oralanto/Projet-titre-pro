@@ -14,8 +14,12 @@ const advertController = {
     getFilteredAdverts : async (request, response) => {
 
         const query = request.query;
-        const adverts = await Advert.findFilteredAdverts(query);
-        response.json(adverts);
+        try {
+            const adverts = await Advert.findFilteredAdverts(query);
+            response.json(adverts);
+        } catch (error) {
+            response.status(400).json(error.message);
+        }
     },
 
     getOneAdvert : async (request, response) =>  {

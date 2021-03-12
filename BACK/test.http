@@ -89,8 +89,7 @@ Content-Type: application/json
 
 
 ### GET /adverts
-
-GET {{baseUrl}}/api/adverts?text=jun&categoriesId=5&localisationId=4596
+GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=5,2&localisationId=15
 
 ### GET /alladverts
 GET {{baseUrl}}/api/alladverts

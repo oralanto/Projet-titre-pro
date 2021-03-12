@@ -137,28 +137,34 @@ class Advert {
             ))`
         }
 
-        const { rows } = await db.query(text, values);
-        return rows.map(advert => {
-            advert.postalCode = advert.postal_code;
-            delete advert.postal_code;
-            delete advert.localisation_id;
-            return {
-                advert: new Advert({
-                    id: advert.id,
-                    title: advert.title,
-                    advertImage: advert.advert_image,
-                    publicationDate: advert.publication_date
-                }),
-                user: new User({
-                    pseudo: advert.pseudo
-                }),
-                localisation: new Localisation({
-                    city: advert.city,
-                    department: advert.department
-                })
+        try {
+            const { rows } = await db.query(text, values);
+            if(!rows[0]) {
+                throw new Error('Aucune annonce ne correspond à votre recherche');
             }
-            
-        })
+            return rows.map(advert => {
+                advert.postalCode = advert.postal_code;
+                delete advert.postal_code;
+                return {
+                    advert: new Advert({
+                        id: advert.id,
+                        title: advert.title,
+                        advertImage: advert.advert_image,
+                        publicationDate: advert.publication_date
+                    }),
+                    user: new User({
+                        pseudo: advert.pseudo
+                    }),
+                    localisation: new Localisation({
+                        city: advert.city,
+                        department: advert.department
+                    })
+                }
+                
+            })
+        } catch (error) {
+            throw new Error(error.message)
+        }
         
     }
 
