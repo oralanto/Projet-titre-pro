@@ -179,7 +179,7 @@ class Advert {
                 JOIN "user" ON advert.user_id = "user".id
                 JOIN advert_has_category ON advert_has_category.advert_id = $1
                 JOIN category ON advert_has_category.category_id = category.id
-                JOIN localisation ON "user".localisation_id = localisation.id
+                JOIN localisation ON advert.localisation_id = localisation.id
                 WHERE advert.id = $1
             `,
         

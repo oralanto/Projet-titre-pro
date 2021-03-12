@@ -12,7 +12,7 @@ GET {{baseUrl}}/games
 GET {{baseUrl}}/games/5
 
 ### GET /api/adverts/:id
-GET {{baseUrl}}/api/adverts/3
+GET {{baseUrl}}/api/adverts/15
 
 ### POST /login
 POST {{baseUrl}}/api/login
