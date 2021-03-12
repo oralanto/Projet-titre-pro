@@ -57,7 +57,10 @@ class User {
     static async checkIfExist(data) {
 
         const query = {
-            text: `SELECT id, pseudo, password FROM "user" WHERE "user".email = $1`,
+            text: `
+                    SELECT "user".id, pseudo, password, role.name FROM "user" 
+                    JOIN role ON role.id = "user".role_id
+                    WHERE "user".email = $1`,
             values: [data.email]
         }
 
@@ -73,7 +76,8 @@ class User {
 
             return new User({
                 id: rows[0].id,
-                pseudo: rows[0].pseudo 
+                pseudo: rows[0].pseudo,
+                role: rows[0].name 
             })
         } else {
             throw new Error('Mauvais email ou mot de passe')

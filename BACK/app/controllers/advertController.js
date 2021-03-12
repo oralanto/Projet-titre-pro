@@ -1,15 +1,26 @@
+const db = require('../database');
 const { Advert } = require('../models/index');
 
 const advertController = {
 
-    async getAllAdvert(req, res) {
-        res.json(await Advert.findAll(req.user.id))
+    async getAllAdverts(req, res) {
+        try {
+            const adverts = await Advert.findAll();
+            res.json(adverts);
+        } catch (error) {
+            res.status(400).json(error.message)
+        }
     },
 
     getFilteredAdverts : async (request, response) => {
-        const adverts = await Advert.findAll();
 
-        response.json(adverts);
+        const query = request.query;
+        try {
+            const adverts = await Advert.findFilteredAdverts(query);
+            response.json(adverts);
+        } catch (error) {
+            response.status(400).json(error.message);
+        }
     },
 
     getOneAdvert : async (request, response) =>  {
@@ -54,6 +65,16 @@ const advertController = {
             response.json(result);
         }catch (err) {
             response.status(404).json(err.message);
+        }
+    },
+
+    deleteOneAdvert: async (req, res) => {
+        const user = req.user;
+        try {
+            const result = await Advert.deleteOne(parseInt(req.params.id, 10), user);
+            res.json(result)
+        } catch (error) {
+            res.status(400).json(error.message);
         }
     }
 

@@ -20,14 +20,14 @@ class Localisation {
     static async filteredCities(city) {
         const query = {
             text: `
-                SELECT id, city FROM "localisation"
+                SELECT * FROM "localisation"
                 WHERE city ILIKE $1 || '%' ORDER BY city ASC LIMIT 10;`,
             values: [city]
         }
        
         try {
             const { rows } = await db.query(query);
-            return rows;
+            return rows.map(localisation => new Localisation(localisation));
         } catch (error) {
             throw new Error('Aucune ville ne correspond à votre recherche');
         }
