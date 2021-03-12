@@ -29,7 +29,7 @@ const userController = {
         
     },
 
-    signin : async (request, response) => {
+    signup : async (request, response) => {
         const data = request.body;
 
         try {
@@ -38,6 +38,16 @@ const userController = {
             request.session.isConnected = true;
             response.json(result);
         } catch (error) {
+            response.status(400).json(error.message);
+        }
+    },
+
+    accountDeletion : async (request, response) => {
+        const userId = request.user.id;
+        try{
+            const result = await User.delete(userId);
+            response.json(result);
+        }catch(error) {
             response.status(400).json(error.message);
         }
     }

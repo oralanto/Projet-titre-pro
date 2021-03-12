@@ -3,3 +3,4 @@
 
 init 2021-03-02T13:15:27Z Mathis Pati <mathis.pati@gmail.com> # tables creation
 unique_constraint 2021-03-08T13:08:58Z Killian Courvoisier <killian.courvoisier@gmail.com> # adding the unique constraint on several fields
+cascascade_user_delete 2021-03-12T10:40:24Z Killian Courvoisier <killian.courvoisier@gmail.com> # adding a cascade on delete on user_id

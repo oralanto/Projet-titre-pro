@@ -4,6 +4,10 @@ const router = Router();
 const { gameController, advertController, userController, localisationController  } = require('./controllers/index');
 const {authenticateToken} = require('./middlewares/checkConnexion');
 const validatorService = require('./services/validator');
+const {uploadImage} = require ('./services/uploadHandler');
+
+const multer = require('multer');
+const upload = multer({dest:__dirname + '../public/uploads'});
 
 // router.get('/api/games', gameController.getAllGames);
 // router.get('/api/games/:id', gameController.getOneGame);
@@ -16,13 +20,15 @@ router.patch('/api/adverts/:id/update', authenticateToken, advertController.patc
 router.post('/api/create-advert', authenticateToken, advertController.newAdvert);
 
 router.post('/api/login', userController.login);
-router.post('/api/signin', validatorService.validateBody, userController.signin);
+router.post('/api/signup', validatorService.validateBody, userController.signup);
 
 // router.get('/api/handle-users', authenticateToken);
 
 router.post('/api/cities', localisationController.getFilteredCities);
 
-// router.get('/api/profil', authenticateToken);
+router.get('/api/profil', authenticateToken, userController.getUsers);
+router.delete('/api/profil', authenticateToken, userController.accountDeletion);
+
 
 // 404 for the API
 router.use((request, response) => {

@@ -30,6 +30,13 @@ class User {
         this.localisationId = val;
     }
 
+    static async findAll() {
+
+        const { rows } = await db.query(`SELECT * FROM "user"`);
+
+        return rows.map(user => new User(user));
+    }
+
     static async checkIfExist(data) {
 
         const query = {
@@ -88,6 +95,20 @@ class User {
                     throw new Error('Inscription failed, please try again');
                     break;
             }
+        }
+    }
+
+    static async delete(data) {
+        const query = {
+            text : `DELETE FROM "user" WHERE id = $1`,
+            values : [data]
+        }
+            
+        try {
+            const { rows } = await db.query(query);
+            return 'Your account has been deleted succesfully';
+        }catch (error){
+            throw new Error('Something went wrong, please try again');
         }
     }
 
