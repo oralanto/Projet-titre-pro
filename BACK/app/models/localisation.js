@@ -29,7 +29,7 @@ class Localisation {
             const { rows } = await db.query(query);
             return rows.map(localisation => new Localisation(localisation));
         } catch (error) {
-            throw new Error('aucune ville ne correspond à votre recherche');
+            throw new Error('Aucune ville ne correspond à votre recherche');
         }
     }
 }

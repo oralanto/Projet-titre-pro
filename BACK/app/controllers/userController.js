@@ -9,6 +9,16 @@ const userController = {
 
         response.json(users);
     },
+    
+    getAccount : async (request, response) => {
+        const userId = request.user.id;
+        try {
+            const result = await User.findOne(userId);
+            response.json(result);
+        }catch (error){
+            response.status(400).json(error.message);
+        }
+    },
 
     login : async (request, response) =>  {
 
@@ -30,7 +40,7 @@ const userController = {
         
     },
 
-    signin : async (request, response) => {
+    signup : async (request, response) => {
         const data = request.body;
 
         try {
@@ -41,7 +51,29 @@ const userController = {
         } catch (error) {
             response.status(400).json(error.message);
         }
+    },
+
+    accountDeletion : async (request, response) => {
+        const userId = request.user.id;
+        try{
+            const result = await User.delete(userId);
+            response.json(result);
+        }catch(error) {
+            response.status(400).json(error.message);
+        }
+    },
+
+    updateAccount : async (request, response) => {
+        request.body.id = request.user.id;
+        try{
+            const user = new User(request.body)
+            const result = await user.update();
+            response.json(result);
+        }catch(error) {
+            response.status(400).json(error.message);
+        }
     }
+
 
 
 };

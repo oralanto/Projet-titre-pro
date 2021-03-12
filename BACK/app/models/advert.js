@@ -230,7 +230,7 @@ class Advert {
             })
             return data; 
         } else {
-            throw new Error('No such advert');
+            throw new Error('Aucune annonce ne correspond à votre requête.');
         }
     }
 

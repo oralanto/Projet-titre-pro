@@ -70,17 +70,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsInBzZXVkb
 Content-Type: 'application/json'
 
 {
-    "title": "Location de Jungle speed",
-    "description": "je loue Risk , je me suis trompé",
+    "title": "Location de SevenWonders",
+    "description": "je loue 7Wonders , je me suis trompé",
     "locationPrice": "10.00",
-    "advertImage": "http://urlencarton.com", 
-    "gameTitle": "Risk",
-    "gameAuthor": "Albert Lamorisse",
-    "gameReleaseYear": "1998",
-    "gameAvgDuration": "30 minutes",
-    "gameMinPlayers": 3,
-    "gameMaxPlayers": 5,
-    "gameSuggestedAge": 5,
+    "advertImage": "/home/etudiant/Bureau/images/7-wonders-vf.jpg", 
+    "gameTitle": "Seven Wonders",
+    "gameAuthor": "Antoine Bauza",
+    "gameReleaseYear": "2010",
+    "gameAvgDuration": "40-90 minutes",
+    "gameMinPlayers": 2,
+    "gameMaxPlayers": 7,
+    "gameSuggestedAge": 10,
     "gameLocalisationId": 4,
     "gameId": "2",
     "categories": [
