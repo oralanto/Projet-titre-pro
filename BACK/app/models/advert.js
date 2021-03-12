@@ -17,6 +17,7 @@ class Advert {
     gameMinPlayers;
     gameMaxPlayers;
     gameSuggestedAge;
+    gameLocalisationId;
     userId;
     gameId;
 
@@ -246,7 +247,8 @@ class Advert {
             theAdvert.gameMinPlayers,
             theAdvert.gameMaxPlayers,
             theAdvert.gameSuggestedAge,
-            theAdvert.userId
+            theAdvert.userId,
+            theAdvert.gameLocalisationId
         ];
         const categoryData = [];
         
@@ -256,7 +258,7 @@ class Advert {
 
         if (theAdvert.userId){
             query = `
-            INSERT INTO advert (title, description, location_price, advert_image, game_title, game_author, game_release_year, game_avg_duration, game_min_players, game_max_players, game_suggested_age, "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING id;
+            INSERT INTO advert (title, description, location_price, advert_image, game_title, game_author, game_release_year, game_avg_duration, game_min_players, game_max_players, game_suggested_age, "user_id", localisation_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING id;
             `;
         }
 
@@ -295,7 +297,8 @@ class Advert {
             theAdvert.gameAvgDuration,
             theAdvert.gameMinPlayers,
             theAdvert.gameMaxPlayers,
-            theAdvert.gameSuggestedAge
+            theAdvert.gameSuggestedAge,
+            theAdvert.gameLocalisationId
         ];
 
         const categoryData = [];
@@ -318,7 +321,8 @@ class Advert {
                     game_avg_duration= $9,
                     game_min_players = $10,
                     game_max_players = $11,
-                    game_suggested_age = $12
+                    game_suggested_age = $12,
+                    localisation_id = $13
                 WHERE id = $1
                 RETURNING id;
             `;  
