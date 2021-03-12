@@ -29,7 +29,7 @@ const UpdateAdvert = ({
       {isLogged && (
         <>
           <h1 className="UpdateAdvert__title">Modification d'annonce</h1>
-          <p className="UpdateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
+          <p className="UpdateAdvert__subtitle"> Merci de bien remplir toutes les cases pour que votre mise à jour soit prise en compte ;)</p>
           <form className="UpdateAdvert__form" onSubmit={thisOnSubmit}>
             <Field className="UpdateAdvert__form__title"
               type="text"
