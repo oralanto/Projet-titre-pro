@@ -46,7 +46,6 @@ const userController = {
         try {
             const user = new User(data);
             const result = await user.save();
-            request.session.isConnected = true;
             response.json(result);
         } catch (error) {
             response.status(400).json(error.message);

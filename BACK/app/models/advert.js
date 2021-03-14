@@ -235,7 +235,12 @@ class Advert {
     }
 
     static async save(theAdvert){
-        let query;
+        let insertQuery;
+
+        const selectQuery = {
+            text: `SELECT id FROM localisation WHERE city = $1`,
+            values: [theAdvert.city]
+        }
     
         const advertData = [
             theAdvert.title,
@@ -250,22 +255,28 @@ class Advert {
             theAdvert.gameMaxPlayers,
             theAdvert.gameSuggestedAge,
             theAdvert.userId,
-            theAdvert.gameLocalisationId
         ];
         const categoryData = [];
         
-        theAdvert.categories.forEach(theCategory => {
-            categoryData.push(theCategory.id)
+        theAdvert.categories.forEach(async (theCategory) => {
+            const selectCategoryQuery = {
+                text: `SELECT id FROM category WHERE name = $1`,
+                values: [theCategory.name]
+            }
+            const { rows } = await db.query(selectCategoryQuery);
+            categoryData.push(rows[0].id)
         })
 
         if (theAdvert.userId){
-            query = `
+            insertQuery = `
             INSERT INTO advert (title, description, location_price, advert_image, game_title, game_author, game_release_year, game_avg_duration, game_min_players, game_max_players, game_suggested_age, "user_id", localisation_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING id;
             `;
         }
 
         try {
-            const {rows} = await db.query(query, advertData);
+            const city = await db.query(selectQuery);
+            advertData.push(city.rows[0].id);
+            const {rows} = await db.query(insertQuery, advertData);
 
             for (let i=0; i < categoryData.length; i++) {
                 const query2 = {
@@ -285,7 +296,12 @@ class Advert {
 
     static async update (theAdvert) {
         
-        let query ;
+        let updateQuery ;
+
+        const selectQuery = {
+            text: `SELECT id FROM localisation WHERE city = $1`,
+            values: [theAdvert.city]
+        }
 
         const advertData = [
             theAdvert.id,
@@ -299,18 +315,22 @@ class Advert {
             theAdvert.gameAvgDuration,
             theAdvert.gameMinPlayers,
             theAdvert.gameMaxPlayers,
-            theAdvert.gameSuggestedAge,
-            theAdvert.gameLocalisationId
+            theAdvert.gameSuggestedAge
         ];
 
         const categoryData = [];
 
-        theAdvert.categories.forEach(theCategory => {
-            categoryData.push(theCategory.id)
+        theAdvert.categories.forEach(async (theCategory) => {
+            const selectCategoryQuery = {
+                text: `SELECT id FROM category WHERE name = $1`,
+                values: [theCategory.name]
+            }
+            const { rows } = await db.query(selectCategoryQuery);
+            categoryData.push(rows[0].id)
         })
         
         if (theAdvert.id){
-            query = `
+            updateQuery = `
                 UPDATE advert
                 SET
                     title = $2,
@@ -330,7 +350,9 @@ class Advert {
             `;  
         }
         try {
-            const {rows} = await db.query(query, advertData);
+            const city = await db.query(selectQuery);
+            advertData.push(city.rows[0].id);
+            const {rows} = await db.query(updateQuery, advertData);
 
             const deleteRequest = {
                 text: `

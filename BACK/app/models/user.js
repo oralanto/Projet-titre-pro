@@ -88,20 +88,29 @@ class User {
     async save() {
         this.password = await hashService.hashPassword(this.password);
 
-        const query = {
+        const selectQuery = {
+            text: `SELECT id FROM localisation WHERE city = $1`,
+            values: [this.city]
+        }
+
+        const insertQuery = {
             text: `
                 INSERT INTO "user" (firstname, lastname, pseudo, email, password, phone_number, localisation_id)
                 VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING pseudo;
             `,
-            values: [this.firstname, this.lastname, this.pseudo, this.email, this.password, this.phoneNumber, this.localisationId]
+            values: [this.firstname, this.lastname, this.pseudo, this.email, this.password, this.phoneNumber]
         }
 
+
+
         try {
-            const { rows } = await db.query(query);
+            const city = await db.query(selectQuery);
+            insertQuery.values.push(city.rows[0].id)
+            const { rows } = await db.query(insertQuery);
             if(rows[0]) {
                 return rows[0];
             } else {
-                throw new Error('Mise à jour invalidée, veuillez réessayer');
+                throw new Error('Incription invalide, veuillez réessayer');
             }
         } catch (error) {
             switch (error.constraint) {
@@ -137,7 +146,12 @@ class User {
 
     async update() {
 
-        const query = {
+        const selectQuery = {
+            text: `SELECT id FROM localisation WHERE city = $1`,
+            values: [this.city]
+        }
+
+        const updateQuery = {
             text: `
                 UPDATE "user" SET
                     firstname = $2,
@@ -149,11 +163,13 @@ class User {
                 WHERE id = $1
                 RETURNING id
             `,
-            values: [this.id, this.firstname, this.lastname, this.pseudo, this.email, this.phoneNumber, this.localisationId]
+            values: [this.id, this.firstname, this.lastname, this.pseudo, this.email, this.phoneNumber]
         }
 
         try {
-            const { rows } = await db.query(query);
+            const city = await db.query(selectQuery);
+            updateQuery.values.push(city.rows[0].id);
+            const { rows } = await db.query(updateQuery);
             if(rows[0]) {
                 return 'Votre profil a bien été mis à jour';
             } 
