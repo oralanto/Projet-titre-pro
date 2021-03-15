@@ -6,8 +6,8 @@ export const LOGOUT = 'LOGOUT';
 export const LOGGED = 'LOGGED';
 export const SIGN_IN = 'SIGN_IN';
 export const CREATE_ADVERT = 'CREATE_ADVERT';
-export const FETCH_ADVERTS = 'FETCH_ADVERTS';
-export const SAVE_ADVERTS = 'SAVE_ADVERTS';
+export const FETCH_ADVERT_DATA = 'FETCH_ADVERt_DATA';
+export const SAVE_ADVERT = 'SAVE_ADVERT';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -51,11 +51,11 @@ export const createAdvert = () => ({
   type: CREATE_ADVERT,
 });
 
-export const fetchAdverts = () => ({
-  type: FETCH_ADVERTS,
+export const fetchAdvertData = () => ({
+  type: FETCH_ADVERT_DATA,
 });
 
-export const saveAdverts = (data) => ({
-  type: SAVE_ADVERTS,
+export const saveAdvert = (data) => ({
+  type: SAVE_ADVERT,
   data,
 });

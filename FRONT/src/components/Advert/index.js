@@ -7,11 +7,13 @@ import axios from 'axios';
 
 // == Composant
 const Advert = () => {
-  const [advert, setAdvert] = useState();
+  console.log('Component advert');
+  const [advert, setAdvert] = useState({});
 
   console.log('query :', window.location.pathname);
 
   useEffect(() => {
+    console.log('useEffect fetch advert/:id data');
     axios
       .get(`http://34.207.234.22/api${window.location.pathname}`)
       .then((res) => setAdvert(res.data));

@@ -15,6 +15,7 @@ const Adverts = () => {
       .get('http://34.207.234.22/api/alladverts')
       .then((res) => setAdverts(res.data));
   }, []);
+
   return (
     <div className="Adverts">
       <h1 className="Adverts__title">Les annonces</h1>
