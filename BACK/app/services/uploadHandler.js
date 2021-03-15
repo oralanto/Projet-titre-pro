@@ -14,7 +14,8 @@ const storage = multer.diskStorage({
     filename: (req, file, callback) => {
         const name = file.originalname.split(' ').join('_');
         const extension = MIME_TYPES[file.mimetype];
-        if(extension !== 'jpeg' || extension !== 'jpg' || extension !== 'png') {
+        console.log(extension)
+        if(extension != 'jpeg' && extension != 'jpg' && extension != 'png') {
             return callback('Extension de fichier invalide', null);
         }
     //on ajoute un timestamp pour rendre unique le nom de chaque image avec Date.now()
