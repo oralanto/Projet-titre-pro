@@ -39,7 +39,7 @@ const auth = (store) => (next) => (action) => {
         pseudo: state.user.pseudo,
         email: state.user.email,
         password: state.user.password,
-        localisationId: state.user.localisation_id,
+        city: state.user.city,
         phoneNumber: state.user.phone_number,
       }), {
         headers: {
