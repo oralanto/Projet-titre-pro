@@ -20,6 +20,7 @@ class Advert {
     gameLocalisationId;
     userId;
     gameId;
+    image;
 
     set publication_date(val) {
         this.publicationDate = val;
@@ -254,7 +255,7 @@ class Advert {
             theAdvert.gameMinPlayers,
             theAdvert.gameMaxPlayers,
             theAdvert.gameSuggestedAge,
-            theAdvert.userId,
+            theAdvert.userId
         ];
         const categoryData = [];
         

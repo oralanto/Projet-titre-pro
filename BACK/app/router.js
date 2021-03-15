@@ -4,7 +4,7 @@ const router = Router();
 const { advertController, userController, localisationController, categoryController  } = require('./controllers/index');
 const {authenticateToken} = require('./middlewares/checkConnexion');
 const validatorService = require('./services/validator');
-const {uploadImage} = require ('./services/uploadHandler');
+const {image} = require ('./services/uploadHandler');
 
 const multer = require('multer');
 const upload = multer({dest:__dirname + '../public/uploads'});
@@ -13,7 +13,9 @@ router.get('/api/adverts', advertController.getFilteredAdverts);
 router.get('/api/alladverts', advertController.getAllAdverts)
 router.get('/api/adverts/:id', advertController.getOneAdvert);
 router.patch('/api/adverts/:id/update', authenticateToken, advertController.patchAdvert);
+// router.post('/api/create-advert', authenticateToken, uploadImage.upload, uploadImage.uploadFunction, advertController.newAdvert);
 router.post('/api/create-advert', authenticateToken, advertController.newAdvert);
+router.post('/api/create-advert/image', authenticateToken, image);
 router.delete('/api/adverts/:id', authenticateToken, advertController.deleteOneAdvert)
 
 router.post('/api/login', userController.login);
