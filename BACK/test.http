@@ -1,7 +1,7 @@
 @protocol= http
-@domainname= localhost
+@domainname= 34.207.234.22
 @port= {{$dotenv PORT}}
-@baseUrl = {{protocol}}://{{domainname}}:{{port}}
+@baseUrl = {{protocol}}://{{domainname}}
 
 ### GET /games
 GET {{baseUrl}}/games
@@ -28,7 +28,7 @@ POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-    "email": "yooo@gmail.com",
+    "email": "ypo@gmazil.com",
     "password": "1234"
     
 }

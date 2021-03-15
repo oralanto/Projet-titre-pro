@@ -40,11 +40,6 @@ const advertController = {
     newAdvert : async (request, response) => {
         const theAdvert = new Advert(request.body);
         theAdvert.userId = request.user.id;
-        // if(request.file) {
-        //     theAdvert.advertImage = request.file.path;
-        // } else {
-        //     console.log('pas d\'image')
-        // }
         console.log(theAdvert.advertImage);
     
         try {

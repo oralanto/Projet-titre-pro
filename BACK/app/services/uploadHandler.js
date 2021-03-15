@@ -33,7 +33,8 @@ module.exports = {
             } else if (err) {
                 return res.status(500).json(err)
             }
-            if(req.file) return res.status(200).json({advertImage: req.file.path});
+            console.log(req.file)
+            if(req.file) return res.status(200).json({advertImage: req.file.filename});
             else return res.status(400).json('Veuillez sélectionner une image.')
         },
         )

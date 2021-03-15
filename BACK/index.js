@@ -18,7 +18,7 @@ app.use(session({
     resave : true
 }));
 
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 app.use(cors());
 
