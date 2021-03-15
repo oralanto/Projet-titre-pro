@@ -8,6 +8,8 @@ import {
   CREATE_ADVERT,
   UPDATE_ADVERT,
   DELETE_ADVERT,
+  UPDATE_PROFIL,
+  DELETE_PROFIL,
 
 } from 'src/actions';
 
