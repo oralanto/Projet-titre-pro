@@ -55,7 +55,38 @@ const auth = (store) => (next) => (action) => {
       // next(action);
       break;
     }
-    case CREATE_ADVERT:
+
+    case UPDATE_PROFIL:
+      axios.patch('http://34.207.234.22/api/profil', JSON.stringify({
+        firstname: state.user.firstname,
+        lastname: state.user.lastname,
+        pseudo: state.user.pseudo,
+        email: state.user.email,
+        password: state.user.password,
+        city: state.user.city,
+        phoneNumber: state.user.phone_number,
+      }), {
+        headers: {
+          'content-type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log('response', response);
+        })
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
+      break;
+
+      case DELETE_PROFIL:
+        axios.delete('http://34.207.234.22/api/profil')
+          .then((response) => {
+            console.log('response', response);
+          })
+          .catch(() =>
+            console.warn("Echec de l'envoi"));
+        break;    
+
+      case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
         title: state.user.title,
         gameTitle: state.user.gameTitle,
@@ -117,6 +148,8 @@ const auth = (store) => (next) => (action) => {
           .catch(() =>
             console.warn("Echec de l'envoi"));
         break;
+
+   
     default:
       next(action);
   }

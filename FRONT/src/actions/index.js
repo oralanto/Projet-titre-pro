@@ -8,6 +8,8 @@ export const SIGN_IN = 'SIGN_IN';
 export const CREATE_ADVERT = 'CREATE_ADVERT';
 export const UPDATE_ADVERT = 'UPDATE_ADVERT';
 export const DELETE_ADVERT = 'DELETE_ADVERT';
+export const UPDATE_PROFIL = 'UPDATE_PROFIL';
+export const DELETE_PROFIL = 'DELETE_PROFIL';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -57,4 +59,12 @@ export const updateAdvert = () => ({
 
 export const deleteAdvert = () => ({
   type: DELETE_ADVERT,
+});
+
+export const updateProfil = () => ({
+  type: UPDATE_PROFIL,
+});
+
+export const deleteProfil = () => ({
+  type: DELETE_PROFIL,
 });

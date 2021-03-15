@@ -24,6 +24,8 @@ import UserDashboard from 'src/components/UserDashboard';
 import CreateAdvert from 'src/containers/CreateAdvert';
 import UpdateAdvert from 'src/containers/UpdateAdvert';
 import DeleteAdvert from 'src/containers/DeleteAdvert';
+import UpdateProfil from 'src/containers/UpdateProfil';
+import DeleteProfil from 'src/containers/DeleteProfil';
 
 import './styles.scss';
 
@@ -78,6 +80,12 @@ const App = () => {
           </Route>
           <Route path="/supprimer-une-annonce">
             <DeleteAdvert />
+          </Route>
+          <Route path="/modifier-profil">
+            <UpdateProfil />
+          </Route>
+          <Route path="/supprimer-profil">
+            <DeleteProfil />
           </Route>
         </Switch>
         <Footer />
