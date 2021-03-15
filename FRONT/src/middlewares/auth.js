@@ -64,7 +64,7 @@ const auth = (store) => (next) => (action) => {
         gameMaxPlayers: state.user.gameMaxPlayers,
         gameSuggestedAge: state.user.gameSuggestedAge,
         advertImage: state.user.advertImage,
-        gameLocalisationId: state.user.gameLocalisationId,
+        city: state.user.city,
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,
