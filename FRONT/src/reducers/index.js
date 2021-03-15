@@ -18,7 +18,6 @@ const initialState = {
     phone_number: '',
     accessToken: '',
   },
-
 };
 
 const reducer = (state = initialState, action = {}) => {

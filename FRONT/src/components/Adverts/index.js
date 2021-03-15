@@ -1,37 +1,56 @@
 // == Import npm
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+// import PropTypes from 'prop-types';
 
 // == Import
 import './style.scss';
+import axios from 'axios';
 
 // == Composant
-const Adverts = ({
-  title,
-  img,
-  localisation,
-  locPrice,
-}) => (
-  <div className="Adverts">
-    <h1 className="Adverts__title">Les annonces</h1>
-    <div className="Adverts__container">
-      <article className="Adverts__container__advert">
-        <img className="Adverts__container__advert__img" src={img} alt={title} />
-        <h2 className="Adverts__container__advert__title">{title}</h2>
-        <div className="Adverts__container__advert__details">
-          <p className="Adverts__container__advert__details__detail">{localisation}</p>
-          <p className="Adverts__container__advert__details__detail">{locPrice}</p>
-        </div>
-      </article>
-    </div>
-  </div>
-);
+const Adverts = () => {
+  console.log('coucou');
+  const [adverts, setAdverts] = useState([]);
 
-Adverts.propTypes = {
-  title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  localisation: PropTypes.string.isRequired,
-  locPrice: PropTypes.number.isRequired,
+  useEffect(() => {
+    axios
+      .get('http://34.207.234.22/api/alladverts')
+      .then((res) => setAdverts(res.data));
+  }, []);
+  return (
+    <div className="Adverts">
+      <h1 className="Adverts__title">Les annonces</h1>
+      <div className="Adverts__container">
+        {adverts.map((obj) => (
+          <article key={obj.advert.id} className="Adverts__container__advert">
+            <img className="Adverts__container__advert__img" src={obj.advert.advertImage} alt={obj.advert.id} />
+            <h2 className="Adverts__container__advert__title">{obj.advert.title}</h2>
+            <div className="Adverts__container__advert__details">
+              <p className="Adverts__container__advert__details__detail">{obj.localisation.city}</p>
+              <p className="Adverts__container__advert__details__detail">{obj.advert.locationPrice}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
 };
+
+// Adverts.propTypes = {
+//   adverts: PropTypes.arrayOf (
+//     PropTypes.shape({
+//       advert: PropTypes.shape({
+//         id: PropTypes.number,
+//         title: PropTypes.string,
+//         locationPrice: PropTypes.number,
+//       }).isRequired,
+//       user: PropTypes.shape({
+//         pseudo: PropTypes.string,
+//       }).isRequired,
+//       localisation: PropTypes.shape({
+//         city: PropTypes.string,
+//       }).isRequired,
+//     }),
+//   ).isRequired,
+// };
 // == Export
 export default Adverts;

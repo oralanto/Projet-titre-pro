@@ -26,7 +26,7 @@ import CreateAdvert from 'src/containers/CreateAdvert';
 import './styles.scss';
 
 const App = () => {
-  console.log('coucou');
+  console.log('app init');
   return (
     <Router>
       <div className="app">
