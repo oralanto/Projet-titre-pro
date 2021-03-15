@@ -23,6 +23,7 @@ import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
 import CreateAdvert from 'src/containers/CreateAdvert';
 import UpdateAdvert from 'src/containers/UpdateAdvert';
+import DeleteAdvert from 'src/containers/DeleteAdvert';
 
 import './styles.scss';
 
@@ -74,6 +75,9 @@ const App = () => {
           </Route>
           <Route path="/modifier-une-annonce">
             <UpdateAdvert />
+          </Route>
+          <Route path="/supprimer-une-annonce">
+            <DeleteAdvert />
           </Route>
         </Switch>
         <Footer />

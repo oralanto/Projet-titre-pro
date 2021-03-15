@@ -7,9 +7,9 @@ import {
   logged,
   CREATE_ADVERT,
   UPDATE_ADVERT,
+  DELETE_ADVERT,
 
 } from 'src/actions';
-
 
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
@@ -69,7 +69,7 @@ const auth = (store) => (next) => (action) => {
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,
-        categories: [{ id: state.user.categories }],
+        categories: [{ name: state.user.categories }],
       }), {
         headers: {
           'content-type': 'application/json',
@@ -96,7 +96,7 @@ const auth = (store) => (next) => (action) => {
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,
-        categories: [{ id: state.user.categories }],
+        categories: [{ name: state.user.categories }],
       }), {
         headers: {
           'content-type': 'application/json',
@@ -109,6 +109,14 @@ const auth = (store) => (next) => (action) => {
           console.warn("Echec de l'envoi"));
       break;
 
+      case DELETE_ADVERT:
+        axios.delete('http://34.207.234.22/api/adverts/:id')
+          .then((response) => {
+            // console.log('response', response);
+          })
+          .catch(() =>
+            console.warn("Echec de l'envoi"));
+        break;
     default:
       next(action);
   }

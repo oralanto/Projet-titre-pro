@@ -14,7 +14,7 @@ const initialState = {
     password: '',
     isLogged: false,
     loading: false,
-    localisation_id: '',
+    city: '',
     phone_number: '',
     accessToken: '',
   },

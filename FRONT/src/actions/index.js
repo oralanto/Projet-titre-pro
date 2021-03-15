@@ -7,6 +7,7 @@ export const LOGGED = 'LOGGED';
 export const SIGN_IN = 'SIGN_IN';
 export const CREATE_ADVERT = 'CREATE_ADVERT';
 export const UPDATE_ADVERT = 'UPDATE_ADVERT';
+export const DELETE_ADVERT = 'DELETE_ADVERT';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -52,4 +53,8 @@ export const createAdvert = () => ({
 
 export const updateAdvert = () => ({
   type: UPDATE_ADVERT,
+});
+
+export const deleteAdvert = () => ({
+  type: DELETE_ADVERT,
 });
