@@ -112,7 +112,7 @@ const auth = (store) => (next) => (action) => {
       case DELETE_ADVERT:
         axios.delete('http://34.207.234.22/api/adverts/:id')
           .then((response) => {
-            // console.log('response', response);
+            console.log('response', response);
           })
           .catch(() =>
             console.warn("Echec de l'envoi"));
