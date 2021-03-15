@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 // == Import
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import LegalNotes from 'src/components/LegalNotes';
