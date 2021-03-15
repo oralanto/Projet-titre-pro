@@ -20,9 +20,6 @@ const Header = ({isLogged}) => (
       <Link to="/creer-une-annonce" className="header__nav__link">Creer une annonce</Link>
       {isLogged && <Link to="/supprimer-une-annonce" className="header__nav__link">supprimer une annonce</Link>}
       <Link to="/connexion" className="header__nav__link--connexion">{!isLogged?'Se connecter':'se déconnecter'}</Link>
-      
-
-      
     </nav>
   </div>
 );
