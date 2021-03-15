@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Field from 'src/containers/Field';
 
@@ -12,10 +12,17 @@ const CreateAdvert = ({
   isLogged,
   loggedMessage,
 }) => {
+  const [file, setFile] = useState();
+
   const thisOnSubmit = (event) => {
     event.preventDefault();
     console.log('submit create Advert');
     onSubmitFormAdvert();
+  };
+  const send = event => {
+    const data = new FormData();
+    data.append('file', file);
+    console.log('image data', data);
   };
   return (
     <div className="CreateAdvert">
@@ -30,7 +37,7 @@ const CreateAdvert = ({
         <>
           <h1 className="CreateAdvert__title">Création d'annonce</h1>
           <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
-          <form className="CreateAdvert__form" onSubmit={thisOnSubmit}>
+          <form className="CreateAdvert__form" onSubmit={thisOnSubmit} encType="multipart/form-data" >
             <Field className="CreateAdvert__form__title"
               type="text"
               label="Nom de l'annonce"
@@ -70,11 +77,16 @@ const CreateAdvert = ({
               type="file"
               label="Inserer une image"
               name="advertImage"
+              acept=".jpg"
+              onChange={event => {
+                const file = event.target.files[0];
+                setFile(file);
+              }}
             />
             <Field className="CreateAdvert__form__title"
               type="text"
               label="Ville"
-              name="gameLocalisationId"
+              name="city"
             />
             <Field className="CreateAdvert__form__title"
               type="text"

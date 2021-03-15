@@ -32,7 +32,7 @@ const auth = (store) => (next) => (action) => {
       break;
 
     case SIGN_IN: {
-      const state = store.getState();
+     // const state = store.getState();
       axios.post('http://34.207.234.22/api/signin', JSON.stringify({
         firstname: state.user.firstname,
         lastname: state.user.lastname,
@@ -64,11 +64,11 @@ const auth = (store) => (next) => (action) => {
         gameMaxPlayers: state.user.gameMaxPlayers,
         gameSuggestedAge: state.user.gameSuggestedAge,
         advertImage: state.user.advertImage,
-        gameLocalisationId: state.user.gameLocalisationId,
+        city: state.user.city,
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,
-        categories: [{ id: state.user.categories }],
+        categories: [{ name: state.user.categories }],
       }), {
         headers: {
           'content-type': 'application/json',
