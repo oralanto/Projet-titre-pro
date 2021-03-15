@@ -8,7 +8,6 @@ import axios from 'axios';
 
 // == Composant
 const Adverts = () => {
-  console.log('coucou');
   const [adverts, setAdverts] = useState([]);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const Adverts = () => {
       <div className="Adverts__container">
         {adverts.map((obj) => (
           <Link
-            to={`annonce/${obj.advert.id}`}
+            to={`adverts/${obj.advert.id}`}
             key={obj.advert.id}
             className="Adverts__container__advert"
           >
