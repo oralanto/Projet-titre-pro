@@ -40,7 +40,7 @@ const auth = (store) => (next) => (action) => {
         pseudo: state.user.pseudo,
         email: state.user.email,
         password: state.user.password,
-        localisationId: state.user.localisation_id,
+        city: state.user.city,
         phoneNumber: state.user.phone_number,
       }), {
         headers: {
@@ -65,7 +65,7 @@ const auth = (store) => (next) => (action) => {
         gameMaxPlayers: state.user.gameMaxPlayers,
         gameSuggestedAge: state.user.gameSuggestedAge,
         advertImage: state.user.advertImage,
-        gameLocalisationId: state.user.gameLocalisationId,
+        city: state.user.city,
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,
@@ -92,7 +92,7 @@ const auth = (store) => (next) => (action) => {
         gameMaxPlayers: state.user.gameMaxPlayers,
         gameSuggestedAge: state.user.gameSuggestedAge,
         advertImage: state.user.advertImage,
-        gameLocalisationId: state.user.gameLocalisationId,
+        city: state.user.city,
         description: state.user.description,
         gameAuthor: state.user.gameAuthor,
         gameReleaseYear: state.user.ReleaseYear,

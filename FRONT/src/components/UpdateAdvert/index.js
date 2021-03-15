@@ -74,7 +74,7 @@ const UpdateAdvert = ({
             <Field className="UpdateAdvert__form__title"
               type="text"
               label="Ville"
-              name="gameLocalisationId"
+              name="city"
             />
             <Field className="UpdateAdvert__form__title"
               type="text"
