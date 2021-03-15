@@ -47,7 +47,7 @@ const App = () => {
           <Route path="/annonces">
             <Adverts />
           </Route>
-          <Route path="/annonce">
+          <Route path="/annonce/:id">
             <Advert />
           </Route>
           <Route path="/gestion-utilisateur">
