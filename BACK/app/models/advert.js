@@ -409,6 +409,37 @@ class Advert {
         }
     }
 
+    static async findUserAdverts(userId) {
+        const query = {
+            text: `
+                SELECT advert.id AS advertId, advert.*, localisation.city FROM advert 
+                JOIN localisation ON localisation.id = advert.localisation_id
+                WHERE advert.user_id = $1
+            `,
+            values: [userId]
+        }
+
+        try {
+            const {rows} = await db.query(query);
+            return rows.map(advert => {
+                return {
+                    advert: new Advert({
+                        id: advert.id,
+                        title: advert.title,
+                        advertImage: advert.advert_image,
+                        publicationDate: advert.publication_date,
+                        locationPrice: advert.location_price
+                    }),
+                    localisation: new Localisation({
+                        city: advert.city,
+                    })
+                }
+            })
+        } catch (error) {
+            throw new Error('Vous n\'avez créé aucune annonce.')
+        }
+    }
+
 }
 
 module.exports = Advert;

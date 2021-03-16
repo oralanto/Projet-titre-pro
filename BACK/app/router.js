@@ -9,6 +9,7 @@ const {image} = require ('./services/uploadHandler');
 router.get('/api/adverts', advertController.getFilteredAdverts);
 router.get('/api/alladverts', advertController.getAllAdverts)
 router.get('/api/adverts/:id', advertController.getOneAdvert);
+router.get('/api/useradverts', authenticateToken,advertController.getAdvertsOfUser);
 router.patch('/api/adverts/:id/update', authenticateToken, advertController.patchAdvert);
 router.post('/api/create-advert', authenticateToken, advertController.newAdvert);
 router.post('/api/create-advert/image', authenticateToken, image);
