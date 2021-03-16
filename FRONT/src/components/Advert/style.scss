@@ -15,9 +15,10 @@
     &__left {
       width: 50%;
       &__img {
-        width: 95%;
-        height: auto;
-        margin: 0.5rem;
+        min-width: 350px;
+        width: 100%;
+        min-height: 350px;
+        border: .5px solid lightgrey;
       }
       &__text {
         width: 95%;
@@ -37,7 +38,7 @@
         &__img {
           width: 20%;
           height: auto;
-          margin: 0.5rem;
+          margin: 1em 0.5em;
         }
         &__imgtext {
           font: 1em italic sans-serif;
@@ -87,10 +88,13 @@
           font: 1.3em bold sans-serif;
         }
         &__button {
-          width: 35%;
-          margin: .3rem;
-          font: 1em bold sans-serif;
-          border-radius: 15px;
+
+          font: 1em sans-serif;
+          width: 90%;
+          margin: auto;
+          background-color: #cccc;
+          border: none;
+          border-radius: 5px;
         }
       }
     }

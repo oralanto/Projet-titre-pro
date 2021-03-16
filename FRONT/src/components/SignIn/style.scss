@@ -1,16 +1,14 @@
 .SignIn {
-  width: 80%;
-  height: auto;
-  margin: auto;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
   border: 2px solid black;
   border-radius: 20px;
+  width: auto;
+  height: auto;
+  margin: 1em auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   &__form {
-    width: 90%;
-    height: auto;
-    margin: 1em auto;
     display: flex;
     flex-direction: column;
   }

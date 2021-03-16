@@ -1,49 +1,41 @@
 .CreateAdvert {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: auto;
   height: auto;
-  width: 60%;
-  margin: auto;
+  margin: 1em auto;
+  padding: 2em;
   display: flex;
   flex-direction: column;
- 
- 
+  justify-content: space-around;
   &__title {
     font: 2em bold serif;
-    margin: 1em auto 3em;
+    margin: auto
   }
   &__subtitle {
-    font: 1.5em bold serif;
-    margin: 1em auto 3em;
+    font: 1em bold serif;
+    margin: 1.5em auto;
   }
   &__form {
-    width: 80%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    &__title {
-      text-align: left;
-      margin-bottom: .3em;
-    }
-    &__input {
-      margin-bottom: 1em;
-      width: 20%;
-      line-height: 1.5;
-      border-radius: 5px;
-      border: 1px solid #000;
-      box-shadow: 1px 1px 1px #999;
-    }
-    &__textarea {
-      padding: 10px;
-      line-height: 1.5;
-      border-radius: 5px;
-      border: 1px solid #000;
-      box-shadow: 1px 1px 1px #999;
-      margin-bottom: .5em;
-    }
+    // &__textarea {
+    //   padding: 10px;
+    //   line-height: 1.5;
+    //   border-radius: 5px;
+    //   border: 1px solid #000;
+    //   box-shadow: 1px 1px 1px #999;
+    //   margin-bottom: .5em;
+    // }
     &__button {
-      line-height: 1.5;
+      font: 1em sans-serif;
+      width: 90%;
+      margin: auto;
+      background-color: #cccc;
+      border: none;
       border-radius: 5px;
-      border: 1px solid #000;
-      box-shadow: 1px 1px 1px #999;
     }
   }
 }

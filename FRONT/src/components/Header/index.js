@@ -12,7 +12,9 @@ import './style.scss';
 const Header = ({isLogged}) => (
   <div className="header">
     <div className="header__logo">
-      <Link to="accueil" className="header__logo__svg">LOGO</Link>
+      <Link to="accueil">
+        <img className="header__logo__svg" src="https://i.ibb.co/DGJchjY/oboardgame-logo.png" alt="logo" />
+      </Link>
     </div>
     <nav className="header__nav">
       <Link to="/accueil" className="header__nav__link">Accueil</Link>

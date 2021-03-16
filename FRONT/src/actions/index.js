@@ -70,6 +70,7 @@ export const updateProfil = () => ({
 export const deleteProfil = () => ({
   type: DELETE_PROFIL,
 });
+
 export const fetchAdvertData = () => ({
   type: FETCH_ADVERT_DATA,
 });
