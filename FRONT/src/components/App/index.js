@@ -39,6 +39,9 @@ const App = () => {
       <div className="app">
         <Header />
         <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
           <Route path="/accueil">
             <Home />
           </Route>

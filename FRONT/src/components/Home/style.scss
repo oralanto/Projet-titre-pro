@@ -1,11 +1,12 @@
 .home {
   display: block;
-
 }
 .home__search {
   margin: 2rem 0;
   &__bar {
-    margin-top: 1rem;
+    font-size: 1.2em;
+    padding: .2em;
+    border: .5px solid black;
     border-radius: 10px;
     width: 20%;
   }
@@ -21,7 +22,8 @@
  max-width: 20%;
 }
 .home__logo {
-  max-width: 40%;
+  width: 60%;
+  height: auto;
 }
 .home__categories{
   margin-top: 2rem;
