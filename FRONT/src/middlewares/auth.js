@@ -31,7 +31,6 @@ const auth = (store) => (next) => (action) => {
           console.log("JWT", result.data.accessToken);
           localStorage.setItem("token", result.data.accessToken);
           localStorage.setItem("pseudo", result.data.pseudo);
-          axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
         .catch((error) =>
