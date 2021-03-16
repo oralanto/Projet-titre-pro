@@ -3,7 +3,7 @@
   border-radius: 20px;
   width: auto;
   height: auto;
-  margin: auto;
+  margin: 1em auto;
   padding: 5em;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     &__submit {
-      width: 80%;
+      width: 100%;
       margin: 1em auto;
       &:disabled {
         opacity: 0.90;

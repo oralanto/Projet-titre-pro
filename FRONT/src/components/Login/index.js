@@ -33,7 +33,7 @@ const Login = ({
           </p>
           <button
             type="button"
-            className="Login__form__disconnexion"
+            className="Login__form__submit"
             onClick={handleLogout}
           >
             Déconnexion
