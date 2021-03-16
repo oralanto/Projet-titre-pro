@@ -1,6 +1,6 @@
 .Advert {
   width: 95%;
-  height: 100%;
+  height: auto;
   margin: 1rem auto;
   display: flex;
   flex-direction: column;
@@ -87,8 +87,10 @@
           font: 1.3em bold sans-serif;
         }
         &__button {
+          width: 35%;
           margin: .3rem;
           font: 1em bold sans-serif;
+          border-radius: 15px;
         }
       }
     }
