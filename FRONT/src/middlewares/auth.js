@@ -38,7 +38,7 @@ const auth = (store) => (next) => (action) => {
 
     case SIGN_IN: {
       const state = store.getState();
-      axios.post('http://34.207.234.22/api/signin', JSON.stringify({
+      axios.post('http://34.207.234.22/api/signup', JSON.stringify({
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         pseudo: state.user.pseudo,
