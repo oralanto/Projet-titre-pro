@@ -12,6 +12,7 @@ export const UPDATE_PROFIL = 'UPDATE_PROFIL';
 export const DELETE_PROFIL = 'DELETE_PROFIL';
 export const FETCH_ADVERT_DATA = 'FETCH_ADVERt_DATA';
 export const SAVE_ADVERT = 'SAVE_ADVERT';
+export const CONTACT = 'CONTACT';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -77,5 +78,9 @@ export const fetchAdvertData = () => ({
 export const saveAdvert = (data) => ({
   type: SAVE_ADVERT,
   data,
-
 });
+
+export const contact = () => ({
+    type: CONTACT,
+  }); 
+

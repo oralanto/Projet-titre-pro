@@ -10,6 +10,7 @@ import {
   DELETE_ADVERT,
   UPDATE_PROFIL,
   DELETE_PROFIL,
+  CONTACT,
 
 } from 'src/actions';
 
@@ -152,7 +153,25 @@ const auth = (store) => (next) => (action) => {
           .catch(() =>
             console.warn("Echec de l'envoi"));
         break;
-
+        case CONTACT:
+          axios.post('http://34.207.234.22/api/contactus', JSON.stringify({
+            firstname: state.user.firstname,
+            lastname: state.user.lastname,
+            email: state.user.email,
+            phoneNumber: state.user.phoneNumber,
+            message: state.user.message,
+            
+          }), {
+            headers: {
+              'content-type': 'application/json',
+            },
+          })
+            .then((response) => {
+              console.log('response', response);
+            })
+            .catch(() =>
+              console.warn("Echec de l'envoi"));
+          break;
    
     default:
       next(action);

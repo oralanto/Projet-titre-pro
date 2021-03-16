@@ -14,7 +14,7 @@ import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import LegalNotes from 'src/components/LegalNotes';
 import AboutUs from 'src/components/AboutUs';
-import Contact from 'src/components/Contact';
+import Contact from 'src/containers/Contact';
 import Adverts from 'src/components/Adverts';
 import Advert from 'src/components/Advert';
 import UserManagement from 'src/components/UserManagement';
