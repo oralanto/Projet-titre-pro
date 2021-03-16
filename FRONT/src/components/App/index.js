@@ -9,7 +9,7 @@ import { useState } from "react";
 
 
 // == Import
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';
 import LegalNotes from 'src/components/LegalNotes';
@@ -24,6 +24,10 @@ import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
 import CreateAdvert from 'src/containers/CreateAdvert';
+import UpdateAdvert from 'src/containers/UpdateAdvert';
+import DeleteAdvert from 'src/containers/DeleteAdvert';
+import UpdateProfil from 'src/containers/UpdateProfil';
+import DeleteProfil from 'src/containers/DeleteProfil';
 
 import './styles.scss';
 
@@ -73,6 +77,18 @@ const App = () => {
           </Route>
           <Route path="/creer-une-annonce">
             <CreateAdvert />
+          </Route>
+          <Route path="/modifier-une-annonce">
+            <UpdateAdvert />
+          </Route>
+          <Route path="/supprimer-une-annonce">
+            <DeleteAdvert />
+          </Route>
+          <Route path="/modifier-profil">
+            <UpdateProfil />
+          </Route>
+          <Route path="/supprimer-profil">
+            <DeleteProfil />
           </Route>
         </Switch>
         <Footer />

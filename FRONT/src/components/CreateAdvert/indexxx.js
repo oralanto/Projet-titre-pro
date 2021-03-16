@@ -71,7 +71,7 @@ const CreateAdvert = ({
         <Field className="CreateAdvert__form__title"
           type="text"
           label="Ville"
-          name="gameCity"
+          name="city"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
