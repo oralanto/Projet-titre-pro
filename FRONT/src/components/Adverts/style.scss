@@ -1,10 +1,14 @@
 .Adverts {
-  width: 100%;
+  width: 90%;
   height: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   &__title {
-    font: 3em bold serif;
+    font: 3rem bold serif;
+    text-decoration: underline;
+    color: #3c1f42;
+    margin-bottom: 1em;
   }
   &__container {
     display: flex;
@@ -13,19 +17,28 @@
     width: 100%;
     height: auto;
     &__advert {
-      width: 32%;
+      width: 30%;
       height: auto;
       margin: 0.5rem;
       border: 1px solid black;
       border-radius: 5px;
       box-shadow: 1px 3px 15px 1px #000000;
+      &__img {
+        width: 100%;
+        height: auto;
+      }
       &__title {
         font: 2em bold serif;
+        width: 100%;
+        height: auto;
       }
       &__details {
         display: flex;
         justify-content: space-around;
-        margin: 1rem;
+        margin-bottom: 0;
+        background-color: #3c1f42;
+        color: aliceblue;
+        border: 1px solid purple;
       }
     }
   }
