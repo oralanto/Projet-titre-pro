@@ -421,6 +421,7 @@ class Advert {
 
         try {
             const {rows} = await db.query(query);
+            if(!rows[0]) throw new Error('Vous n\'avez créé aucune annonce.')
             return rows.map(advert => {
                 return {
                     advert: new Advert({
@@ -436,7 +437,7 @@ class Advert {
                 }
             })
         } catch (error) {
-            throw new Error('Vous n\'avez créé aucune annonce.')
+            throw new Error(error.message)
         }
     }
 
