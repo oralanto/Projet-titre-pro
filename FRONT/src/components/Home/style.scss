@@ -1,35 +1,47 @@
 .home {
   display: block;
+  height: 100vh;
 }
 .home__search {
   margin: 2rem 0;
   &__bar {
     font-size: 1.2em;
-    padding: .2em;
-    border: .5px solid black;
+    padding: 0.2em;
+    border: 0.5px solid black;
     border-radius: 10px;
     width: 20%;
   }
 }
 .home__center {
+  width: 100%;
+  margin: auto;
   display: flex;
   justify-content: space-around;
 }
 
 .home__text {
- display: flex;
- align-items: left;
- max-width: 20%;
+  display: flex;
+  align-items: left;
+  max-width: 20%;
 }
 .home__logo {
-  width: 60%;
+  width: 50%;
   height: auto;
 }
-.home__categories{
+.home__categories {
   margin-top: 2rem;
+  &__title {
+    font: 1.5em bold serif purple;
+  }
   &__cat {
     margin-top: 2rem;
-  display: flex;
-  justify-content: space-around;
-}
+    display: flex;
+    justify-content: space-around;
+  }
+  &__link {
+    border: 2px solid purple;
+    border-radius: 10px;
+    padding: .3em;
+    width: 20%;
+  }
 }

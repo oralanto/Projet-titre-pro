@@ -18,17 +18,14 @@ const Home = () => (
       <div className="home__logo">
         <img className="home__logo" src="https://i.ibb.co/DGJchjY/oboardgame-logo.png" alt="logo" />
       </div>
-      <div className="home__annonces">
-        <p>Annonces récentes</p>
-      </div>
     </div>
     <div className="home__categories">
-      <p>Catégories</p>
+      <p className="home__categories__title">Catégories</p>
       <ul className="home__categories__cat">
-        <li>Cat</li>
-        <li>Cat</li>
-        <li>Cat</li>
-        <li>Cat</li>
+        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Cat</li>
       </ul>
     </div>
   </div>

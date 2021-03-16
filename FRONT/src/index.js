@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import ReactDOM from 'react-dom';
-import{ logged } from 'src/actions'
+import{ logged } from 'src/actions';
 import { Provider } from 'react-redux';
 import store from 'src/store';
 

@@ -70,7 +70,7 @@ const Advert = () => {
                   ))}
                 </div>
                 <p className="Advert__content__right__desc__details__detail">
-                  {advert.advert.advertSuggestedAge}
+                  {advert.advert.advertSuggestedAge} ans et +
                   / Edité par {advert.advert.advertAuthor}
                   /<a> plus d'info</a>
                 </p>
