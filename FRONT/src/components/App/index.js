@@ -5,6 +5,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { useState } from "react";
+
 
 // == Import
 import Header from 'src/containers/Header';
@@ -30,7 +32,8 @@ import DeleteProfil from 'src/containers/DeleteProfil';
 import './styles.scss';
 
 const App = () => {
-  console.log('coucou');
+
+  console.log('app init');
   return (
     <Router>
       <div className="app">
@@ -51,7 +54,7 @@ const App = () => {
           <Route path="/annonces">
             <Adverts />
           </Route>
-          <Route path="/annonce">
+          <Route path="/adverts/:id">
             <Advert />
           </Route>
           <Route path="/gestion-utilisateur">

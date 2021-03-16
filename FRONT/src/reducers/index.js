@@ -3,6 +3,7 @@ import {
   LOGIN,
   LOGGED,
   LOGOUT,
+  SAVE_ADVERT,
 } from 'src/actions';
 
 const initialState = {
@@ -18,7 +19,7 @@ const initialState = {
     phone_number: '',
     accessToken: '',
   },
-
+  advert: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -38,6 +39,7 @@ const reducer = (state = initialState, action = {}) => {
         user: {
           ...state.user,
           pseudo: action.pseudo,
+          isLogged: true,
         },
       };
     case LOGGED:
@@ -50,9 +52,15 @@ const reducer = (state = initialState, action = {}) => {
           isLogged: true,
         },
       };
-    case LOGOUT:
+      case LOGOUT:
       return {
         ...initialState,
+      };
+    case SAVE_ADVERT:
+      console.log('Reducer case SAVE_ADVERT :', action.data);
+      return {
+        ...state.advert,
+        advert: action.data,
       };
     default:
       return state;

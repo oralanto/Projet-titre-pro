@@ -27,11 +27,13 @@ const auth = (store) => (next) => (action) => {
       })
         .then((result) => {
           console.log("JWT", result.data.accessToken);
+          localStorage.setItem("token", result.data.accessToken);
+          localStorage.setItem("pseudo", result.data.pseudo);
           axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
-        .catch(() =>
-          console.warn('Erreur d\'authentification'));
+        .catch((error) =>
+          console.warn('Erreur d\'authentification', error));
       break;
 
     case SIGN_IN: {

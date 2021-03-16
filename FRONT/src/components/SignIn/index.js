@@ -44,8 +44,8 @@ const SignIn = ({ onSubmitForm }) => {
         />
         <Field
           type="text"
-          label="localisation Id (1-5)"
-          name="localisation_id"
+          label="Ville"
+          name="city"
         />
         <Field
           type="tel"

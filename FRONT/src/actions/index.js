@@ -10,6 +10,8 @@ export const UPDATE_ADVERT = 'UPDATE_ADVERT';
 export const DELETE_ADVERT = 'DELETE_ADVERT';
 export const UPDATE_PROFIL = 'UPDATE_PROFIL';
 export const DELETE_PROFIL = 'DELETE_PROFIL';
+export const FETCH_ADVERT_DATA = 'FETCH_ADVERt_DATA';
+export const SAVE_ADVERT = 'SAVE_ADVERT';
 
 // Action creators
 export const changeInputValue = (value, name) => ({
@@ -67,4 +69,13 @@ export const updateProfil = () => ({
 
 export const deleteProfil = () => ({
   type: DELETE_PROFIL,
+
+export const fetchAdvertData = () => ({
+  type: FETCH_ADVERT_DATA,
+});
+
+export const saveAdvert = (data) => ({
+  type: SAVE_ADVERT,
+  data,
+
 });
