@@ -4,7 +4,7 @@
   width: auto;
   height: auto;
   margin: 1em auto;
-  padding: 5em;
+  padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -19,6 +19,9 @@
     &__submit {
       width: 100%;
       margin: 1em auto;
+      background-color: #cccc;
+      border: none;
+      border-radius: 5px;
       &:disabled {
         opacity: 0.90;
         background-color: #F0F;
