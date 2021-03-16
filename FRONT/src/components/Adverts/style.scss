@@ -18,14 +18,16 @@
     height: auto;
     &__advert {
       width: 30%;
-      height: auto;
+      // taille temporaire 
+      height: 500px;
       margin: 0.5rem;
       border: 1px solid black;
       border-radius: 5px;
       box-shadow: 1px 3px 15px 1px #000000;
       &__img {
+        min-width: 350px;
         width: 100%;
-        height: auto;
+        min-height: 350px;
       }
       &__title {
         font: 2em bold serif;
@@ -38,7 +40,6 @@
         margin-bottom: 0;
         background-color: #3c1f42;
         color: aliceblue;
-        border: 1px solid purple;
       }
     }
   }
