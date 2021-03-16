@@ -28,7 +28,7 @@ router.get('/api/profil', authenticateToken, userController.getAccount);
 router.patch('/api/profil', authenticateToken, userController.updateAccount)
 
 router.post('/api/mailing', authenticateToken, userController.contactSeller);
-router.post('/api/contactus', authenticateToken, userController.contactOboardgameCorporation);
+router.post('/api/contactus', userController.contactOboardgameCorporation);
 
 // 404 for the API
 router.use((request, response) => {

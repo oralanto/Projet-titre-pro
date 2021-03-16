@@ -86,10 +86,7 @@ const userController = {
 
     contactOboardgameCorporation: async (request , response) => {
         try {
-            await contactUs({
-                userId: request.user.id,
-                message: request.body.message
-            });
+            await contactUs(request.body);
             response.status(200).json('Votre mail a bien été envoyé. Nous vous répondrons dans les meilleurs délais.');
         } catch (error) {
             response.status(400).json(error.message);
