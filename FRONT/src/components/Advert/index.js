@@ -1,15 +1,24 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
-
+import PropTypes from 'prop-types';
+import Field from 'src/containers/Field';
 // == Import
 import './style.scss';
 import axios from 'axios';
 
 // == Composant
-const Advert = () => {
+const Advert = ({
+  onSubmitContactAdvertForm,
+  user,
+}) => {
   console.log('Component advert');
   const [advert, setAdvert] = useState(null);
   const [readyForRender, setReadyForRender] = useState(false);
+  const thisOnSubmit = (event) => {
+    event.preventDefault();
+    console.log('submit message to Michel', advert);
+    onSubmitContactAdvertForm(user.message, advert.advert.id);
+  };
 
   console.log('query :', window.location.pathname);
 
@@ -80,18 +89,33 @@ const Advert = () => {
             </div>
             <div className="Advert__content__right__contact">
               <p className="Advert__content__right__contact__price">{advert.advert.locationPrice}€/jour</p>
-              <button type="button" className="Advert__content__right__contact__button">
+              <form className="Advert__content__right__contact__form" onSubmit={thisOnSubmit}>
+              <Field className="Advert_content__right__contact__form__message" 
+                      type="textarea"
+                      label="Message"
+                      name="message"
+              />
+              <button type="submit" className="Advert__content__right__contact__button">
                 Contacter {advert.user.pseudo}
               </button>
+              </form>
             </div>
           </div>
         </article>
       </div>
       );
   } else {
-    return <h1> En cours de chargement...</h1>;
+    return <span> En cours de chargement...</span>;
   }
 };
+
+Advert.propTypes = {
+  onSubmitContactAdvertForm: PropTypes.func.isRequired,
+  advert: PropTypes.object,
+  user:PropTypes.object.isRequired,
+}
+
+
 
 // == Export
 export default Advert;
