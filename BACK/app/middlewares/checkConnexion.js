@@ -1,11 +1,21 @@
-const isLoggedIn = (request, response, next) => {
-    if(request.session.isLogged) {
-        next();
-    } else {
-        response.status(403).json('You must be connected to access this page');
+const jwt = require('jsonwebtoken');
+
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if(token == null) {
+        return res.status(401).json('Vous n\'êtes pas connecté à votre compte');
     }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if(err) return res.status(403).json('Invalid token');
+        req.user= user;
+        next();
+    });
+    
 }
 
 module.exports = {
-    isLoggedIn
+    authenticateToken
 }
+

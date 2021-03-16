@@ -23,14 +23,14 @@ import SignIn from 'src/containers/SignIn';
 import Profil from 'src/components/Profil';
 import AdminDashboard from 'src/components/AdminDashboard';
 import UserDashboard from 'src/components/UserDashboard';
-import CreateAdvert from 'src/components/CreateAdvert';
+import CreateAdvert from 'src/containers/CreateAdvert';
 
 import './styles.scss';
 
-
 const App = () => {
-  console.log('coucou');
-    return (
+
+  console.log('app init');
+  return (
     <Router>
       <div className="app">
         <Header />
@@ -50,7 +50,7 @@ const App = () => {
           <Route path="/annonces">
             <Adverts />
           </Route>
-          <Route path="/annonce">
+          <Route path="/adverts/:id">
             <Advert />
           </Route>
           <Route path="/gestion-utilisateur">

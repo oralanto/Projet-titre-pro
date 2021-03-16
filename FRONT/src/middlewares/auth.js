@@ -5,6 +5,7 @@ import {
   LOGIN,
   SIGN_IN,
   logged,
+  CREATE_ADVERT,
 
 } from 'src/actions';
 
@@ -18,13 +19,14 @@ const auth = (store) => (next) => (action) => {
         password: state.user.password,
       }), {
         headers: {
-          'content-type': 'application/json'
-        }
+          'content-type': 'application/json',
+        },
       })
         .then((result) => {
           console.log("JWT", result.data.accessToken);
           localStorage.setItem("token", result.data.accessToken);
           localStorage.setItem("pseudo", result.data.pseudo);
+          axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
         .catch((error) =>
@@ -39,7 +41,7 @@ const auth = (store) => (next) => (action) => {
         pseudo: state.user.pseudo,
         email: state.user.email,
         password: state.user.password,
-        localisationId: state.user.localisation_id,
+        city: state.user.city,
         phoneNumber: state.user.phone_number,
       }), {
         headers: {
@@ -54,6 +56,33 @@ const auth = (store) => (next) => (action) => {
       // next(action);
       break;
     }
+    case CREATE_ADVERT:
+      axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
+        title: state.user.title,
+        gameTitle: state.user.gameTitle,
+        locationPrice: state.user.locationPrice,
+        gameAvgDuration: state.user.gameAvgDuration,
+        gameMinPlayers: state.user.gameMinPlayers,
+        gameMaxPlayers: state.user.gameMaxPlayers,
+        gameSuggestedAge: state.user.gameSuggestedAge,
+        advertImage: state.user.advertImage,
+        city: state.user.city,
+        description: state.user.description,
+        gameAuthor: state.user.gameAuthor,
+        gameReleaseYear: state.user.ReleaseYear,
+        categories: [{ id: state.user.categories }],
+      }), {
+        headers: {
+          'content-type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log('response', response);
+        })
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
+      break;
+
     default:
       next(action);
   }
