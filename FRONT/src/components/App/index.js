@@ -26,7 +26,7 @@ import CreateAdvert from 'src/containers/CreateAdvert';
 import './styles.scss';
 
 const App = () => {
-  console.log('coucou');
+  console.log('app init');
   return (
     <Router>
       <div className="app">
@@ -47,7 +47,7 @@ const App = () => {
           <Route path="/annonces">
             <Adverts />
           </Route>
-          <Route path="/annonce">
+          <Route path="/adverts/:id">
             <Advert />
           </Route>
           <Route path="/gestion-utilisateur">
