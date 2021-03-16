@@ -89,7 +89,7 @@ const Advert = () => {
       </div>
       );
   } else {
-    return <h1> Problemes </h1>;
+    return <h1> En cours de chargement...</h1>;
   }
 };
 

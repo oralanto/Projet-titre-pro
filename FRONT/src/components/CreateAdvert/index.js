@@ -70,6 +70,7 @@ const CreateAdvert = ({
               type="file"
               label="Inserer une image"
               name="advertImage"
+              accept="image/png, image/jpeg, image/jpg"
             />
             <Field className="CreateAdvert__form__title"
               type="text"
