@@ -22,12 +22,10 @@ const Home = () => (
     <div className="home__categories">
       <p className="home__categories__title">Catégories</p>
       <ul className="home__categories__cat">
-        <li className="home__categories__link">Ambiance</li>
-        <li className="home__categories__link">Famille</li>
-        <li className="home__categories__link">Hasard</li>
-        <li className="home__categories__link">Plateau</li>
-        <li className="home__categories__link">Rôle</li>
-        <li className="home__categories__link">Stratégie</li>
+        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Cat</li>
       </ul>
     </div>
   </div>
