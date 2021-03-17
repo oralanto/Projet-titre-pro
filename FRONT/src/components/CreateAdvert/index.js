@@ -97,7 +97,7 @@ const CreateAdvert = ({
               label="Année de sortie:"
               name="gameReleaseYear"
             />
-            <input className="CreateAdvert__form__button" type="submit" />
+            <input className="CreateAdvert__form__button" type="submit" value="Poster votre annonce" />
           </form>
         </>
       )}
