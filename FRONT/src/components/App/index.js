@@ -5,7 +5,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { useState } from "react";
 
 
 // == Import
@@ -28,11 +27,11 @@ import UpdateAdvert from 'src/containers/UpdateAdvert';
 import DeleteAdvert from 'src/containers/DeleteAdvert';
 import UpdateProfil from 'src/containers/UpdateProfil';
 import DeleteProfil from 'src/containers/DeleteProfil';
+import UserAdverts from '../UserAdverts';
 
 import './styles.scss';
 
 const App = () => {
-
   console.log('app init');
   return (
     <Router>
@@ -92,6 +91,9 @@ const App = () => {
           </Route>
           <Route path="/supprimer-profil">
             <DeleteProfil />
+          </Route>
+          <Route path="/user-adverts">
+            <UserAdverts />
           </Route>
         </Switch>
         <Footer />
