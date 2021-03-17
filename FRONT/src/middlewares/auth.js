@@ -11,6 +11,7 @@ import {
   UPDATE_PROFIL,
   DELETE_PROFIL,
   CONTACT,
+  ADVERT_CONTACT,
 
 } from 'src/actions';
 
@@ -30,7 +31,6 @@ const auth = (store) => (next) => (action) => {
           console.log("JWT", result.data.accessToken);
           localStorage.setItem("token", result.data.accessToken);
           localStorage.setItem("pseudo", result.data.pseudo);
-          axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
         .catch((error) =>
@@ -148,32 +148,48 @@ const auth = (store) => (next) => (action) => {
           console.warn("Echec de l'envoi"));
       break;
 
-    case DELETE_ADVERT:
-      axios.delete('http://34.207.234.22/api/adverts/:id')
-        .then((response) => {
-          console.log('response', response);
-        })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
-      break;
-    case CONTACT:
-      axios.post('http://34.207.234.22/api/contactus', JSON.stringify({
-        firstname: state.user.firstname,
-        lastname: state.user.lastname,
-        email: state.user.email,
-        phoneNumber: state.user.phoneNumber,
-        message: state.user.message,
-      }), {
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
-        .then((response) => {
-          console.log('response', response);
-        })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
-      break;
+      case DELETE_ADVERT:
+        axios.delete('http://34.207.234.22/api/adverts/:id')
+          .then((response) => {
+            console.log('response', response);
+          })
+          .catch(() =>
+            console.warn("Echec de l'envoi"));
+        break;
+        case CONTACT:
+          axios.post('http://34.207.234.22/api/contactus', JSON.stringify({
+            firstname: state.user.firstname,
+            lastname: state.user.lastname,
+            email: state.user.email,
+            phoneNumber: state.user.phoneNumber,
+            message: state.user.message,
+            
+          }), {
+            headers: {
+              'content-type': 'application/json',
+            },
+          })
+            .then((response) => {
+              console.log('response', response);
+            })
+            .catch(() =>
+              console.warn("Echec de l'envoi"));
+          break;
+          case ADVERT_CONTACT:
+            axios.post('http://34.207.234.22/api/mailing', {
+              advertId: action.advertId,
+              message: action.message,            
+            }, {
+              headers: {
+                'content-type': 'application/json',
+              },
+            })
+              .then((response) => {
+                console.log('response', response);
+              })
+              .catch((error) =>
+                console.warn("Echec de l'envoi", error));
+            break;
     default:
       next(action);
   }

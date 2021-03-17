@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {
   CHANGE_INPUT_VALUE,
   LOGIN,
@@ -44,6 +46,7 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     case LOGGED:
+      axios.defaults.headers.common.Authorization = `Bearer ${action.accessToken}`;
       return {
         ...state,
         user: {
