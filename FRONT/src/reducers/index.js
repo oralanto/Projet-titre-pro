@@ -4,6 +4,7 @@ import {
   LOGGED,
   LOGOUT,
   SAVE_ADVERT,
+  DELETE_PROFIL,
 } from 'src/actions';
 
 const initialState = {
@@ -52,7 +53,7 @@ const reducer = (state = initialState, action = {}) => {
           isLogged: true,
         },
       };
-      case LOGOUT:
+    case LOGOUT:
       return {
         ...initialState,
       };
@@ -61,6 +62,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state.advert,
         advert: action.data,
+      };
+    case DELETE_PROFIL:
+      console.log('Reduce case DELETE_PROFIL:', action.data);
+      return {
+        state: {},
       };
     default:
       return state;

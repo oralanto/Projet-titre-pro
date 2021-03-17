@@ -85,7 +85,7 @@ const auth = (store) => (next) => (action) => {
     case DELETE_PROFIL:
       axios.delete('http://34.207.234.22/api/profil')
         .then((response) => {
-          window.location.reload();
+          // window.location.reload();
           console.log('response', response);
         })
         .catch(() =>

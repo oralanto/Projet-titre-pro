@@ -11,11 +11,15 @@ const DeleteProfil = ({
   onSubmitFormAdvert,
   isLogged,
   loggedMessage,
+  deleteProfil,
 }) => {
   const thisOnSubmit = (event) => {
     event.preventDefault();
     console.log('submit delete Advert');
     onSubmitFormAdvert();
+  };
+  const handleDelete = () => {
+    deleteProfil();
   };
   return (
     <div className="DeleteProfil">
@@ -31,7 +35,7 @@ const DeleteProfil = ({
           <h1 className="DeleteProfil__title">Suppression de compte</h1>
           <p className="DeleteProfil__subtitle"> Etes vous sûr de vouloir supprimer définitivement votre compte ?</p>
           <form className="DeleteProfil__form" onSubmit={thisOnSubmit}>
-            <input className="DeleteProfil__form__button" type="submit" value="supprimer" />
+            <input className="DeleteProfil__form__button" type="submit" value="supprimer" onClick={handleDelete} />
           </form>
         </>
       )}
@@ -43,6 +47,7 @@ DeleteProfil.propTypes = {
   isLogged: PropTypes.bool,
   onSubmitFormAdvert: PropTypes.func,
   loggedMessage: PropTypes.string,
+  deleteProfil: PropTypes.func,
 
 };
 DeleteProfil.defaultProps = {
