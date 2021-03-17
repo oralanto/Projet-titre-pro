@@ -41,19 +41,16 @@ const Profil = () => {
       <div className="profil__links">
         <Link
           to="/modifier-profil"
-          key={user.id}
           className="profil__info__buttons"
         > Modifier Profil
         </Link>
         <Link
           to="/user-adverts"
-          key={user.id}
           className="profil__info__buttons"
         > Modifier ses Annonces
         </Link>
         <Link
           to="/supprimer-profil"
-          key={user.id}
           className="profil__info__buttons"
         > Supprimer son profil
         </Link>

@@ -64,9 +64,9 @@ const reducer = (state = initialState, action = {}) => {
         advert: action.data,
       };
     case DELETE_PROFIL:
-      console.log('Reduce case DELETE_PROFIL:', action.data);
+      console.log('Reduce case DELETE_PROFIL:');
       return {
-        state: {},
+        ...initialState,
       };
     default:
       return state;
