@@ -15,6 +15,13 @@
     width: 50%;
     text-align: left;
     margin: 3rem 0;
+    &__buttons {
+      display: block;
+      border: 1px solid black;
+      padding: 2rem;
+      margin: 3rem;
+      background-color: lightgreen;
+    }
 
     &__bar {
       width: 80%;
@@ -22,9 +29,13 @@
 
     }
   }
+  &__links {
+    display: block;
+    width: 30%;
+  }
 }
 
-p {
+.profil__info__h2 {
   margin: 1rem 0;
 }
 h1 {

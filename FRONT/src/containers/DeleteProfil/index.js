@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onSubmitFormAdvert: () => {
     dispatch(deleteProfil());
+    console.log('container delete', deleteProfil);
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteProfil);

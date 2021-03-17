@@ -14,7 +14,6 @@ const DeleteProfil = ({
 }) => {
   const thisOnSubmit = (event) => {
     event.preventDefault();
-    console.log('submit delete Advert');
     onSubmitFormAdvert();
   };
   return (
@@ -43,6 +42,7 @@ DeleteProfil.propTypes = {
   isLogged: PropTypes.bool,
   onSubmitFormAdvert: PropTypes.func,
   loggedMessage: PropTypes.string,
+  deleteProfil: PropTypes.func.isRequired,
 
 };
 DeleteProfil.defaultProps = {
