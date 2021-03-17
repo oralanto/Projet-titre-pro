@@ -24,7 +24,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  console.log('reducer');
   switch (action.type) {
     case CHANGE_INPUT_VALUE:
       return {
@@ -58,13 +57,11 @@ const reducer = (state = initialState, action = {}) => {
         ...initialState,
       };
     case SAVE_ADVERT:
-      console.log('Reducer case SAVE_ADVERT :', action.data);
       return {
         ...state.advert,
         advert: action.data,
       };
     case DELETE_PROFIL:
-      console.log('Reduce case DELETE_PROFIL:');
       return {
         ...initialState,
       };
