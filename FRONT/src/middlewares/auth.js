@@ -9,7 +9,6 @@ import {
 
 } from 'src/actions';
 
-
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
   switch (action.type) {
@@ -55,30 +54,43 @@ const auth = (store) => (next) => (action) => {
       break;
     }
     case CREATE_ADVERT:
-      axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
-        title: state.user.title,
-        gameTitle: state.user.gameTitle,
-        locationPrice: state.user.locationPrice,
-        gameAvgDuration: state.user.gameAvgDuration,
-        gameMinPlayers: state.user.gameMinPlayers,
-        gameMaxPlayers: state.user.gameMaxPlayers,
-        gameSuggestedAge: state.user.gameSuggestedAge,
-        advertImage: state.user.advertImage,
-        city: state.user.city,
-        description: state.user.description,
-        gameAuthor: state.user.gameAuthor,
-        gameReleaseYear: state.user.ReleaseYear,
-        categories: [{ name: state.user.categories }],
-      }), {
+      const data = () => {
+        const formdata = new FormData();
+        formdata.append('image', state.user.advertImage);
+        return formdata;
+      };
+      const image = data();
+      
+      axios.post('http://34.207.234.22/api/create-advert/image', image, {
         headers: {
-          'content-type': 'application/json',
+          'content-type': 'multipart/form-data',
         },
       })
         .then((response) => {
+          axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
+            title: state.user.title,
+            gameTitle: state.user.gameTitle,
+            locationPrice: state.user.locationPrice,
+            gameAvgDuration: state.user.gameAvgDuration,
+            gameMinPlayers: state.user.gameMinPlayers,
+            gameMaxPlayers: state.user.gameMaxPlayers,
+            gameSuggestedAge: state.user.gameSuggestedAge,
+            advertImage: 'http://34.207.234.22/uploads/' + response.advertImage,
+            city: state.user.city,
+            description: state.user.description,
+            gameAuthor: state.user.gameAuthor,
+            gameReleaseYear: state.user.ReleaseYear,
+            categories: [{ name: state.user.categories }],
+          }), {
+            headers: {
+              'content-type': 'application/json',
+            },
+          });
+        })
+        .then((response) => {
           console.log('response', response);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
 
     default:
