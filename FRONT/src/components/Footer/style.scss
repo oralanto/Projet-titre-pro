@@ -1,13 +1,18 @@
 .footer {
-  height: 2.5rem;
+  height: auto;
   border: 1px solid black;
+  color: aliceblue;
+  background-color: #321d53;
   width: 100%;
   margin-bottom: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #fff;
+  padding: 1em;
+  margin-top: 1em;
   &__link {
-    text-decoration: underline;
+    border: aliceblue 2px solid;
+    border-radius: 10px;
+    padding: .5em;
   }
 }

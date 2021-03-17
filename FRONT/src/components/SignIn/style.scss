@@ -1,0 +1,23 @@
+.SignIn {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  margin: 1em auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__button {
+  font: 1em sans-serif;
+  width: 90%;
+  margin: auto;
+  background-color: #cccc;
+  border: none;
+  border-radius: 5px;
+  }
+}

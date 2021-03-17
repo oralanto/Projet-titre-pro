@@ -1,0 +1,41 @@
+.CreateAdvert {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: auto;
+  height: 100vh;
+  margin: 1em auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &__title {
+    font: 2em bold serif;
+    margin: auto
+  }
+  &__subtitle {
+    font: 1em bold serif;
+    margin: 1.5em auto;
+  }
+  &__form {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    // &__textarea {
+    //   padding: 10px;
+    //   line-height: 1.5;
+    //   border-radius: 5px;
+    //   border: 1px solid #000;
+    //   box-shadow: 1px 1px 1px #999;
+    //   margin-bottom: .5em;
+    // }
+    &__button {
+      font: 1em sans-serif;
+      width: 90%;
+      margin: auto;
+      background-color: #cccc;
+      border: none;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,23 +1,36 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  Link,
+} from 'react-router-dom';
 
 // == Import
 import './style.scss';
 
 // == Composant
-const Header = () => (
+const Header = ({isLogged}) => (
   <div className="header">
     <div className="header__logo">
-      <a className="header__logo__svg">LOGO</a>
+      <Link to="accueil">
+        <img className="header__logo__svg" src="https://i.ibb.co/DGJchjY/oboardgame-logo.png" alt="logo" />
+      </Link>
     </div>
     <nav className="header__nav">
-      <a href="/home" className="header__nav__link">Accueil</a>
-      <a href="/adverts" className="header__nav__link">Annonces</a>
-      <a href="/create-advert" className="header__nav__link">Creer une annonce</a>
-      <a href="/login" className="header__nav__link--connexion">Se connecter</a>
+      <Link to="/accueil" className="header__nav__link">Accueil</Link>
+      <Link to="/annonces" className="header__nav__link">Annonces</Link>
+      <Link to="/creer-une-annonce" className="header__nav__link">Creer une annonce</Link>
+     {/*  {isLogged && <Link to="/supprimer-une-annonce" className="header__nav__link">supprimer une annonce</Link>} */}
+      <Link to="/connexion" className="header__nav__link--connexion">{!isLogged?'Se connecter':'se déconnecter'}</Link>
     </nav>
   </div>
 );
+Header.propTypes = {
+  isLogged: PropTypes.bool,
+};
 
+Header.defaultProps = {
+  isLogged: false,
+};
 // == Export
 export default Header;
