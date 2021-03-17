@@ -13,7 +13,16 @@ const Home = () => (
     </div>
     <div className="home__center">
       <div className="home__text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum.
+        </p>
       </div>
       <div className="home__logo">
         <img className="home__logo" src="https://i.ibb.co/DGJchjY/oboardgame-logo.png" alt="logo" />
@@ -22,10 +31,12 @@ const Home = () => (
     <div className="home__categories">
       <p className="home__categories__title">Catégories</p>
       <ul className="home__categories__cat">
-        <li className="home__categories__link">Cat</li>
-        <li className="home__categories__link">Cat</li>
-        <li className="home__categories__link">Cat</li>
-        <li className="home__categories__link">Cat</li>
+        <li className="home__categories__link">Ambiance</li>
+        <li className="home__categories__link">Famille</li>
+        <li className="home__categories__link">Hasard</li>
+        <li className="home__categories__link">Plateau</li>
+        <li className="home__categories__link">Rôle</li>
+        <li className="home__categories__link">Stratégie</li>
       </ul>
     </div>
   </div>
@@ -33,5 +44,3 @@ const Home = () => (
 
 // == Export
 export default Home;
-
-
