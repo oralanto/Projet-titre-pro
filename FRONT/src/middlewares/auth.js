@@ -23,22 +23,23 @@ const auth = (store) => (next) => (action) => {
       })
         .then((result) => {
           console.log("JWT", result.data.accessToken);
+          localStorage.setItem("token", result.data.accessToken);
+          localStorage.setItem("pseudo", result.data.pseudo);
           axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
-        .catch(() =>
-          console.warn('Erreur d\'authentification'));
+        .catch((error) =>
+          console.warn('Erreur d\'authentification', error));
       break;
 
-    case SIGN_IN: {
-     // const state = store.getState();
-      axios.post('http://34.207.234.22/api/signin', JSON.stringify({
+    case SIGN_IN:
+      axios.post('http://34.207.234.22/api/signup', JSON.stringify({
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         pseudo: state.user.pseudo,
         email: state.user.email,
         password: state.user.password,
-        localisationId: state.user.localisation_id,
+        city: state.user.city,
         phoneNumber: state.user.phone_number,
       }), {
         headers: {
@@ -52,45 +53,31 @@ const auth = (store) => (next) => (action) => {
 
       // next(action);
       break;
-    }
     case CREATE_ADVERT:
-      const data = () => {
-        const formdata = new FormData();
-        formdata.append('image', state.user.advertImage);
-        return formdata;
-      };
-      const image = data();
-      
-      axios.post('http://34.207.234.22/api/create-advert/image', image, {
+      axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
+        title: state.user.title,
+        gameTitle: state.user.gameTitle,
+        locationPrice: state.user.locationPrice,
+        gameAvgDuration: state.user.gameAvgDuration,
+        gameMinPlayers: state.user.gameMinPlayers,
+        gameMaxPlayers: state.user.gameMaxPlayers,
+        gameSuggestedAge: state.user.gameSuggestedAge,
+        advertImage: state.user.advertImage,
+        city: state.user.city,
+        description: state.user.description,
+        gameAuthor: state.user.gameAuthor,
+        gameReleaseYear: state.user.ReleaseYear,
+        categories: [{ name: state.user.categories }],
+      }), {
         headers: {
-          'content-type': 'multipart/form-data',
+          'content-type': 'application/json',
         },
       })
         .then((response) => {
-          axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
-            title: state.user.title,
-            gameTitle: state.user.gameTitle,
-            locationPrice: state.user.locationPrice,
-            gameAvgDuration: state.user.gameAvgDuration,
-            gameMinPlayers: state.user.gameMinPlayers,
-            gameMaxPlayers: state.user.gameMaxPlayers,
-            gameSuggestedAge: state.user.gameSuggestedAge,
-            advertImage: 'http://34.207.234.22/uploads/' + response.advertImage,
-            city: state.user.city,
-            description: state.user.description,
-            gameAuthor: state.user.gameAuthor,
-            gameReleaseYear: state.user.ReleaseYear,
-            categories: [{ name: state.user.categories }],
-          }), {
-            headers: {
-              'content-type': 'application/json',
-            },
-          });
-        })
-        .then((response) => {
           console.log('response', response);
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
       break;
 
     default:
