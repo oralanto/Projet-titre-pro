@@ -15,7 +15,7 @@ import LegalNotes from 'src/components/LegalNotes';
 import AboutUs from 'src/components/AboutUs';
 import Contact from 'src/containers/Contact';
 import Adverts from 'src/components/Adverts';
-import Advert from 'src/components/Advert';
+import Advert from 'src/containers/Advert';
 import UserManagement from 'src/components/UserManagement';
 import Login from 'src/containers/Login';
 import SignIn from 'src/containers/SignIn';
