@@ -18,7 +18,7 @@ const UserAdverts = () => {
 
   return (
     <div className="Adverts">
-      <h1 className="Adverts__title">Les annonces</h1>
+      <h1 className="Adverts__title">Mes annonces</h1>
       <div className="Adverts__container">
         {adverts.map((obj) => (
           <Link
@@ -39,22 +39,5 @@ const UserAdverts = () => {
   );
 };
 
-// Adverts.propTypes = {
-//   adverts: PropTypes.arrayOf (
-//     PropTypes.shape({
-//       advert: PropTypes.shape({
-//         id: PropTypes.number,
-//         title: PropTypes.string,
-//         locationPrice: PropTypes.number,
-//       }).isRequired,
-//       user: PropTypes.shape({
-//         pseudo: PropTypes.string,
-//       }).isRequired,
-//       localisation: PropTypes.shape({
-//         city: PropTypes.string,
-//       }).isRequired,
-//     }),
-//   ).isRequired,
-// };
 // == Export
 export default UserAdverts;
