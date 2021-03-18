@@ -9,11 +9,11 @@ import store from 'src/store';
 // Composants
 import App from 'src/components/App';
 
-const accessToken = localStorage.getItem("token");
-  const pseudo = localStorage.getItem("pseudo");
-  if (accessToken && pseudo) {
-    store.dispatch(logged(pseudo, accessToken));
-  }
+const accessToken = localStorage.getItem('token');
+const pseudo = localStorage.getItem('pseudo');
+if (accessToken && pseudo) {
+  store.dispatch(logged(pseudo, accessToken));
+}
 
 // == Render
 const rootElement = document.getElementById('root');
