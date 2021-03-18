@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 // == Import
 import './style.scss';
 
@@ -40,10 +39,8 @@ const DeleteProfil = ({
 
 DeleteProfil.propTypes = {
   isLogged: PropTypes.bool,
-  onSubmitFormAdvert: PropTypes.func,
+  onSubmitFormAdvert: PropTypes.func.isRequired,
   loggedMessage: PropTypes.string,
-  deleteProfil: PropTypes.func.isRequired,
-
 };
 DeleteProfil.defaultProps = {
   loggedMessage: 'Vous devez vous connecter',
