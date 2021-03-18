@@ -9,7 +9,7 @@ import {
 import './style.scss';
 
 // == Composant
-const Header = ({isLogged}) => (
+const Header = ({ isLogged }) => (
   <div className="header">
     <div className="header__logo">
       <Link to="accueil">
@@ -21,7 +21,7 @@ const Header = ({isLogged}) => (
       <Link to="/annonces" className="header__nav__link">Annonces</Link>
       <Link to="/creer-une-annonce" className="header__nav__link">Creer une annonce</Link>
       {isLogged && <Link to="/profil" className="header__nav__link">Mon Profil</Link>}
-      <Link to="/connexion" className="header__nav__link--connexion">{!isLogged?'Se connecter':'se déconnecter'}</Link>
+      <Link to="/connexion" className="header__nav__link--connexion">{!isLogged ? 'Se connecter' : 'se déconnecter'}</Link>
     </nav>
   </div>
 );
