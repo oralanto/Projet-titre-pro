@@ -17,6 +17,25 @@ import {
 
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
+  /* const send = () => {
+    const categories = [{ name: state.user.categories }];
+    const data = new FormData();
+    data.append('title', state.user.title);
+    data.append('gameTitle', state.user.gameTitle);
+    data.append('locationPrice', state.user.locationPrice);
+    data.append('gameAvgDuration', state.user.gameAvgDuration);
+    data.append('gameMinPlayers', state.user.gameMinPlayers);
+    data.append('gameMaxPlayers', state.user.gameMaxPlayers);
+    data.append('gameSuggestedAge', state.user.gameSuggestedAge);
+    data.append('image', state.user.advertImage);
+    data.append('gameAuthor', state.user.gameAuthor);
+    data.append('gameReleaseYear', state.user.gameReleaseYear);
+    data.append('city', state.user.city);
+    data.append('description', state.user.description);
+    data.append('categories', JSON.stringify(categories));
+    return data;
+  };
+ */
   switch (action.type) {
     case LOGIN:
       axios.post('http://34.207.234.22/api/login', JSON.stringify({
@@ -55,6 +74,8 @@ const auth = (store) => (next) => (action) => {
         })
         .catch((err) => console.log('err', err));
       break;
+    /* case CREATE_ADVERT:
+      axios.post('http://34.207.234.22/api/create-advert', send(), {
     }
 
     case UPDATE_PROFIL:
@@ -104,12 +125,15 @@ const auth = (store) => (next) => (action) => {
         categories: [{ name: state.user.categories }],
       }), {
         headers: {
-          'content-type': 'application/json',
+          'content-type': 'multipart/form-data',
         },
       })
         .then((response) => {
           console.log('response', response);
         })
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
+      break; */
         .catch(() => console.warn("Echec de l'envoi"));
       break;
 
