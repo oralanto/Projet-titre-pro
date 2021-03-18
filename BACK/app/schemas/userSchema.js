@@ -6,8 +6,8 @@ const userSchema = Joi.object({
     pseudo: Joi.string().required(),
     email: Joi.string().email().required(),
     password: Joi.string().required(),
-    phoneNumber: Joi.number().integer(),
-    localisationId: Joi.number().integer().required()
+    phoneNumber: Joi.string(),
+    city: Joi.string()
 });
 
 module.exports = userSchema;

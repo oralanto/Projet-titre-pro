@@ -3,7 +3,7 @@
 BEGIN;
 
 DROP TABLE 
-        user_has_favorite,
+        user_has_favourite,
         game_has_category,
         advert_has_category,
         advert,

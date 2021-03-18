@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -31,19 +30,18 @@ const Login = ({
           <p className="Login__form__message">
             {loggedMessage}
           </p>
-          <button
+          <input
             type="button"
-            className="Login__form__disconnexion"
+            className="Login__form__submit"
             onClick={handleLogout}
-          >
-            Déconnexion
-          </button>
+            value="Déconnexion"
+          />
         </div>
       )}
       {!isLogged && (
         <div className="Login__isLogged">
-          <p className="Login__title">Connexion</p>
           <form className="Login__form" onSubmit={handleOnSubmit}>
+            <p className="Login__title">Connexion</p>
             <Field
               type="Email"
               label="Email"
@@ -51,14 +49,18 @@ const Login = ({
             />
             <Field
               type="password"
-              label="password"
+              label="Mot de passe"
               name="password"
             />
-            <button type="submit" disabled={loading} className="Login__form__submit">
-              {loading ? 'Chargement ...' : 'Envoyer'}
-            </button>
+            <input
+              type="submit"
+              disabled={loading}
+              className="Login__form__submit"
+              value={loading ? 'Chargement ...' : 'Envoyer'}
+            />
+            <div className="Login__form__OU">OU</div>
+            <Link className="link" to="/creer-compte">Créer un compte</Link>
           </form>
-          <Link to="/creer-compte">Creer un compte</Link>
         </div>
       )}
 
@@ -77,7 +79,7 @@ Login.propTypes = {
 Login.defaultProps = {
   isLogged: false,
   loading: false,
-  loggedMessage: 'Connecté',
+  loggedMessage: 'Vous êtes Connecté',
 };
 
 // == Export

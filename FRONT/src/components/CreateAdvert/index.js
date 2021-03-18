@@ -32,7 +32,6 @@ function CreateAdvert (/*{
 
   const send = (event) => {
     event.preventDefault();
-
     const categoriesName = [{ name: categories }];
     const data = new FormData();
     data.append('title', title);
@@ -108,7 +107,7 @@ function CreateAdvert (/*{
             />
             <input className="CreateAdvert__form__title"
               type="text"
-              label="Durée moyenne d'une partie :"
+              label="Durée moyenne d'une partie"
               name="gameAvgDuration"
               onChange={(event) => {
                 const { value } = event.target;
@@ -162,6 +161,19 @@ function CreateAdvert (/*{
               }}
             />
             <input className="CreateAdvert__form__title"
+              type="file"
+              label="Inserer une image"
+              name="advertImage"
+              accept="image/png, image/jpeg, image/jpg"
+            />
+            <Field
+              className="CreateAdvert__form__title"
+              type="text"
+              label="Ville"
+              name="city"
+            />
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Description complémentaire (recommandé)"
               name="description"
@@ -172,7 +184,7 @@ function CreateAdvert (/*{
             />
             <input className="CreateAdvert__form__title"
               type="text"
-              label="Auteur :"
+              label="Auteur"
               name="gameAuthor"
               onChange={event => {
                 const { value } = event.target;
@@ -181,7 +193,7 @@ function CreateAdvert (/*{
             />
             <input className="CreateAdvert__form__title"
               type="text"
-              label="categories"
+              label="Categories"
               name="categories"
               onChange={event => {
                 console.log(event.target);
@@ -192,7 +204,7 @@ function CreateAdvert (/*{
             />
             <input className="CreateAdvert__form__title"
               type="text"
-              label="Année de sortie:"
+              label="Année de sortie"
               name="gameReleaseYear"
               onChange={event => {
                 const { value } = event.target;

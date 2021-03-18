@@ -11,7 +11,11 @@ const mapDispatchToProps = (dispatch) => ({
   onSubmitForm: () => {
     dispatch(login());
   },
-  Logouute: () => dispatch(logout()),
+  Logouute: () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('pseudo');
+    dispatch(logout());
+  },
 
 });
 

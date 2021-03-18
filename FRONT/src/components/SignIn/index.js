@@ -15,8 +15,8 @@ const SignIn = ({ onSubmitForm }) => {
   };
   return (
     <div className="SignIn">
-      <p className="SignIn__title">Créer un compte</p>
       <form className="SignIn__form" onSubmit={handleOnSubmit}>
+        <p className="SignIn__title">Créer un compte</p>
         <Field
           type="text"
           label="Prénom"
@@ -33,8 +33,8 @@ const SignIn = ({ onSubmitForm }) => {
           name="pseudo"
         />
         <Field
-          type="Email"
-          label="email"
+          type="email"
+          label="Email"
           name="email"
         />
         <Field
@@ -44,15 +44,19 @@ const SignIn = ({ onSubmitForm }) => {
         />
         <Field
           type="text"
-          label="localisation Id (1-5)"
-          name="localisation_id"
+          label="Ville"
+          name="city"
         />
         <Field
           type="tel"
           label="Téléphone (facultatif)"
           name="phone_number"
         />
-        <button type="submit" className="SignIn__button">Créer mon compte</button>
+        <input
+          type="submit"
+          className="SignIn__form__button"
+          value="Créer mon compte"
+        />
       </form>
     </div>
   );

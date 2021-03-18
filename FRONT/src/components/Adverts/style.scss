@@ -1,31 +1,59 @@
 .Adverts {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 9em;
   &__title {
-    font: 3em bold serif;
+    font: 3rem bold serif;
+    text-decoration: underline;
+    color: #3c1f42;
+    margin-bottom: 1em;
   }
   &__container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-around;
     height: auto;
     &__advert {
-      width: 32%;
+      width: 30%;
+      min-width: 300px;
+      // taille temporaire;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: white;
       height: auto;
-      margin: 0.5rem;
+      margin: 1.5rem 0.5rem;
       border: 1px solid black;
       border-radius: 5px;
       box-shadow: 1px 3px 15px 1px #000000;
+      &__img__container {
+        max-height: 70%;
+        overflow:hidden;
+        &__img {
+          width: 70%;
+          margin: auto;
+        }
+      }
       &__title {
         font: 2em bold serif;
+        border-top: 1px solid black;
+        padding: 0.5em 0;
+        width: 100%;
+        height: auto;
       }
       &__details {
         display: flex;
         justify-content: space-around;
-        margin: 1rem;
+        padding: 1em 0 ;
+        margin-bottom: 0;
+        background-color: #3c1f42;
+        color: aliceblue;
       }
     }
   }
