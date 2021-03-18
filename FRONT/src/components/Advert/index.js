@@ -90,32 +90,28 @@ const Advert = ({
             <div className="Advert__content__right__contact">
               <p className="Advert__content__right__contact__price">{advert.advert.locationPrice}€/jour</p>
               <form className="Advert__content__right__contact__form" onSubmit={thisOnSubmit}>
-              <Field className="Advert_content__right__contact__form__message" 
-                      type="textarea"
-                      label="Message"
-                      name="message"
-              />
-              <button type="submit" className="Advert__content__right__contact__button">
-                Contacter {advert.user.pseudo}
-              </button>
+                <Field
+                  className="Advert_content__right__contact__form__message"
+                  type="textarea"
+                  label="Message"
+                  name="message"
+                />
+                <button type="submit" className="Advert__content__right__contact__button">
+                  Contacter {advert.user.pseudo}
+                </button>
               </form>
             </div>
           </div>
         </article>
       </div>
-      );
-  } else {
-    return <span> En cours de chargement...</span>;
+    );
   }
+  return <span> En cours de chargement...</span>;
 };
 
 Advert.propTypes = {
   onSubmitContactAdvertForm: PropTypes.func.isRequired,
-  advert: PropTypes.object,
-  user:PropTypes.object.isRequired,
-}
-
-
-
+  user: PropTypes.object.isRequired,
+};
 // == Export
 export default Advert;
