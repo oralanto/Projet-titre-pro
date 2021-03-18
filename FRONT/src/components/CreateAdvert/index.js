@@ -78,7 +78,7 @@ const CreateAdvert = ({
               name="city"
             />
             {/* <Field className="CreateAdvert__form__title"
-              type="text"
+              type="textarea"
               label="Description complémentaire (recommandé)"
               name="description"
             /> */}
