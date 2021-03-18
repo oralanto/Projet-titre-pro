@@ -28,17 +28,15 @@ const auth = (store) => (next) => (action) => {
         },
       })
         .then((result) => {
-          console.log("JWT", result.data.accessToken);
-          localStorage.setItem("token", result.data.accessToken);
-          localStorage.setItem("pseudo", result.data.pseudo);
+          console.log('JWT', result.data.accessToken);
+          localStorage.setItem('token', result.data.accessToken);
+          localStorage.setItem('pseudo', result.data.pseudo);
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
         })
-        .catch((error) =>
-          console.warn('Erreur d\'authentification', error));
+        .catch((error) => console.warn('Erreur d\'authentification', error));
       break;
 
     case SIGN_IN: {
-      const state = store.getState();
       axios.post('http://34.207.234.22/api/signup', JSON.stringify({
         firstname: state.user.firstname,
         lastname: state.user.lastname,
@@ -56,8 +54,6 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
         })
         .catch((err) => console.log('err', err));
-
-      // next(action);
       break;
     }
 
@@ -78,8 +74,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response', response);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
 
     case DELETE_PROFIL:
@@ -89,8 +84,7 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           next(action);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
 
     case CREATE_ADVERT:
@@ -116,8 +110,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response', response);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
 
     case UPDATE_ADVERT:
@@ -143,8 +136,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response', response);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
 
     case DELETE_ADVERT:
@@ -152,8 +144,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response', response);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
     case CONTACT:
       axios.post('http://34.207.234.22/api/contactus', JSON.stringify({
@@ -170,8 +161,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response', response);
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch(() => console.warn("Echec de l'envoi"));
       break;
     case ADVERT_CONTACT:
       axios.post('http://34.207.234.22/api/mailing', {
@@ -185,8 +175,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           console.log('response', response);
         })
-        .catch((error) =>
-          console.warn("Echec de l'envoi", error));
+        .catch((error) => console.warn("Echec de l'envoi", error));
       break;
     default:
       next(action);
