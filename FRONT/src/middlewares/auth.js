@@ -57,8 +57,12 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert(`Bienvenue ${response.data.pseudo}`);
         })
-        .catch((err) => console.log('err', err));
+        .catch((err) => {
+          console.log('err', err);
+          alert('Veuillez bien remplir tous les champs');
+        });
       break;
     }
 
