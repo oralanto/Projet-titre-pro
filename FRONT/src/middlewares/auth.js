@@ -118,8 +118,9 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre annonce est maintenant en ligne');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch(() => alert("Echec de l'envoi"));
       break;
 
     case UPDATE_ADVERT:
@@ -169,8 +170,9 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre message a bien été envoyé');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch(() => alert("Echec de l'envoi"));
       break;
     case ADVERT_CONTACT:
       axios.post('http://34.207.234.22/api/mailing', {
@@ -183,8 +185,9 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre message a bien été envoyé');
         })
-        .catch((error) => console.warn("Echec de l'envoi", error));
+        .catch(() => alert("Echec de l'envoi"));
       break;
     default:
       next(action);
