@@ -1,7 +1,7 @@
 // == Import npm
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Field from 'src/containers/Field';
+//import input from 'src/containers/input';
 import axios from 'axios';
 import store from 'src/store';
 
@@ -35,7 +35,7 @@ function CreateAdvert (/*{
 
     const categoriesName = [{ name: categories }];
     const data = new FormData();
-    data.append('title', state.title);
+    data.append('title', title);
     data.append('gameTitle', gameTitle);
     data.append('locationPrice', locationPrice);
     data.append('gameAvgDuration', gameAvgDuration);
@@ -48,7 +48,7 @@ function CreateAdvert (/*{
     data.append('city', city);
     data.append('description', description);
     data.append('categories', JSON.stringify(categoriesName));
-
+    console.log('formdata content : ', Array.from(data));
     console.log('submit create Advert');
     axios.post('http://34.207.234.22/api/create-advert', data, {
       headers: {
@@ -77,25 +77,27 @@ function CreateAdvert (/*{
           <h1 className="CreateAdvert__title">Création d'annonce</h1>
           <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
           <form className="CreateAdvert__form" encType="multipart/form-data" >
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Nom de l'annonce"
               name="title"
               onChange={(event) => {
-                const { value } = event.target.value;
+                const value = event.target.value;
+                console.log('value input', value);
                 setTitle(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Nom du jeu"
               name="gameTitle"
               onChange={(event) => {
                 const { value } = event.target;
+                console.log('value input 2eme champ', value);
                 setGameTitle(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Prix de la location"
               name="locationPrice"
@@ -104,7 +106,7 @@ function CreateAdvert (/*{
                 setLocationPrice(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Durée moyenne d'une partie :"
               name="gameAvgDuration"
@@ -113,7 +115,7 @@ function CreateAdvert (/*{
                 setGameAvgDuration(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Nombre de joueurs-min"
               name="gameMinPlayers"
@@ -122,7 +124,7 @@ function CreateAdvert (/*{
                 setGameMinPlayers(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Nombre de joueurs-max"
               name="gameMaxPlayers"
@@ -131,7 +133,7 @@ function CreateAdvert (/*{
                 setGameMaxPlayers(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Age minimum"
               name="gameSuggestedAge"
@@ -140,7 +142,7 @@ function CreateAdvert (/*{
                 setGameSuggestedAge(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="file"
               label="Inserer une image"
               name="advertImage"
@@ -150,7 +152,7 @@ function CreateAdvert (/*{
                 setFile(file);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Ville"
               name="city"
@@ -159,7 +161,7 @@ function CreateAdvert (/*{
                 setCity(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Description complémentaire (recommandé)"
               name="description"
@@ -168,7 +170,7 @@ function CreateAdvert (/*{
                 setDescription(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Auteur :"
               name="gameAuthor"
@@ -177,7 +179,7 @@ function CreateAdvert (/*{
                 setGameAuthor(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="categories"
               name="categories"
@@ -188,7 +190,7 @@ function CreateAdvert (/*{
                 setCategories(value);
               }}
             />
-            <Field className="CreateAdvert__form__title"
+            <input className="CreateAdvert__form__title"
               type="text"
               label="Année de sortie:"
               name="gameReleaseYear"
