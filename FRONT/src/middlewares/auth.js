@@ -32,8 +32,13 @@ const auth = (store) => (next) => (action) => {
           localStorage.setItem('token', result.data.accessToken);
           localStorage.setItem('pseudo', result.data.pseudo);
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
+          console.log(result.data.pseudo);
+          alert(`Bonjour ${result.data.pseudo}`);
         })
-        .catch((error) => console.warn('Erreur d\'authentification', error));
+        .catch((error) => {
+          console.warn('Erreur d\'authentification', error);
+          alert('Erreur d\'authentification');
+        });
       break;
 
     case SIGN_IN: {
