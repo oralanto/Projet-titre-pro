@@ -3,6 +3,7 @@ import React from 'react';
 
 // == Import
 import './style.scss';
+import logo from '../../../img/Logo_phase_3_Complet.svg';
 
 // == Composant
 const Home = () => (
@@ -24,7 +25,7 @@ const Home = () => (
         </p>
       </div>
       <div className="home__logo">
-        <img className="home__logo" src="https://i.ibb.co/DGJchjY/oboardgame-logo.png" alt="logo" />
+        <img className="home__logo" src={logo} alt="logo" />
       </div>
     </div>
     <div className="home__categories">

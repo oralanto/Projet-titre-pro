@@ -1,30 +1,37 @@
 .header {
   border: 1px solid black;
-  background-color: #321d53;
+  background-color: rgb(230, 206, 75);
   align-items: center;
   display: flex;
   justify-content: space-between;
-  color: aliceblue;
-  &__logo__svg {
+  color:  #321d53;
+  &_svg {
     width: 50%;
     height: auto;
+    border: #f0f solid 2px,
   }
   &__nav {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     &__link,
     &__link--connexion {
-      border: aliceblue 2px solid;
+      border: #321d53 2px solid;
       border-radius: 10px;
-      margin: 1em;
-      padding: .5em;
+      margin: 0.5em;
+      padding: 0.5em;
+      width: 20%;
+      height: 20%;
+      font-weight: bolder;
+      font-size:1.2em;
     }
   }
   &__logo {
-    justify-content: flex-start;
-    height: 100%;
-    width: 25%;
-    margin: 1rem;
-  }
+      justify-content: flex-start;
+      display: flex;
+      height: 5%;
+      width: 5%;
+      margin: 1rem;
+  
+}
 }
