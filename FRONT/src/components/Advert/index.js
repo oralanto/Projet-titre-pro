@@ -37,7 +37,6 @@ const Advert = ({
   if (readyForRender) {
     return (
       <div className="Advert">
-        <a className="Advert__return">--Précedent</a>
         <article className="Advert__content">
           <div className="Advert__content__left">
             <img
@@ -48,7 +47,7 @@ const Advert = ({
             <p className="Advert__content__left__text">Publiée le {advert.advert.publicationDate}</p>
             <p className="Advert__content__left__text">Par {advert.user.pseudo}</p>
             <p className="Advert__content__left__text__localisation">
-              A proximités de :
+              A proximité de :
             </p>
             <div className="Advert__content__left__localisation">
               <img
