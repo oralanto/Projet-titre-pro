@@ -11,19 +11,15 @@ const Advert = ({
   onSubmitContactAdvertForm,
   user,
 }) => {
-  console.log('Component advert');
   const [advert, setAdvert] = useState(null);
   const [readyForRender, setReadyForRender] = useState(false);
+
   const thisOnSubmit = (event) => {
     event.preventDefault();
-    console.log('submit message to Michel', advert);
     onSubmitContactAdvertForm(user.message, advert.advert.id);
   };
 
-  console.log('query :', window.location.pathname);
-
   useEffect(() => {
-    console.log('useEffect fetch advert/:id data');
     const getAdvert = async () => {
       try {
         const res = await axios
@@ -37,7 +33,7 @@ const Advert = ({
     };
     getAdvert();
   }, []);
-  console.log(advert);
+
   if (readyForRender) {
     return (
       <div className="Advert">
