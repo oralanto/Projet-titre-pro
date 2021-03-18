@@ -5,12 +5,31 @@ import {
   LOGIN,
   SIGN_IN,
   logged,
-  CREATE_ADVERT,
+  //CREATE_ADVERT,
 
 } from 'src/actions';
 
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
+  /* const send = () => {
+    const categories = [{ name: state.user.categories }];
+    const data = new FormData();
+    data.append('title', state.user.title);
+    data.append('gameTitle', state.user.gameTitle);
+    data.append('locationPrice', state.user.locationPrice);
+    data.append('gameAvgDuration', state.user.gameAvgDuration);
+    data.append('gameMinPlayers', state.user.gameMinPlayers);
+    data.append('gameMaxPlayers', state.user.gameMaxPlayers);
+    data.append('gameSuggestedAge', state.user.gameSuggestedAge);
+    data.append('image', state.user.advertImage);
+    data.append('gameAuthor', state.user.gameAuthor);
+    data.append('gameReleaseYear', state.user.gameReleaseYear);
+    data.append('city', state.user.city);
+    data.append('description', state.user.description);
+    data.append('categories', JSON.stringify(categories));
+    return data;
+  };
+ */
   switch (action.type) {
     case LOGIN:
       axios.post('http://34.207.234.22/api/login', JSON.stringify({
@@ -53,24 +72,10 @@ const auth = (store) => (next) => (action) => {
 
       // next(action);
       break;
-    case CREATE_ADVERT:
-      axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
-        title: state.user.title,
-        gameTitle: state.user.gameTitle,
-        locationPrice: state.user.locationPrice,
-        gameAvgDuration: state.user.gameAvgDuration,
-        gameMinPlayers: state.user.gameMinPlayers,
-        gameMaxPlayers: state.user.gameMaxPlayers,
-        gameSuggestedAge: state.user.gameSuggestedAge,
-        advertImage: state.user.advertImage,
-        city: state.user.city,
-        description: state.user.description,
-        gameAuthor: state.user.gameAuthor,
-        gameReleaseYear: state.user.ReleaseYear,
-        categories: [{ name: state.user.categories }],
-      }), {
+    /* case CREATE_ADVERT:
+      axios.post('http://34.207.234.22/api/create-advert', send(), {
         headers: {
-          'content-type': 'application/json',
+          'content-type': 'multipart/form-data',
         },
       })
         .then((response) => {
@@ -78,8 +83,7 @@ const auth = (store) => (next) => (action) => {
         })
         .catch(() =>
           console.warn("Echec de l'envoi"));
-      break;
-
+      break; */
     default:
       next(action);
   }
