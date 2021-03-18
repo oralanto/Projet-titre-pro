@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -36,8 +35,7 @@ const Login = ({
             className="Login__form__submit"
             onClick={handleLogout}
             value="Déconnexion"
-          >
-          </input>
+          />
         </div>
       )}
       {!isLogged && (
@@ -54,9 +52,13 @@ const Login = ({
               label="Mot de passe"
               name="password"
             />
-            <input type="submit" disabled={loading} className="Login__form__submit" value={loading ? 'Chargement ...' : 'Envoyer'}></input>
+            <input
+              type="submit"
+              disabled={loading}
+              className="Login__form__submit"
+              value={loading ? 'Chargement ...' : 'Envoyer'}
+            />
             <div className="Login__form__OU">OU</div>
-            
             <Link className="link" to="/creer-compte">Créer un compte</Link>
           </form>
         </div>
