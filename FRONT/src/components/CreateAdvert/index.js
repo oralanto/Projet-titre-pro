@@ -36,64 +36,74 @@ const CreateAdvert = ({
               label="Nom de l'annonce"
               name="title"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Nom du jeu"
               name="gameTitle"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Prix de la location"
               name="locationPrice"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Durée moyenne d'une partie"
               name="gameAvgDuration"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Nombre de joueurs-min"
               name="gameMinPlayers"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Nombre de joueurs-max"
               name="gameMaxPlayers"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Age minimum"
               name="gameSuggestedAge"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="file"
               label="Inserer une image"
               name="advertImage"
               accept="image/png, image/jpeg, image/jpg"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Ville"
               name="city"
             />
-            {/* <Field className="CreateAdvert__form__title"
+            <Field className="CreateAdvert__form__title"
               type="text"
               label="Description complémentaire (recommandé)"
               name="description"
-            /> */}
-            <textarea name="description" placeholder="Votre description complémentaire (recommandé)" rows="10" className="CreateAdvert__form__textarea"></textarea>
+            />
+           // <textarea name="description" placeholder="Votre description complémentaire (recommandé)" rows="10" className="CreateAdvert__form__textarea"></textarea>
             <Field className="CreateAdvert__form__title"
               type="text"
               label="Auteur"
               name="gameAuthor"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Categories"
               name="categories"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Année de sortie"
               name="gameReleaseYear"

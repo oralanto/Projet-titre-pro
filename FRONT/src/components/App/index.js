@@ -5,7 +5,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { useState } from "react";
 
 
 // == Import
@@ -16,7 +15,7 @@ import LegalNotes from 'src/components/LegalNotes';
 import AboutUs from 'src/components/AboutUs';
 import Contact from 'src/containers/Contact';
 import Adverts from 'src/components/Adverts';
-import Advert from 'src/components/Advert';
+import Advert from 'src/containers/Advert';
 import UserManagement from 'src/components/UserManagement';
 import Login from 'src/containers/Login';
 import SignIn from 'src/containers/SignIn';
@@ -28,11 +27,11 @@ import UpdateAdvert from 'src/containers/UpdateAdvert';
 import DeleteAdvert from 'src/containers/DeleteAdvert';
 import UpdateProfil from 'src/containers/UpdateProfil';
 import DeleteProfil from 'src/containers/DeleteProfil';
+import UserAdverts from '../UserAdverts';
 
 import './styles.scss';
 
 const App = () => {
-
   console.log('app init');
   return (
     <Router>
@@ -92,6 +91,9 @@ const App = () => {
           </Route>
           <Route path="/supprimer-profil">
             <DeleteProfil />
+          </Route>
+          <Route path="/user-adverts">
+            <UserAdverts />
           </Route>
         </Switch>
         <Footer />
