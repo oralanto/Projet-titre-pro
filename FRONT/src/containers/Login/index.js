@@ -12,8 +12,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(login());
   },
   Logouute: () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("pseudo");
+    localStorage.removeItem('token');
+    localStorage.removeItem('pseudo');
     dispatch(logout());
   },
 

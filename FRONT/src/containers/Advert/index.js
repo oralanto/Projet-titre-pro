@@ -3,7 +3,7 @@ import Advert from 'src/components/Advert';
 import { advertContact } from 'src/actions';
 
 const mapStateToProps = (state) => ({
-    user: state.user,
+  user: state.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({

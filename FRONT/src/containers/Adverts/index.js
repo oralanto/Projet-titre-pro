@@ -6,7 +6,6 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = () => ({
   fetchAdvert: () => {
-    console.log('J\'ai bien entendu le clik');
     fetchAdvertData();
   },
 });
