@@ -1,5 +1,5 @@
 .footer {
-  height: auto;
+  // height: auto;
   border: 1px solid black;
   color: aliceblue;
   background-color: #321d53;
@@ -10,6 +10,8 @@
   align-items: center;
   padding: 1em;
   margin-top: 1em;
+  position: fixed;
+  bottom: 0;
   &__link {
     border: aliceblue 2px solid;
     border-radius: 10px;

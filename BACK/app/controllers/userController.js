@@ -1,6 +1,8 @@
 const { User } = require('../models/index');
 const jwt = require('jsonwebtoken');
 const { response } = require('express');
+const sendEmail = require('../services/sendEmail');
+const contactUs = require('../services/contactUs');
 
 const userController = {
 
@@ -69,6 +71,24 @@ const userController = {
             const result = await user.update();
             response.json(result);
         }catch(error) {
+            response.status(400).json(error.message);
+        }
+    },
+
+    contactSeller: async (request, response) => {
+        try {
+            await sendEmail(request.user, request.body);
+            response.status(200).json('Votre mail a bien été envoyé.')
+        } catch (error) {
+            response.status(400).json(error.message);
+        }
+    },
+
+    contactOboardgameCorporation: async (request , response) => {
+        try {
+            await contactUs(request.body);
+            response.status(200).json('Votre mail a bien été envoyé. Nous vous répondrons dans les meilleurs délais.');
+        } catch (error) {
             response.status(400).json(error.message);
         }
     }

@@ -1,23 +1,43 @@
 .SignIn {
-  border: 2px solid black;
-  border-radius: 20px;
-  width: auto;
-  height: auto;
-  margin: 1em auto;
-  padding: 2em;
+  // border: 2px solid black;
+  // border-radius: 20px;
+  max-width: 1000px;
+  min-width: 60%;
+  min-height: 100vh;
+  margin: 2em 0;
+  margin: auto auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  font-family: 'Fascinate', cursive,  sans-serif;
+  // background-color: #6C0177;
+  color: white;
+  &__title {
+    font-size: 2em;
+    color: purple;
+  }
   &__form {
     display: flex;
     flex-direction: column;
+    background-color: rgba(169, 167, 167, 0.2) ;
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    padding: 3em;
+    margin-bottom: 8em;
+    &__button {
+      font: 1em sans-serif;
+      padding: 0.6em 1em;
+      margin: auto;
+      background-color: purple;
+      color: white;
+      font-size: 1.25em;
+      border: none;
+      border-radius: 5px;
+    }
+    &__button:hover {
+      background-color: darkslateblue;
+      cursor: pointer;
+    }
   }
-  &__button {
-  font: 1em sans-serif;
-  width: 90%;
-  margin: auto;
-  background-color: #cccc;
-  border: none;
-  border-radius: 5px;
-  }
+  
 }

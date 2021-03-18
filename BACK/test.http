@@ -1,7 +1,7 @@
 @protocol= http
-@domainname= 34.207.234.22
+@domainname= localhost
 @port= {{$dotenv PORT}}
-@baseUrl = {{protocol}}://{{domainname}}
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}
 
 ### GET /games
 GET {{baseUrl}}/games

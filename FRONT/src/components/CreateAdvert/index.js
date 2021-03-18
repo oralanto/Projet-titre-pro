@@ -28,11 +28,10 @@ const CreateAdvert = ({
       )}
       {isLogged && (
         <>
-          <h1 className="CreateAdvert__title">Création d'annonce</h1>
-          <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
           <form className="CreateAdvert__form" onSubmit={thisOnSubmit}>
-            <Field
-              className="CreateAdvert__form__title"
+            <h1 className="CreateAdvert__title">Création d'annonce</h1>
+            <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
+            <Field className="CreateAdvert__form__title"
               type="text"
               label="Nom de l'annonce"
               name="title"
@@ -52,7 +51,7 @@ const CreateAdvert = ({
             <Field
               className="CreateAdvert__form__title"
               type="text"
-              label="Durée moyenne d'une partie :"
+              label="Durée moyenne d'une partie"
               name="gameAvgDuration"
             />
             <Field
@@ -86,28 +85,27 @@ const CreateAdvert = ({
               label="Ville"
               name="city"
             />
-            <Field
-              className="CreateAdvert__form__title"
+            <Field className="CreateAdvert__form__title"
               type="text"
               label="Description complémentaire (recommandé)"
               name="description"
             />
-            <Field
-              className="CreateAdvert__form__title"
+           // <textarea name="description" placeholder="Votre description complémentaire (recommandé)" rows="10" className="CreateAdvert__form__textarea"></textarea>
+            <Field className="CreateAdvert__form__title"
               type="text"
-              label="Auteur :"
+              label="Auteur"
               name="gameAuthor"
             />
             <Field
               className="CreateAdvert__form__title"
               type="text"
-              label="categories"
+              label="Categories"
               name="categories"
             />
             <Field
               className="CreateAdvert__form__title"
               type="text"
-              label="Année de sortie:"
+              label="Année de sortie"
               name="gameReleaseYear"
             />
             <input className="CreateAdvert__form__button" type="submit" value="Poster votre annonce" />

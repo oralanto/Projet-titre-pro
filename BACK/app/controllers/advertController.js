@@ -72,6 +72,15 @@ const advertController = {
         } catch (error) {
             res.status(400).json(error.message);
         }
+    },
+
+    getAdvertsOfUser: async (req, res) => {
+        try {
+            const result = await Advert.findUserAdverts(parseInt(req.user.id, 10));
+            res.json(result)
+        } catch (error) {
+            res.status(400).json(error.message);
+        }
     }
 
 };

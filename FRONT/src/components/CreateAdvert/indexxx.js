@@ -78,19 +78,20 @@ const CreateAdvert = ({
           label="Description complémentaire (recommandé)"
           name="description"
         />
+        {/* <textarea name="description" placeholder="Votre description" className="textarea"></textarea> */}
         <Field className="CreateAdvert__form__title"
           type="text"
-          label="Auteur :"
+          label="Auteur"
           name="gameAuthor"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
-          label="categories"
+          label="Categories"
           name="categories"
         />
         <Field className="CreateAdvert__form__title"
           type="text"
-          label="Année de sortie:"
+          label="Année de sortie"
           name="gameReleaseYear"
         />
         <input className="CreateAdvert__form__button" type="submit" />

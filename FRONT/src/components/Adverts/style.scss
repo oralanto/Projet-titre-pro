@@ -4,6 +4,8 @@
   margin: auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 9em;
   &__title {
     font: 3rem bold serif;
     text-decoration: underline;
@@ -15,22 +17,32 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-around;
     height: auto;
     &__advert {
       width: 30%;
-      // taille temporaire 
+      // taille temporaire;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: white;
       height: 500px;
-      margin: 0.5rem;
+      margin: 1.5rem 0.5rem;
       border: 1px solid black;
       border-radius: 5px;
       box-shadow: 1px 3px 15px 1px #000000;
-      &__img {
-        min-width: 350px;
-        width: 100%;
-        min-height: 350px;
+      &__img__container {
+        height: 100%;
+        &__img {
+          // width: 50%;
+          margin: auto;
+          height: 90%;
+        }
       }
       &__title {
         font: 2em bold serif;
+        border-top: 1px solid black;
+        padding: 0.5em 0;
         width: 100%;
         height: auto;
       }

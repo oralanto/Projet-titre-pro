@@ -21,18 +21,22 @@ const Adverts = () => {
       <h1 className="Adverts__title">Les annonces</h1>
       <div className="Adverts__container">
         {adverts.map((obj) => (
-          <Link
-            to={`adverts/${obj.advert.id}`}
-            key={obj.advert.id}
-            className="Adverts__container__advert"
-          >
-            <img className="Adverts__container__advert__img" src={obj.advert.advertImage} alt={obj.advert.id} />
+        <Link
+          to={`adverts/${obj.advert.id}`}
+          key={obj.advert.id}
+          className="Adverts__container__advert"
+        >
+          <div className="Adverts__container__advert__img__container">
+            <img className="Adverts__container__advert__img__container__img" src={obj.advert.advertImage} alt={obj.advert.id} />
+          </div>
+          <div>
             <h2 className="Adverts__container__advert__title">{obj.advert.title}</h2>
             <div className="Adverts__container__advert__details">
               <p className="Adverts__container__advert__details__detail">{obj.localisation.city}</p>
-              <p className="Adverts__container__advert__details__detail">{obj.advert.locationPrice}</p>
+              <p className="Adverts__container__advert__details__detail">{obj.advert.locationPrice} €</p>
             </div>
-          </Link>
+          </div>
+        </Link>
         ))}
       </div>
     </div>
