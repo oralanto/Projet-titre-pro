@@ -28,11 +28,9 @@ const auth = (store) => (next) => (action) => {
         },
       })
         .then((result) => {
-          console.log('JWT', result.data.accessToken);
           localStorage.setItem('token', result.data.accessToken);
           localStorage.setItem('pseudo', result.data.pseudo);
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
-          console.log(result.data.pseudo);
           alert(`Bonjour ${result.data.pseudo}`);
         })
         .catch((error) => {
@@ -56,7 +54,6 @@ const auth = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log('response', response);
           alert(`Bienvenue ${response.data.pseudo}`);
         })
         .catch((err) => {
@@ -82,6 +79,7 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre profil est à jour');
         })
         .catch(() => console.warn("Echec de l'envoi"));
       break;
@@ -91,6 +89,7 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.clear();
           console.log('response', response);
+          alert('Votre profil est désormais supprimé');
           next(action);
         })
         .catch(() => console.warn("Echec de l'envoi"));
@@ -145,6 +144,7 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre annonce a été mise à jour');
         })
         .catch(() => console.warn("Echec de l'envoi"));
       break;
@@ -153,6 +153,7 @@ const auth = (store) => (next) => (action) => {
       axios.delete('http://34.207.234.22/api/adverts/:id')
         .then((response) => {
           console.log('response', response);
+          alert('Votre annonce est désormais supprimé');
         })
         .catch(() => console.warn("Echec de l'envoi"));
       break;
