@@ -14,7 +14,6 @@ const CreateAdvert = ({
 }) => {
   const thisOnSubmit = (event) => {
     event.preventDefault();
-    console.log('submit create Advert');
     onSubmitFormAdvert();
   };
   return (
@@ -31,7 +30,8 @@ const CreateAdvert = ({
           <form className="CreateAdvert__form" onSubmit={thisOnSubmit}>
             <h1 className="CreateAdvert__title">Création d'annonce</h1>
             <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Nom de l'annonce"
               name="title"
@@ -85,13 +85,16 @@ const CreateAdvert = ({
               label="Ville"
               name="city"
             />
-            <Field className="CreateAdvert__form__title"
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Description complémentaire (recommandé)"
               name="description"
             />
-           // <textarea name="description" placeholder="Votre description complémentaire (recommandé)" rows="10" className="CreateAdvert__form__textarea"></textarea>
-            <Field className="CreateAdvert__form__title"
+            {/* <textarea name="description" placeholder="Votre description complémentaire
+             (recommandé)" rows="10" className="CreateAdvert__form__textarea"></textarea> */}
+            <Field
+              className="CreateAdvert__form__title"
               type="text"
               label="Auteur"
               name="gameAuthor"
