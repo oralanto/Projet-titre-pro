@@ -160,19 +160,7 @@ function CreateAdvert (/*{
                 setCity(value);
               }}
             />
-            <input className="CreateAdvert__form__title"
-              type="file"
-              label="Inserer une image"
-              name="advertImage"
-              accept="image/png, image/jpeg, image/jpg"
-            />
-            <Field
-              className="CreateAdvert__form__title"
-              type="text"
-              label="Ville"
-              name="city"
-            />
-            <Field
+            <input
               className="CreateAdvert__form__title"
               type="text"
               label="Description complémentaire (recommandé)"
