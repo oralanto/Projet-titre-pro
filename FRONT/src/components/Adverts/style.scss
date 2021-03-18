@@ -21,22 +21,23 @@
     height: auto;
     &__advert {
       width: 30%;
+      min-width: 300px;
       // taille temporaire;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background-color: white;
-      height: 500px;
+      height: auto;
       margin: 1.5rem 0.5rem;
       border: 1px solid black;
       border-radius: 5px;
       box-shadow: 1px 3px 15px 1px #000000;
       &__img__container {
-        height: 100%;
+        max-height: 70%;
+        overflow:hidden;
         &__img {
-          // width: 50%;
+          width: 70%;
           margin: auto;
-          height: 90%;
         }
       }
       &__title {
@@ -49,6 +50,7 @@
       &__details {
         display: flex;
         justify-content: space-around;
+        padding: 1em 0 ;
         margin-bottom: 0;
         background-color: #3c1f42;
         color: aliceblue;
