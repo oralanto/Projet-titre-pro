@@ -1,10 +1,11 @@
 .header {
   border: 1px solid black;
+  border-radius: 0 0 20px 0;
   background-color: rgb(230, 206, 75);
   align-items: center;
   display: flex;
   justify-content: space-between;
-  color:  #321d53;
+  color:  #321D53;
   &_svg {
     width: 50%;
     height: auto;
@@ -16,21 +17,28 @@
     justify-content: space-between;
     &__link,
     &__link--connexion {
-      border: #321d53 2px solid;
+      border: #321D53 2px solid;
       border-radius: 10px;
       margin: 0.5em;
-      padding: 0.5em;
+      padding: 0.25em;
       width: 20%;
       height: 20%;
       font-weight: bolder;
       font-size:1.2em;
+    }&__link:hover {
+      background-color: darkslateblue;
+      color :white;
+      cursor: pointer;
+    }&__link--connexion:hover {
+      background-color: darkslateblue;
+      color : white;
+      cursor: pointer;
     }
   }
   &__logo {
       justify-content: flex-start;
       display: flex;
-      height: 5%;
-      width: 5%;
-      margin: 1rem;
+      margin-left: 1em;
+      
 }
 }
