@@ -12,7 +12,7 @@
     width: 80%;
     margin: auto;
     margin-bottom: 1em;
-    font: 2em bold sans-serif;
+    // font: 2em bold sans-serif;
     color: purple;
   }
   &__form {
@@ -22,8 +22,12 @@
     backdrop-filter: blur(4px);
     border-radius: 40px;
     padding: 3em;
+    &__message {
+      font-size: 3rem;
+      margin-bottom: 10rem;
+    }
     &__submit {
-      font: 1em sans-serif;
+      // font: 1em sans-serif;
       padding: 0.6em 1em;
       margin: auto;
       background-color: purple;
@@ -47,7 +51,7 @@
     &__link {
       width: 80%;
       margin: auto;
-      font: 5em normal sans-serif;
+      // font: 5em normal sans-serif;
       text-decoration: underline;
     }
   }

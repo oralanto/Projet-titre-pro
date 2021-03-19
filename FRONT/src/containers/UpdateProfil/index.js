@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
 });
 const mapDispatchToProps = (dispatch) => ({
-  onSubmitFormAdvert: () => {
+  onSubmitForm: () => {
     dispatch(updateProfil());
   },
 });

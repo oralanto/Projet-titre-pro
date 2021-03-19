@@ -79,7 +79,7 @@ Login.propTypes = {
 Login.defaultProps = {
   isLogged: false,
   loading: false,
-  loggedMessage: 'Connecté',
+  loggedMessage: 'Vous êtes Connecté',
 };
 
 // == Export

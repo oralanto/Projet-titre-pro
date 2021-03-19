@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 8em;
+  justify-content: space-between;
   &__return {
     align-self: flex-start;
     text-decoration: underline;
@@ -14,23 +15,28 @@
     width: 100%;
     height: 100%;
     &__left {
+      background-color: rgba(169, 167, 167, 0.2) ;
+      backdrop-filter: blur(4px);
       width: 50%;
+      border-radius: 40px;
+      margin-right: 2em;
       &__img {
         min-width: 350px;
-        width: 100%;
+        width: 25%;
         min-height: 350px;
-        border: .5px solid lightgrey;
+        // border: .5px solid lightgrey;
+        margin-bottom: 2em;
       }
       &__text {
         width: 95%;
         height: auto;
         margin: auto 0.5rem;
         text-align: left;
-        font: 1em italic sans-serif;
+        // font: 1em italic sans-serif;
         &__localisation {
           margin: 1rem 0.5rem;
           text-align: left;
-          font: 1em italic sans-serif;
+          // font: 1em italic sans-serif;
         }
       }
       &__localisation {
@@ -51,6 +57,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background-color: rgba(169, 167, 167, 0.2) ;
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      margin-left: 2em;
       &__desc {
         &__title {
           margin: 2em auto 0;
@@ -73,6 +83,8 @@
             &__detail {
               margin: 0 auto;
               font: 1em italic sans-serif;
+              border: black 1px solid;
+              border-radius: 5px;
             }
           }
           &__description {
@@ -80,6 +92,9 @@
             margin: 1rem auto;
             text-align: left;
             font: 1.3em serif;
+            border : black 1px blur(2px);
+            backdrop-filter: blur(4px);
+            background-color: rgba(85, 84, 84, 0.2) ;
           }
       }
       &__contact {
@@ -90,7 +105,7 @@
         }
         &__button {
 
-          font: 1em sans-serif;
+          font: 1.25em 'Berkshire Swash', cursive;
           width: 90%;
           margin: auto;
           background-color: #cccc;

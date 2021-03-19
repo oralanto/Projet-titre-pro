@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Link,
 } from 'react-router-dom';
+import logo from "../../../img/Logo_phase_3_Complet.svg";
 
 // == Import
 import './style.scss';
@@ -13,7 +14,7 @@ const Header = ({ isLogged }) => (
   <div className="header">
     <div className="header__logo">
       <Link to="accueil">
-        <img className="header__logo__svg" src="https://i.ibb.co/DGJchjY/oboardgame-logo.png" alt="logo" />
+        <img className="header__logo__svg" src={logo} alt="Logo O'boardgame" />
       </Link>
     </div>
     <nav className="header__nav">

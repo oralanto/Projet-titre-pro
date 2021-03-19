@@ -1,20 +1,18 @@
+
+
 /* eslint-disable consistent-return */
 import axios from 'axios';
-
 import {
   LOGIN,
   SIGN_IN,
   logged,
-  CREATE_ADVERT,
+  //CREATE_ADVERT,
   UPDATE_ADVERT,
   DELETE_ADVERT,
   UPDATE_PROFIL,
   DELETE_PROFIL,
   CONTACT,
-  ADVERT_CONTACT,
-
 } from 'src/actions';
-
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
   switch (action.type) {
@@ -30,6 +28,7 @@ const auth = (store) => (next) => (action) => {
         .then((result) => {
           localStorage.setItem('token', result.data.accessToken);
           localStorage.setItem('pseudo', result.data.pseudo);
+          axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
           alert(`Bonjour ${result.data.pseudo}`);
         })
@@ -38,8 +37,8 @@ const auth = (store) => (next) => (action) => {
           alert('Erreur d\'authentification');
         });
       break;
-
     case SIGN_IN: {
+      const state = store.getState();
       axios.post('http://34.207.234.22/api/signup', JSON.stringify({
         firstname: state.user.firstname,
         lastname: state.user.lastname,
@@ -62,7 +61,6 @@ const auth = (store) => (next) => (action) => {
         });
       break;
     }
-
     case UPDATE_PROFIL:
       axios.patch('http://34.207.234.22/api/profil', JSON.stringify({
         firstname: state.user.firstname,
@@ -81,9 +79,9 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           alert('Votre profil est à jour');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch(() =>
+          console.warn("Echec de l'envoi"));
       break;
-
     case DELETE_PROFIL:
       axios.delete('http://34.207.234.22/api/profil')
         .then((response) => {
@@ -189,10 +187,8 @@ const auth = (store) => (next) => (action) => {
           alert('Votre message a bien été envoyé');
         })
         .catch(() => alert("Echec de l'envoi"));
-      break;
     default:
       next(action);
   }
 };
-
 export default auth;
