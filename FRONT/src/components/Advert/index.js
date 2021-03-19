@@ -37,7 +37,6 @@ const Advert = ({
   if (readyForRender) {
     return (
       <div className="Advert">
-        <article className="Advert__content">
           <div className="Advert__content__left">
             <img
               className="Advert__content__left__img"
@@ -97,7 +96,6 @@ const Advert = ({
               </form>
             </div>
           </div>
-        </article>
       </div>
     );
   }
