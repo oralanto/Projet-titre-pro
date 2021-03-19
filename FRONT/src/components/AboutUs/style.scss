@@ -1,6 +1,7 @@
 .AboutUs {
   display: flex;
   flex-direction: column;
+  margin-bottom: 5em;
   &__title--main {
     // font: 3em bold serif;
     margin-top: 2rem;
@@ -20,17 +21,16 @@
     flex-wrap: wrap;
     width: 90%;
     margin: 1rem auto;
+    justify-content:space-between;
     &__card {  
       width: 33%;
       display: flex;
       flex-direction: column;
-      margin: auto;
-      margin-bottom: 2rem;
-      margin-top: 2rem;
+      margin: 0.5em auto;
       background-color: rgba(169, 167, 167, 0.2) ;
       backdrop-filter: blur(4px);
       border-radius: 40px;
-      padding: 3em;
+      padding: 1em;
       &__img {
         width: 50%;
         height: auto;
@@ -45,7 +45,7 @@
       }
       &__description {
         // font: 1em italic;
-        text-align: left;
+        text-align: center;
       }
     }
   }
