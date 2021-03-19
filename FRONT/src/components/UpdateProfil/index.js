@@ -46,7 +46,7 @@ const UpdateProfil = ({
             />
             <Field
               type="Email"
-              label="email"
+              label="Email"
               name="email"
             />
             <Field
@@ -56,7 +56,7 @@ const UpdateProfil = ({
             />
             <Field
               type="text"
-              label="localisation Id (1-5)"
+              label="Ville"
               name="localisation_id"
             />
             <Field
@@ -64,7 +64,7 @@ const UpdateProfil = ({
               label="Téléphone (facultatif)"
               name="phone_number"
             />
-            <button type="submit" className="UpdateProfil__button">Modifier mon profil</button>
+            <button type="submit" className="UpdateProfil__form__button">Modifier mon profil</button>
           </form>
         </>
       )}

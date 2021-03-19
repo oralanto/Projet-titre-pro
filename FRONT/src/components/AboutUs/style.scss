@@ -1,18 +1,30 @@
 .AboutUs {
   display: flex;
   flex-direction: column;
+  margin-bottom: 5em;
+  font-family: 'Acme', sans-serif;
   &__title--main {
     // font: 3em bold serif;
-    margin-top: 2rem;
+    margin-top: 1.75em;
+    font-size: 1.75em;
   }
   &__title--description {
     // font: 1.5em italic serif;
-    margin: 2rem;
+    margin: 3rem;
+    font-size: 1.50em;
   }
   &__description {
     // font: 1em italic sans-serif;
-    width: 90%;
+    font-size: 1.15em;
+    text-align: center;
+    width: 70%;
     margin: auto;
+    line-height: 1.25em;
+  }
+  &__description--sign{
+    margin-top: 2em;
+    text-align: center;
+    font-size: 1.15em;
   }
   &__crew {
     display: flex;
@@ -20,17 +32,16 @@
     flex-wrap: wrap;
     width: 90%;
     margin: 1rem auto;
+    justify-content:space-between;
     &__card {  
       width: 33%;
       display: flex;
       flex-direction: column;
-      margin: auto;
-      margin-bottom: 2rem;
-      margin-top: 2rem;
+      margin: 0.5em auto;
       background-color: rgba(169, 167, 167, 0.2) ;
       backdrop-filter: blur(4px);
       border-radius: 40px;
-      padding: 3em;
+      padding: 1em;
       &__img {
         width: 50%;
         height: auto;
@@ -45,7 +56,7 @@
       }
       &__description {
         // font: 1em italic;
-        text-align: left;
+        text-align: center;
       }
     }
   }

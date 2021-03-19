@@ -1,8 +1,8 @@
 .footer {
   // height: auto;
   border: 1px solid black;
-  color: aliceblue;
-  background-color: #321d53;
+  color: rgba(230,206,75,1);
+  background-color: rgb(64, 45, 77);
   width: 100%;
   margin-bottom: 0;
   display: flex;
@@ -13,12 +13,12 @@
   position: fixed;
   bottom: 0;
   &__link{
-    border: aliceblue 2px solid;
+    border: rgba(230,206,75,1) 2px solid;
     border-radius: 10px;
     padding: .5em;
   }&__link:hover{
     cursor: pointer;
-    box-shadow: 7px 7px darken(#321D53, 20%), -7px -7px lighten(#321D53, 20%);
+    box-shadow: 7px 7px darken(rgba(230,206,75,1), 20%), -7px -7px lighten(rgba(230,206,75,1), 20%);
     transition: 0.5s;
     &::before {
     border: 0px ;
