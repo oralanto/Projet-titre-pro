@@ -37,22 +37,24 @@ const Home = () => {
         <div className="home__logo">
           <img className="home__logo" src={logo} alt="logo" />
         </div>
-        <Link
-          to={`adverts/${advert.id}`}
-          key={advert.id}
-          className="Adverts__container__advert"
-        >
-          <div className="Adverts__container__advert__img__container">
-            <img className="Adverts__container__advert__img__container__img" src={advert.advertImage} alt={advert.id} />
-          </div>
-          <div>
-            <h2 className="Adverts__container__advert__title">{advert.title}</h2>
-            <div className="Adverts__container__advert__details">
-              <p className="Adverts__container__advert__details__detail">{advert.localisation.city}</p>
-              <p className="Adverts__container__advert__details__detail">{advert.locationPrice} €</p>
+        {advert.map((obj) => (
+          <Link
+            to={`adverts/${advert.id}`}
+            key={advert.id}
+            className="Adverts__container__advert"
+          >
+            <div className="Adverts__container__advert__img__container">
+              <img className="Adverts__container__advert__img__container__img" src={obj.advert.advertImage} alt={advert.id} />
             </div>
-          </div>
-        </Link>
+            <div>
+              <h2 className="Adverts__container__advert__title">{obj.advert.title}</h2>
+              <div className="Adverts__container__advert__details">
+                <p className="Adverts__container__advert__details__detail">{obj.advert.localisation.city}</p>
+                <p className="Adverts__container__advert__details__detail">{obj.advert.locationPrice} €</p>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
       <div className="home__categories">
         <p className="home__categories__title">Catégories</p>
