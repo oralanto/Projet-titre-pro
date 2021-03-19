@@ -14,11 +14,12 @@
       border-radius: 40px;
       margin-right: 2em;
       &__img {
-        min-width: 350px;
-        width: 25%;
-        min-height: 350px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 500px;
         border-radius: 20px;
-        margin: 2em;
+        margin: 1em 0;
+        border: 1px solid black;
       }
       &__text {
         width: 90%;
@@ -87,17 +88,39 @@
       &__contact {
         width: 70%;
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        &__form {
+          &__message{
+            width: 90%;
+            margin: auto;
+            padding: 5px;
+            font-size: 16px;
+            border-width: 1px;
+            border-color: #6C0177;
+            background-color: #f1f1f1;
+            color: #000000;
+            border-style: solid;
+            border-radius: 10px;
+            box-shadow: 0px 0px 4px rgba(66,66,66,.50);
+          }
+        }
         &__price {
           font: 1.3em bold sans-serif;
           margin-bottom: 2em;
         }
         &__button {
-          font: 1.25em 'Berkshire Swash', cursive;
-          width: 90%;
+          width: 500%;
           margin: auto;
-          background-color: #cccc;
+          padding: 0.6em 1em;
+          margin: 1em auto;
+          background-color: purple;
+          color: white;
+          font-size: 1.25em;
           border: none;
           border-radius: 5px;
+          width: auto;
+          height: auto;
         }
       }
     }
