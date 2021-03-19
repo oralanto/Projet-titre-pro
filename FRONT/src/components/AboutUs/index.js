@@ -8,8 +8,10 @@ import './style.scss';
 const AboutUs = () => (
   <div className="AboutUs">
     <h1 className="AboutUs__title--main">A propos de nous</h1>
-    <h2 className="AboutUs__title--description">Description du projet</h2>
-    <p className="AboutUs__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolore nihil repudiandae fuga. Quae magni harum ipsum officiis! Expedita molestiae dolorum minima ab velit sit autem. Atque culpa veniam suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolore nihil repudiandae fuga. Quae magni harum ipsum officiis! Expedita molestiae dolorum minima ab velit sit autem. Atque culpa veniam suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolore nihil repudiandae fuga. Quae magni harum ipsum officiis! Expedita molestiae dolorum minima ab velit sit autem. Atque culpa veniam suscipit.</p>
+    <h2 className="AboutUs__title--description">Le projet, c'était quoi ?</h2>
+    <p className="AboutUs__description">Nous sommes cinq étudiants fraîchement sortis de l'école O'clock , Promo Nautilus (Ooh-Aaah !) Oct. 2020 - Mars 2021. 
+                                        Il nous àété demandé au cours des semaines de cours de proposé des idées de projet à réaliser en fin de formation. Parmi de nombreuse proposition, Mathis, notre Product Owner à donc soumis son idée, et aujourd'hui nous présentons fièrement ce qu'est devenus O'boardgame. Tous un peu geek, chacun d'entre nous a choisis de participé à cette aventure et il nous as tous beaucoup tenus à cœur de mettre nos compétences tout juste acquise au service de la réalisation de ce projet. Arrivé en bout de course, le travail accomplis en 4 semaines et après 5 mois d'études à été rude, mais le dynamisme du groupe et la qualité de l'enseignement nous ont permis de réussir à fournir un site opérationnel. Cela nous aura permis également de nous rendre compte des choses folle que nous somme tous capable d'accomplir, malgré nos parcours bien différents. Merci à tous de nous avoir lu, en espérant que notre site vous incite a jouer tous ensemble .</p>
+    <p className="AboutUs__description--sign">O'clockement votre , l'équipe O'boardgame .</p>
     <div className="AboutUs__crew">
       <div className="AboutUs__crew__card">
         <img className="AboutUs__crew__card__img" src="https://avatars.githubusercontent.com/u/63245581?s=400&u=34042793b3aad7c6bc18ce0c8849994f8bcf709d&v=4" alt="Mathis" />
