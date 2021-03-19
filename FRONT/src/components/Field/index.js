@@ -9,17 +9,10 @@ const Field = ({
   onChangeInputValue,
 }) => {
   const handleOnChange = (e) => {
-    console.log(e.target.value);
     onChangeInputValue(e.target.value);
   };
   return (
     <div className="Login__form__fields">
-      {/* <label
-        htmlFor={name}
-        className="Login__form__fields__label"
-      >
-        {label}
-      </label> */}
       <input
         id={name}
         name={name}

@@ -1,9 +1,12 @@
+import axios from 'axios';
+
 import {
   CHANGE_INPUT_VALUE,
   LOGIN,
   LOGGED,
   LOGOUT,
   SAVE_ADVERT,
+  DELETE_PROFIL,
 } from 'src/actions';
 
 const initialState = {
@@ -23,7 +26,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  console.log('reducer');
   switch (action.type) {
     case CHANGE_INPUT_VALUE:
       return {
@@ -43,6 +45,7 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     case LOGGED:
+      axios.defaults.headers.common.Authorization = `Bearer ${action.accessToken}`;
       return {
         ...state,
         user: {
@@ -52,15 +55,18 @@ const reducer = (state = initialState, action = {}) => {
           isLogged: true,
         },
       };
-      case LOGOUT:
+    case LOGOUT:
       return {
         ...initialState,
       };
     case SAVE_ADVERT:
-      console.log('Reducer case SAVE_ADVERT :', action.data);
       return {
         ...state.advert,
         advert: action.data,
+      };
+    case DELETE_PROFIL:
+      return {
+        ...initialState,
       };
     default:
       return state;

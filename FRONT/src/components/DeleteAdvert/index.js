@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 // == Import
 import './style.scss';
 
@@ -14,7 +13,6 @@ const DeleteAdvert = ({
 }) => {
   const thisOnSubmit = (event) => {
     event.preventDefault();
-    console.log('submit delete Advert');
     onSubmitFormAdvert();
   };
   return (
@@ -41,7 +39,7 @@ const DeleteAdvert = ({
 
 DeleteAdvert.propTypes = {
   isLogged: PropTypes.bool,
-  onSubmitFormAdvert: PropTypes.func,
+  onSubmitFormAdvert: PropTypes.func.isRequired,
   loggedMessage: PropTypes.string,
 
 };

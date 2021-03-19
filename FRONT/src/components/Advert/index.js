@@ -1,20 +1,25 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
-
+import PropTypes from 'prop-types';
+import Field from 'src/containers/Field';
 // == Import
 import './style.scss';
 import axios from 'axios';
 
 // == Composant
-const Advert = () => {
-  console.log('Component advert');
+const Advert = ({
+  onSubmitContactAdvertForm,
+  user,
+}) => {
   const [advert, setAdvert] = useState(null);
   const [readyForRender, setReadyForRender] = useState(false);
 
-  console.log('query :', window.location.pathname);
+  const thisOnSubmit = (event) => {
+    event.preventDefault();
+    onSubmitContactAdvertForm(user.message, advert.advert.id);
+  };
 
   useEffect(() => {
-    console.log('useEffect fetch advert/:id data');
     const getAdvert = async () => {
       try {
         const res = await axios
@@ -28,11 +33,10 @@ const Advert = () => {
     };
     getAdvert();
   }, []);
-  console.log(advert);
+
   if (readyForRender) {
     return (
       <div className="Advert">
-        <a className="Advert__return">--Précedent</a>
         <article className="Advert__content">
           <div className="Advert__content__left">
             <img
@@ -43,7 +47,7 @@ const Advert = () => {
             <p className="Advert__content__left__text">Publiée le {advert.advert.publicationDate}</p>
             <p className="Advert__content__left__text">Par {advert.user.pseudo}</p>
             <p className="Advert__content__left__text__localisation">
-              A proximités de :
+              A proximité de :
             </p>
             <div className="Advert__content__left__localisation">
               <img
@@ -80,18 +84,29 @@ const Advert = () => {
             </div>
             <div className="Advert__content__right__contact">
               <p className="Advert__content__right__contact__price">{advert.advert.locationPrice}€/jour</p>
-              <button type="button" className="Advert__content__right__contact__button">
-                Contacter {advert.user.pseudo}
-              </button>
+              <form className="Advert__content__right__contact__form" onSubmit={thisOnSubmit}>
+                <Field
+                  className="Advert_content__right__contact__form__message"
+                  type="textarea"
+                  label="Message"
+                  name="message"
+                />
+                <button type="submit" className="Advert__content__right__contact__button">
+                  Contacter {advert.user.pseudo}
+                </button>
+              </form>
             </div>
           </div>
         </article>
       </div>
-      );
-  } else {
-    return <h1> En cours de chargement...</h1>;
+    );
   }
+  return <span> En cours de chargement...</span>;
 };
 
+Advert.propTypes = {
+  onSubmitContactAdvertForm: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+};
 // == Export
 export default Advert;

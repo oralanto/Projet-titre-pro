@@ -1,17 +1,17 @@
 .UpdateProfil {
   height: auto;
   width: 60%;
-  margin: auto;
+  margin: 0 auto 8em;
   display: flex;
   flex-direction: column;
  
  
   &__title {
-    font: 2em bold serif;
+    // font: 2em bold serif;
     margin: 1em auto 3em;
   }
   &__subtitle {
-    font: 1.5em bold serif;
+    // font: 1.5em bold serif;
     margin: 1em auto 3em;
   }
   &__form {

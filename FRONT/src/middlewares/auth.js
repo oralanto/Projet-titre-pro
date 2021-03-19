@@ -1,19 +1,18 @@
+
+
 /* eslint-disable consistent-return */
 import axios from 'axios';
-
 import {
   LOGIN,
   SIGN_IN,
   logged,
-  CREATE_ADVERT,
+  //CREATE_ADVERT,
   UPDATE_ADVERT,
   DELETE_ADVERT,
   UPDATE_PROFIL,
   DELETE_PROFIL,
   CONTACT,
-
 } from 'src/actions';
-
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
   switch (action.type) {
@@ -36,7 +35,6 @@ const auth = (store) => (next) => (action) => {
         .catch((error) =>
           console.warn('Erreur d\'authentification', error));
       break;
-
     case SIGN_IN: {
       const state = store.getState();
       axios.post('http://34.207.234.22/api/signup', JSON.stringify({
@@ -56,11 +54,9 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
         })
         .catch((err) => console.log('err', err));
-
       // next(action);
       break;
     }
-
     case UPDATE_PROFIL:
       axios.patch('http://34.207.234.22/api/profil', JSON.stringify({
         firstname: state.user.firstname,
@@ -81,7 +77,6 @@ const auth = (store) => (next) => (action) => {
         .catch(() =>
           console.warn("Echec de l'envoi"));
       break;
-
       case DELETE_PROFIL:
         axios.delete('http://34.207.234.22/api/profil')
           .then((response) => {
@@ -90,8 +85,7 @@ const auth = (store) => (next) => (action) => {
           .catch(() =>
             console.warn("Echec de l'envoi"));
         break;    
-
-      case CREATE_ADVERT:
+     /*  case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
         title: state.user.title,
         gameTitle: state.user.gameTitle,
@@ -116,8 +110,7 @@ const auth = (store) => (next) => (action) => {
         })
         .catch(() =>
           console.warn("Echec de l'envoi"));
-      break;
-
+      break; */
       case UPDATE_ADVERT:
       axios.patch('http://34.207.234.22/api/adverts/:id/update', JSON.stringify({
         title: state.user.title,
@@ -144,7 +137,6 @@ const auth = (store) => (next) => (action) => {
         .catch(() =>
           console.warn("Echec de l'envoi"));
       break;
-
       case DELETE_ADVERT:
         axios.delete('http://34.207.234.22/api/adverts/:id')
           .then((response) => {
@@ -160,7 +152,6 @@ const auth = (store) => (next) => (action) => {
             email: state.user.email,
             phoneNumber: state.user.phoneNumber,
             message: state.user.message,
-            
           }), {
             headers: {
               'content-type': 'application/json',
@@ -172,10 +163,8 @@ const auth = (store) => (next) => (action) => {
             .catch(() =>
               console.warn("Echec de l'envoi"));
           break;
-   
     default:
       next(action);
   }
 };
-
 export default auth;
