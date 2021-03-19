@@ -17,9 +17,11 @@
     border-radius: 10px;
     padding: .5em;
   }&__link:hover{
+    background-color: rgba(230,206,75,1);
+    color: rgb(64, 45, 77);
     cursor: pointer;
-    box-shadow: 7px 7px darken(rgba(230,206,75,1), 20%), -7px -7px lighten(rgba(230,206,75,1), 20%);
-    transition: 0.5s;
+    box-shadow: 7px 7px darken(rgba(230,206,75,1), 10%), -7px -7px lighten(rgba(230,206,75,1), 10%);
+    transition: 0.3s;
     &::before {
     border: 0px ;
     }
