@@ -75,11 +75,12 @@ function CreateAdvert (/*{
         <> */}
           <h1 className="CreateAdvert__title">Création d'annonce</h1>
           <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
-          <form className="CreateAdvert__form" encType="multipart/form-data" >
+          <form className="CreateAdvert__form" encType="multipart/form-data" onSubmit={send}>
             <input className="CreateAdvert__form__title"
               type="text"
               label="Nom de l'annonce"
               name="title"
+              placeholder="Titre de votre annonce"
               onChange={(event) => {
                 const value = event.target.value;
                 console.log('value input', value);
@@ -90,6 +91,7 @@ function CreateAdvert (/*{
               type="text"
               label="Nom du jeu"
               name="gameTitle"
+              placeholder="Nom du jeu"
               onChange={(event) => {
                 const { value } = event.target;
                 console.log('value input 2eme champ', value);
@@ -100,6 +102,7 @@ function CreateAdvert (/*{
               type="text"
               label="Prix de la location"
               name="locationPrice"
+              placeholder="Prix"
               onChange={(event) => {
                 const { value } = event.target;
                 setLocationPrice(value);
@@ -109,6 +112,7 @@ function CreateAdvert (/*{
               type="text"
               label="Durée moyenne d'une partie"
               name="gameAvgDuration"
+              placeholder="Durée moyenne du jeu"
               onChange={(event) => {
                 const { value } = event.target;
                 setGameAvgDuration(value);
@@ -118,6 +122,7 @@ function CreateAdvert (/*{
               type="text"
               label="Nombre de joueurs-min"
               name="gameMinPlayers"
+              placeholder="Nombre de joueurs-min"
               onChange={event => {
                 const { value } = event.target;
                 setGameMinPlayers(value);
@@ -127,6 +132,7 @@ function CreateAdvert (/*{
               type="text"
               label="Nombre de joueurs-max"
               name="gameMaxPlayers"
+              placeholder="Nombre de joueurs-max"
               onChange={event => {
                 const { value } = event.target;
                 setGameMaxPlayers(value);
@@ -136,6 +142,7 @@ function CreateAdvert (/*{
               type="text"
               label="Age minimum"
               name="gameSuggestedAge"
+              placeholder="Age suggéré"
               onChange={event => {
                 const { value } = event.target;
                 setGameSuggestedAge(value);
@@ -146,6 +153,7 @@ function CreateAdvert (/*{
               label="Inserer une image"
               name="advertImage"
               acept=".jpg"
+              placeholder="Choisissez une image"
               onChange={event => {
                 const file = event.target.files[0];
                 setFile(file);
@@ -155,27 +163,30 @@ function CreateAdvert (/*{
               type="text"
               label="Ville"
               name="city"
+              placeholder="Ville"
               onChange={event => {
                 const { value } = event.target;
                 setCity(value);
               }}
             />
-            <input
-              className="CreateAdvert__form__title"
-              type="text"
-              label="Description complémentaire (recommandé)"
-              name="description"
+            <textarea
+              className="CreateAdvert__form__textarea"
+              rows="10"
+              placeholder="Description complémentaire"
               onChange={event => {
                 const { value } = event.target;
                 setDescription(value);
               }}
-            />
+            >
+            </textarea>
             <input className="CreateAdvert__form__title"
               type="text"
               label="Auteur"
               name="gameAuthor"
+              placeholder="Auteur"
               onChange={event => {
                 const { value } = event.target;
+                console.log('auteur', value)
                 setGameAuthor(value);
               }}
             />
@@ -183,6 +194,7 @@ function CreateAdvert (/*{
               type="text"
               label="Categories"
               name="categories"
+              placeholder="Catégories"
               onChange={event => {
                 console.log(event.target);
                 console.log(event.target.v);
@@ -194,14 +206,15 @@ function CreateAdvert (/*{
               type="text"
               label="Année de sortie"
               name="gameReleaseYear"
+              placeholder="Année de sortie du jeu"
               onChange={event => {
                 const { value } = event.target;
                 setGameReleaseYear(value);
               }}
             />
-            {/* <input className="CreateAdvert__form__button" type="submit" /> */}
+            {/* <input className="CreateAdvert__form__button" type="submit"> */}
+            <button type="submit" className="CreateAdvert__form__button">Poster l'annonce</button>
           </form>
-      <button type="submit" onClick={send}>Send</button>
        {/*  </>
       )} */}
     </div>

@@ -19,9 +19,9 @@ const Adverts = () => {
   return (
     <div className="Adverts">
       <h1 className="Adverts__title">Les annonces</h1>
-      <div className="home__search">
+      <div className="Adverts__home__search">
         <p> Vous savez ce que vous cherchez ?</p>
-        <input className="home__search__bar" placeholder="7 Wonders, Monopoly..." type="text" />
+        <input className="Adverts__home__search__bar" placeholder="7 Wonders, Monopoly..." type="text" />
       </div>
       <div className="Adverts__container">
         {adverts.map((obj) => (
