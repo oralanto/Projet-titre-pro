@@ -29,10 +29,20 @@
       background-color: darkslateblue;
       color :white;
       cursor: pointer;
+      box-shadow: 7px 7px darken(#321D53, 20%), -7px -7px lighten(#321D53, 20%);
+      transition: 0.5s;
+		  &::before {
+		  border: 0px ;
+	}
     }&__link--connexion:hover {
       background-color: darkslateblue;
       color : white;
       cursor: pointer;
+      box-shadow: 7px 7px darken(#321D53, 20%), -7px -7px lighten(#321D53, 20%);
+      transition: 0.5s;
+		  &::before {
+		  border: 0px ;
+	}
     }
   }
   &__logo {
