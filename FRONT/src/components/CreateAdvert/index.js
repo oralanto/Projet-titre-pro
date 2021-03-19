@@ -169,17 +169,6 @@ function CreateAdvert (/*{
                 setCity(value);
               }}
             />
-            {/* <input
-              className="CreateAdvert__form__title"
-              type="text"
-              label="Description complémentaire (recommandé)"
-              name="description"
-              placeholder="Description complémentaire"
-              onChange={event => {
-                const { value } = event.target;
-                setDescription(value);
-              }}
-            /> */}
             <textarea
               className="CreateAdvert__form__textarea"
               rows="10"
