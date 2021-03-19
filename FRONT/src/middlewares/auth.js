@@ -11,6 +11,7 @@ import {
   DELETE_ADVERT,
   UPDATE_PROFIL,
   DELETE_PROFIL,
+  ADVERT_CONTACT,
   CONTACT,
 } from 'src/actions';
 const auth = (store) => (next) => (action) => {
@@ -93,7 +94,7 @@ const auth = (store) => (next) => (action) => {
         .catch(() => console.warn("Echec de l'envoi"));
       break;
 
-    case CREATE_ADVERT:
+    /* case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
         title: state.user.title,
         gameTitle: state.user.gameTitle,
@@ -118,7 +119,7 @@ const auth = (store) => (next) => (action) => {
           alert('Votre annonce est maintenant en ligne');
         })
         .catch(() => alert("Echec de l'envoi"));
-      break;
+      break; */
 
     case UPDATE_ADVERT:
       axios.patch('http://34.207.234.22/api/adverts/:id/update', JSON.stringify({

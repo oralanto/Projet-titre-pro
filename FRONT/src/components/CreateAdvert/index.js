@@ -1,20 +1,19 @@
 // == Import npm
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-//import input from 'src/containers/input';
 import axios from 'axios';
-import store from 'src/store';
+//import store from 'src/store';
 
 // == Import
 import './style.scss';
 
-const state = store.getState();
+//const state = store.getState();
 // == Composant
-function CreateAdvert (/*{
-  onSubmitFormAdvert,
+function CreateAdvert({
+  //onSubmitFormAdvert,
   isLogged,
   loggedMessage,
-}*/) {
+}) {
   //const state = store.getState();
   const [file, setFile] = useState();
   const [title, setTitle] = useState();
@@ -47,8 +46,6 @@ function CreateAdvert (/*{
     data.append('city', city);
     data.append('description', description);
     data.append('categories', JSON.stringify(categoriesName));
-    console.log('formdata content : ', Array.from(data));
-    console.log('submit create Advert');
     axios.post('http://34.207.234.22/api/create-advert', data, {
       headers: {
         'content-type': 'multipart/form-data',
@@ -56,15 +53,14 @@ function CreateAdvert (/*{
     })
       .then((response) => {
         console.log('response', response);
+        alert('Votre annonce est maintenant en ligne');
       })
-      .catch(() => 
-        console.warn("Echec de l'envoi"));
-    //onSubmitFormAdvert();
+      .catch(() => alert("Echec de l'envoi"));
   };
 
   return (
     <div className="CreateAdvert">
-   {/*    {!isLogged && (
+      {!isLogged && (
         <div className="Login__form__logged">
           <p className="Login__form__message">
             {loggedMessage}
@@ -72,7 +68,7 @@ function CreateAdvert (/*{
         </div>
       )}
       {isLogged && (
-        <> */}
+        <>
           <h1 className="CreateAdvert__title">Création d'annonce</h1>
           <p className="CreateAdvert__subtitle"> Mieux vous décrirez votre jeu, plus vous aurez de chances de le louer</p>
           <form className="CreateAdvert__form" encType="multipart/form-data" onSubmit={send}>
@@ -123,7 +119,7 @@ function CreateAdvert (/*{
               label="Nombre de joueurs-min"
               name="gameMinPlayers"
               placeholder="Nombre de joueurs-min"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setGameMinPlayers(value);
               }}
@@ -133,7 +129,7 @@ function CreateAdvert (/*{
               label="Nombre de joueurs-max"
               name="gameMaxPlayers"
               placeholder="Nombre de joueurs-max"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setGameMaxPlayers(value);
               }}
@@ -143,7 +139,7 @@ function CreateAdvert (/*{
               label="Age minimum"
               name="gameSuggestedAge"
               placeholder="Age suggéré"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setGameSuggestedAge(value);
               }}
@@ -154,7 +150,7 @@ function CreateAdvert (/*{
               name="advertImage"
               acept=".jpg"
               placeholder="Choisissez une image"
-              onChange={event => {
+              onChange={(event) => {
                 const file = event.target.files[0];
                 setFile(file);
               }}
@@ -164,7 +160,7 @@ function CreateAdvert (/*{
               label="Ville"
               name="city"
               placeholder="Ville"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setCity(value);
               }}
@@ -173,18 +169,17 @@ function CreateAdvert (/*{
               className="CreateAdvert__form__textarea"
               rows="10"
               placeholder="Description complémentaire"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setDescription(value);
               }}
-            >
-            </textarea>
+            />
             <input className="CreateAdvert__form__title"
               type="text"
               label="Auteur"
               name="gameAuthor"
               placeholder="Auteur"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 console.log('auteur', value)
                 setGameAuthor(value);
@@ -195,9 +190,7 @@ function CreateAdvert (/*{
               label="Categories"
               name="categories"
               placeholder="Catégories"
-              onChange={event => {
-                console.log(event.target);
-                console.log(event.target.v);
+              onChange={(event) => {
                 const { value } = event.target;
                 setCategories(value);
               }}
@@ -207,30 +200,29 @@ function CreateAdvert (/*{
               label="Année de sortie"
               name="gameReleaseYear"
               placeholder="Année de sortie du jeu"
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setGameReleaseYear(value);
               }}
             />
-            {/* <input className="CreateAdvert__form__button" type="submit"> */}
             <button type="submit" className="CreateAdvert__form__button">Poster l'annonce</button>
           </form>
-       {/*  </>
-      )} */}
+        </>
+      )}
     </div>
   );
 }
 
-/* CreateAdvert.propTypes = {
+CreateAdvert.propTypes = {
   isLogged: PropTypes.bool,
-  onSubmitFormAdvert: PropTypes.func.isRequired,
+  //onSubmitFormAdvert: PropTypes.func.isRequired,
   loggedMessage: PropTypes.string,
 
 };
 CreateAdvert.defaultProps = {
   loggedMessage: 'Vous devez vous connecter',
   isLogged: false,
-}; */
+};
 
 // == Export
 export default CreateAdvert;
