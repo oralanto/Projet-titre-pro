@@ -45,7 +45,7 @@
     justify-content: space-around;
   }
   &__link {
-    border: 2px solid purple;
+    border: 2px solid #321D53;
     border-radius: 10px;
     padding: .3em;
     width: 25%;
@@ -57,5 +57,10 @@
     background-color: darkslateblue;
     cursor: pointer;
     color: white;
+    box-shadow: 7px 7px darken(#321D53, 20%), -7px -7px lighten(#321D53, 20%);
+    transition: 0.5s;
+    &::before {
+    border: 0px ;
+    }
   }
 }
