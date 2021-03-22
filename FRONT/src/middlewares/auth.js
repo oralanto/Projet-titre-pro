@@ -77,8 +77,7 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           alert('Votre profil est à jour');
         })
-        .catch(() =>
-          console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
     case DELETE_PROFIL:
       axios.delete('http://34.207.234.22/api/profil')
@@ -88,7 +87,7 @@ const auth = (store) => (next) => (action) => {
           alert('Votre profil est désormais supprimé');
           next(action);
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
 
     /* case CREATE_ADVERT:
@@ -142,7 +141,7 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           alert('Votre annonce a été mise à jour');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
 
     case DELETE_ADVERT:
@@ -151,7 +150,7 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           alert('Votre annonce est désormais supprimé');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
     case CONTACT:
       axios.post('http://34.207.234.22/api/contactus', JSON.stringify({
@@ -169,7 +168,7 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           alert('Votre message a bien été envoyé');
         })
-        .catch(() => alert("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
     case ADVERT_CONTACT:
       axios.post('http://34.207.234.22/api/mailing', {
@@ -184,7 +183,7 @@ const auth = (store) => (next) => (action) => {
           console.log('response', response);
           alert('Votre message a bien été envoyé');
         })
-        .catch(() => alert("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
     default:
       next(action);

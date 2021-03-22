@@ -30,36 +30,43 @@ const UpdateProfil = ({
           <p className="UpdateProfil__title">Modifier votre profil</p>
           <form className="UpdateProfil__form" onSubmit={handleOnSubmit}>
             <Field
+              className="UpdateProfil__field"
               type="text"
               label="Prénom"
               name="firstname"
             />
             <Field
+              className="UpdateProfil__field"
               type="text"
               label="Nom"
               name="lastname"
             />
             <Field
+              className="UpdateProfil__field"
               type="text"
               label="Pseudo"
               name="pseudo"
             />
             <Field
+              className="UpdateProfil__field"
               type="Email"
               label="Email"
               name="email"
             />
             <Field
+              className="UpdateProfil__field"
               type="password"
               label="Mot de passe"
               name="password"
             />
             <Field
+              className="UpdateProfil__field"
               type="text"
               label="Ville"
               name="localisation_id"
             />
             <Field
+              className="UpdateProfil__field"
               type="tel"
               label="Téléphone (facultatif)"
               name="phone_number"
