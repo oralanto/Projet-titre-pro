@@ -29,7 +29,7 @@ const DeleteProfil = ({
           <h1 className="DeleteProfil__title">Suppression de compte</h1>
           <p className="DeleteProfil__subtitle"> Etes vous sûr de vouloir supprimer définitivement votre compte ?</p>
           <form className="DeleteProfil__form" onSubmit={thisOnSubmit}>
-            <input className="DeleteProfil__form__button" type="submit" value="supprimer" />
+            <input className="DeleteProfil__form__button" type="submit" value="Supprimer" />
           </form>
         </>
       )}
