@@ -34,12 +34,10 @@ const auth = (store) => (next) => (action) => {
           alert(`Bonjour ${result.data.pseudo}`);
         })
         .catch((error) => {
-          console.warn('Erreur d\'authentification', error);
-          alert('Erreur d\'authentification');
+          alert(error.response.data);
         });
       break;
     case SIGN_IN: {
-      const state = store.getState();
       axios.post('http://34.207.234.22/api/signup', JSON.stringify({
         firstname: state.user.firstname,
         lastname: state.user.lastname,
@@ -57,8 +55,7 @@ const auth = (store) => (next) => (action) => {
           alert(`Bienvenue ${response.data.pseudo}`);
         })
         .catch((err) => {
-          console.log('err', err);
-          alert('Veuillez bien remplir tous les champs');
+          alert(err.response.data);
         });
       break;
     }
@@ -188,6 +185,7 @@ const auth = (store) => (next) => (action) => {
           alert('Votre message a bien été envoyé');
         })
         .catch(() => alert("Echec de l'envoi"));
+      break;
     default:
       next(action);
   }

@@ -30,7 +30,7 @@ const AboutUs = () => (
       </div>
       <div className="AboutUs__crew__card">
         <img className="AboutUs__crew__card__img" src="https://avatars.githubusercontent.com/u/71069962?s=400&v=4" alt="killian" />
-        <p className="AboutUs__crew__card__name">Killian Courvoisier</p>
+        <p className="AboutUs__crew__card__name">Killian "Raiponse" Courvoisier</p>
         <p className="AboutUs__crew__card__description">Développeur Back, Lead Dev Back</p>
       </div>
       <div className="AboutUs__crew__card">

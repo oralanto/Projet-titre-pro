@@ -6,6 +6,7 @@
   flex-direction: row;
   margin-bottom: 8em;
   justify-content: space-between;
+  font-family: 'acme';
   &__content {
     &__left {
       background-color: rgba(169, 167, 167, 0.2) ;
@@ -56,7 +57,6 @@
       &__desc {
         &__title {
           margin: 2em auto 0;
-          font: 2.5em bold serif;
           }
           &__details {
             display: flex;
@@ -74,7 +74,6 @@
             }
             &__detail {
               margin: 0 auto;
-              font: 1em italic sans-serif;
               text-decoration: underline;
             }
           }
@@ -82,7 +81,8 @@
             width: 70%;
             margin: 1rem auto;
             text-align: left;
-            font: 1.3em serif;
+            font-size: 1.3em;
+            line-height: 1.2;
           }
       }
       &__contact {
