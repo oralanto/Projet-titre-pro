@@ -29,6 +29,11 @@ const Home = () => {
 
   return (
     <div className="home">
+            <div className="home__text">
+              <p>
+                Bienvenue sur O'Boardgame, premier site français de location de jeux de société de particulier à particulier !
+              </p>
+            </div>
       { readyForRender && (
         <>
           <div className="home__search">
@@ -36,31 +41,24 @@ const Home = () => {
             <input className="home__search__bar" placeholder="7 Wonders, Monopoly..." type="text" />
           </div>
           <div className="home__center">
-            <div className="home__text">
-              <p>
-                Bienvenue sur O'Boardgame, premier site français de location de jeux de société de particulier à particulier !
-              </p>
-            </div>
             <div className="home__logo">
-              <img className="home__logo" src={logo} alt="logo" />
+              <img className="home__logo__img" src={logo} alt="logo" />
             </div>
-            <h2 className="home__advert__title">Derniere annonce publiée</h2>
-            <Link
-              to={`adverts/${advert.advert.id}`}
-              key={advert.advert.id}
-              className="Adverts__container__advert"
-            >
-              <div className="Adverts__container__advert__img__container">
-                <img className="Adverts__container__advert__img__container__img" src={advert.advert.advertImage} alt={advert.id} />
-              </div>
-              <div>
-                <h2 className="Adverts__container__advert__title">{advert.advert.title}</h2>
-                <div className="Adverts__container__advert__details">
-                  <p className="Adverts__container__advert__details__detail">{advert.localisation.city}</p>
-                  <p className="Adverts__container__advert__details__detail">{advert.advert.locationPrice} €</p>
+            <div className="home__advert">
+              <h2 className="home__advert__title">Derniere annonce publiée</h2>
+              <Link
+                to={`adverts/${advert.advert.id}`}
+                key={advert.advert.id}
+                className="home__advert__container"
+              >
+                <img className="home__advert__container__img" src={advert.advert.advertImage} alt={advert.id} />
+                <h2 className="home__advert__container__title">{advert.advert.title}</h2>
+                <div className="home__advert__container__details">
+                  <p className="home__advert__container__details__detail">{advert.localisation.city}</p>
+                  <p className="home__advert__container__details__detail">{advert.advert.locationPrice} €</p>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
           <div className="home__categories">
             <p className="home__categories__title">Catégories</p>
@@ -76,7 +74,7 @@ const Home = () => {
         </>
       )}
       {!readyForRender && (
-        <h1>Loadding</h1>
+        <h1>Loading...</h1>
       )}
 
     </div>
