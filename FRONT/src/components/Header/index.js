@@ -21,8 +21,8 @@ const Header = ({ isLogged }) => (
       <Link to="/accueil" className="header__nav__link">Accueil</Link>
       <Link to="/annonces" className="header__nav__link">Annonces</Link>
       <Link to="/creer-une-annonce" className="header__nav__link">Creer une annonce</Link>
-      {isLogged && <Link to="/profil" className="header__nav__link">Mon Profil</Link>}
-      <Link to="/connexion" className="header__nav__link--connexion">{!isLogged ? 'Se connecter' : 'se déconnecter'}</Link>
+      {isLogged && <Link to="/profil" className="header__nav__link">Mon profil</Link>}
+      <Link to="/connexion" className="header__nav__link--connexion">{!isLogged ? 'Se connecter' : 'Se déconnecter'}</Link>
     </nav>
   </div>
 );

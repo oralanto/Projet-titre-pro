@@ -21,7 +21,7 @@ const Profil = () => {
   return (
     <div className="profil">
       <div className="profil__picture">
-        <h1>Profil</h1>
+        <h1 className="profil__picture__title">Profil</h1>
         <img className="profil__picture__img" src={profil} alt="react logo" />
       </div>
       <div className="profil__info">

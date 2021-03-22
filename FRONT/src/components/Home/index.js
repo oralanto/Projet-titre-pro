@@ -84,6 +84,7 @@ const Home = () => {
       {!readyForRender && (
         <h1>Loadding</h1>
       )}
+
     </div>
   );
 };

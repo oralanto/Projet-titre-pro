@@ -18,36 +18,43 @@ const SignIn = ({ onSubmitForm }) => {
       <form className="SignIn__form" onSubmit={handleOnSubmit}>
         <p className="SignIn__title">Créer un compte</p>
         <Field
+          className="SignIn__form__field"
           type="text"
           label="Prénom"
           name="firstname"
         />
         <Field
+          className="SignIn__form__field"
           type="text"
           label="Nom"
           name="lastname"
         />
         <Field
+          className="SignIn__form__field"
           type="text"
           label="Pseudo"
           name="pseudo"
         />
         <Field
+          className="SignIn__form__field"
           type="email"
           label="Email"
           name="email"
         />
         <Field
+          className="SignIn__form__field"
           type="password"
           label="Mot de passe"
           name="password"
         />
         <Field
+          className="SignIn__form__field"
           type="text"
           label="Ville"
           name="city"
         />
         <Field
+          className="SignIn__form__field"
           type="tel"
           label="Téléphone (facultatif)"
           name="phone_number"

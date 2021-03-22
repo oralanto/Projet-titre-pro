@@ -1,20 +1,19 @@
+
+
 /* eslint-disable consistent-return */
 import axios from 'axios';
-
 import {
   LOGIN,
   SIGN_IN,
   logged,
-  CREATE_ADVERT,
+  //CREATE_ADVERT,
   UPDATE_ADVERT,
   DELETE_ADVERT,
   UPDATE_PROFIL,
   DELETE_PROFIL,
-  CONTACT,
   ADVERT_CONTACT,
-
+  CONTACT,
 } from 'src/actions';
-
 const auth = (store) => (next) => (action) => {
   const state = store.getState();
   switch (action.type) {
@@ -28,14 +27,16 @@ const auth = (store) => (next) => (action) => {
         },
       })
         .then((result) => {
-          console.log('JWT', result.data.accessToken);
           localStorage.setItem('token', result.data.accessToken);
           localStorage.setItem('pseudo', result.data.pseudo);
+          axios.defaults.headers.common.Authorization = `Bearer ${result.data.accessToken}`;
           store.dispatch(logged(result.data.pseudo, result.data.accessToken));
+          alert(`Bonjour ${result.data.pseudo}`);
         })
-        .catch((error) => console.warn('Erreur d\'authentification', error));
+        .catch((error) => {
+          alert(error.response.data);
+        });
       break;
-
     case SIGN_IN: {
       axios.post('http://34.207.234.22/api/signup', JSON.stringify({
         firstname: state.user.firstname,
@@ -51,12 +52,13 @@ const auth = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log('response', response);
+          alert(`Bienvenue ${response.data.pseudo}`);
         })
-        .catch((err) => console.log('err', err));
+        .catch((err) => {
+          alert(err.response.data);
+        });
       break;
     }
-
     case UPDATE_PROFIL:
       axios.patch('http://34.207.234.22/api/profil', JSON.stringify({
         firstname: state.user.firstname,
@@ -73,21 +75,22 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre profil est à jour');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
-
     case DELETE_PROFIL:
       axios.delete('http://34.207.234.22/api/profil')
         .then((response) => {
           localStorage.clear();
           console.log('response', response);
+          alert('Votre profil est désormais supprimé');
           next(action);
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
 
-    case CREATE_ADVERT:
+    /* case CREATE_ADVERT:
       axios.post('http://34.207.234.22/api/create-advert', JSON.stringify({
         title: state.user.title,
         gameTitle: state.user.gameTitle,
@@ -109,9 +112,10 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre annonce est maintenant en ligne');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
-      break;
+        .catch(() => alert("Echec de l'envoi"));
+      break; */
 
     case UPDATE_ADVERT:
       axios.patch('http://34.207.234.22/api/adverts/:id/update', JSON.stringify({
@@ -135,16 +139,18 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre annonce a été mise à jour');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
 
     case DELETE_ADVERT:
       axios.delete('http://34.207.234.22/api/adverts/:id')
         .then((response) => {
           console.log('response', response);
+          alert('Votre annonce est désormais supprimé');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
     case CONTACT:
       axios.post('http://34.207.234.22/api/contactus', JSON.stringify({
@@ -160,8 +166,9 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre message a bien été envoyé');
         })
-        .catch(() => console.warn("Echec de l'envoi"));
+        .catch((err) => alert(err.response.data));
       break;
     case ADVERT_CONTACT:
       axios.post('http://34.207.234.22/api/mailing', {
@@ -174,12 +181,12 @@ const auth = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('response', response);
+          alert('Votre message a bien été envoyé');
         })
-        .catch((error) => console.warn("Echec de l'envoi", error));
+        .catch((err) => alert(err.response.data));
       break;
     default:
       next(action);
   }
 };
-
 export default auth;
