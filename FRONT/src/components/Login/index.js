@@ -43,11 +43,13 @@ const Login = ({
           <form className="Login__form" onSubmit={handleOnSubmit}>
             <p className="Login__title">Connexion</p>
             <Field
+              className="Login__form__field"
               type="Email"
               label="Email"
               name="email"
             />
             <Field
+              className="Login__form__field"
               type="password"
               label="Mot de passe"
               name="password"

@@ -9,7 +9,7 @@ import logo from '../../../img/Logo_phase_3_Complet.svg';
 const Home = () => (
   <div className="home">
     <div className="home__search">
-      <p> Vous savez ce que vous cherchez ?</p>
+      <p className="home__search__title"> Vous savez ce que vous cherchez ?</p>
       <input className="home__search__bar" placeholder="7 Wonders, Monopoly..." type="text" />
     </div>
     <div className="home__center">

@@ -4,6 +4,9 @@
 }
 .home__search {
   margin: 2rem 0;
+  &__title {
+    margin: 1em auto;
+  }
   &__bar {
     font-size: 1.2em;
     padding: 0.2em;
