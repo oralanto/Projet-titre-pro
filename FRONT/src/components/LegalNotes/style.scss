@@ -1,0 +1,20 @@
+.LegalNotes {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  &__title {
+    // font: 3em bold serif;
+    margin-top: 2rem;
+  }
+  &__adresse {
+    // font: 1em italic serif;
+    width: 25%;
+    margin: 1rem auto;
+  }
+  &__text {
+    // font: 1em normal serif;
+    margin: 0 auto 1rem;
+    width: 90%;
+  }
+}

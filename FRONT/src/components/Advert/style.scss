@@ -1,0 +1,128 @@
+.Advert {
+  width: 95%;
+  height: auto;
+  margin: 1.5em auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8em;
+  justify-content: space-between;
+  font-family: 'acme';
+  &__content {
+    &__left {
+      background-color: rgba(169, 167, 167, 0.2) ;
+      backdrop-filter: blur(4px);
+      width: 50%;
+      border-radius: 40px;
+      margin-right: 2em;
+      &__img {
+        width: 90%;
+        max-width: 500px;
+        max-height: 500px;
+        border-radius: 20px;
+        margin: 1em 0;
+        border: 1px solid black;
+      }
+      &__text {
+        width: 90%;
+        height: auto;
+        margin: .5em 1em;
+        text-align: left;
+        &__localisation {
+          margin: .5em 1em;
+          text-align: left;
+        }
+      }
+      &__localisation {
+        display: flex;
+        align-items: center;
+        &__img {
+          width: 20%;
+          height: auto;
+          margin: .5em 1em;
+        }
+        &__imgtext {
+          font-size: 1.5em;
+        }
+      }
+    }
+    &__right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: rgba(169, 167, 167, 0.2) ;
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      margin-left: 2em;
+      &__desc {
+        &__title {
+          margin: 2em auto 0;
+          }
+          &__details {
+            display: flex;
+            flex-wrap: wrap;
+            &__category {
+              display: flex;
+              justify-content: space-around;
+              width: 100%;
+              margin: 1rem;
+              &__tag {
+                border: #f0f 2px solid;
+                padding: .5rem;
+                border-radius: 15px;
+              }
+            }
+            &__detail {
+              margin: 0 auto;
+              text-decoration: underline;
+            }
+          }
+          &__description {
+            width: 70%;
+            margin: 1rem auto;
+            text-align: left;
+            font-size: 1.3em;
+            line-height: 1.2;
+          }
+      }
+      &__contact {
+        width: 70%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        &__form {
+          &__message{
+            width: 90%;
+            margin: auto;
+            padding: 5px;
+            font-size: 16px;
+            border-width: 1px;
+            border-color: #6C0177;
+            background-color: #f1f1f1;
+            color: #000000;
+            border-style: solid;
+            border-radius: 10px;
+            box-shadow: 0px 0px 4px rgba(66,66,66,.50);
+          }
+        }
+        &__price {
+          font: 1.3em bold sans-serif;
+          margin-bottom: 2em;
+        }
+        &__button {
+          width: 500%;
+          margin: auto;
+          padding: 0.6em 1em;
+          margin: 1em auto;
+          background-color: purple;
+          color: white;
+          font-size: 1.25em;
+          border: none;
+          border-radius: 5px;
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+  }
+}

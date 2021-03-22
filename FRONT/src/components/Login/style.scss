@@ -1,0 +1,70 @@
+.Login {
+  // border: 2px solid black;
+  // border-radius: 20px;
+  width: auto;
+  height: auto;
+  margin: 1em auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &__title {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1em;
+    // font: 2em bold sans-serif;
+    color: purple;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(169, 167, 167, 0.2) ;
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    padding: 3em;
+    &__field {
+      outline: none;
+      border: none;
+      border-bottom: #6C0177 1px solid;
+      background-color: transparent;
+      color: #6C0177;
+      font-size: 1.25em;
+      margin-bottom: 1em;
+    }
+    &__field::placeholder {
+      color: #6C0177;
+    }
+    &__message {
+      font-size: 3rem;
+      margin-bottom: 10rem;
+    }
+    &__submit {
+      // font: 1em sans-serif;
+      padding: 0.6em 1em;
+      margin: auto;
+      background-color: purple;
+      color: white;
+      font-size: 1.25em;
+      border: none;
+      border-radius: 5px;
+      &:disabled {
+        opacity: 0.90;
+        background-color: #F0F;
+        color: black;
+      }
+    }
+    &__submit:hover {
+      background-color: darkslateblue;
+      cursor: pointer;
+    }
+    &__OU {
+      margin: 1.5em 0;
+    }
+    &__link {
+      width: 80%;
+      margin: auto;
+      // font: 5em normal sans-serif;
+      text-decoration: underline;
+    }
+  }
+}

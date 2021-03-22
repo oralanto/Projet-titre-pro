@@ -1,0 +1,30 @@
+.userdashboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+    &__board {
+      width: 600px;
+      align-self: center;
+      margin: 4rem 0 2rem 0;
+      border: black 1px solid;
+    }
+}
+h1 {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+th {
+  border: black 1px solid;
+  padding: 1rem;
+  background-color: gray;
+}
+td {
+  border: black 1px solid;
+  padding: 1rem;
+}
+button {
+  // border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}

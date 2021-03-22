@@ -1,0 +1,8 @@
+%syntax-version=1.0.0
+%project=oboardgame
+
+init 2021-03-02T13:15:27Z Mathis Pati <mathis.pati@gmail.com> # tables creation
+unique_constraint 2021-03-08T13:08:58Z Killian Courvoisier <killian.courvoisier@gmail.com> # adding the unique constraint on several fields
+localisation_column 2021-03-10T19:14:55Z Mathis Pati <mathis.pati@gmail.com> # localisationId column in advert table
+cascascade_user_delete 2021-03-12T10:40:24Z Killian Courvoisier <killian.courvoisier@gmail.com> # adding a cascade on delete on user_id
+text_phone_number 2021-03-12T14:45:47Z Killian Courvoisier <killian.courvoisier@gmail.com> # updating field phone-number to text to avoid problems

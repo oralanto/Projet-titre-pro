@@ -1,0 +1,119 @@
+.home {
+  display: block;
+  height: 100vh;
+  font-family: 'Acme', sans-serif;
+  &__advert {
+    width: 30%;
+    height: auto;
+    &__title{
+      font-size: 1.3em;
+    }
+    &__container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      margin: 1.5rem 0.5rem;
+      border: 1px solid black;
+      border-radius: 5px;
+      box-shadow: 1px 3px 15px 1px #000000;
+      justify-content: center;
+      align-items: center;
+      &__img {
+        width: 90%;
+        height: 100%;
+        margin: 1em;
+        max-height: 370px;
+        border-radius: 5px;
+      }
+      &__title {
+        font-size: 1.8em;
+        padding: 0.5em 0;
+        width: 100%;
+        height: auto;
+      }
+      &__details {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.5rem;
+        padding: 0.5em;
+        margin: auto;
+        background-color: #3c1f42;
+        color: aliceblue;
+      }
+    }
+  }
+}
+.home__search {
+  margin: 2rem 0;
+  &__title {
+    margin: 1em auto;
+  }
+  &__bar {
+    border:none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    width: 500px;
+    box-shadow: 3px 3px 8px 0px rgba(72,70,70,0.75);
+  }
+}
+.home__center {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home__text {
+  width: 25%;
+  margin: 2em auto 1em;
+  align-items: left;
+  font-size: 1.5em;
+}
+.home__logo {
+  width: 50%;
+  height: auto;
+  &__img{
+    width: 90%;
+  }
+}
+.home__categories {
+  margin-top: 2rem;
+  width: 100%;
+  background-color: rgba(169, 167, 167, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 2em;
+  &__title {
+    font: 2.5em bold purple;
+  }
+  &__cat {
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  &__link {
+    border: 2px solid #321d53;
+    border-radius: 10px;
+    padding: 0.3em;
+    width: 25%;
+    margin: 1rem 5rem;
+    background-color: #b9add0;
+    transition: 0.3s;
+  }
+  &__link:hover {
+    background-color: darkslateblue;
+    cursor: pointer;
+    color: white;
+    box-shadow: 7px 7px darken(#321d53, 20%), -7px -7px lighten(#321d53, 20%);
+    transition: 0.5s;
+    &::before {
+      border: 0px;
+    }
+  }
+}

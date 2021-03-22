@@ -1,0 +1,112 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}
+
+### GET /games
+GET {{baseUrl}}/games
+
+
+
+### GET /games/:id
+GET {{baseUrl}}/games/5
+
+### GET /api/adverts/:id
+GET {{baseUrl}}/api/adverts/4
+
+### POST /login
+POST {{baseUrl}}/api/login
+Content-Type: application/json
+
+{
+    "firstname": "Barack ",
+    "lastname": "Obama"
+}
+
+### POST /login
+POST {{baseUrl}}/api/login
+Content-Type: application/json
+
+{
+    "email": "ypo@gmazil.com",
+    "password": "1234"
+    
+}
+
+### URL encoded (le format par défaut pour les formulaires)
+### ATTENTION : ne marche pas pour cette application
+
+### POST /signin
+POST {{baseUrl}}/api/signup
+Content-Type: application/json
+
+{
+
+    "firstname":"yop",
+    "lastname":"yop",
+    "pseudo":"uyzp",
+    "email": "ypo@gmazil.com",
+    "password": "1234",
+    "phoneNumber":"0324797z689",
+    "city": "Lieu-Saint-Amand"
+}
+
+### POST /cities
+POST {{baseUrl}}/api/cities
+Content-Type: application/json
+
+{
+    "city": "lyo"
+}
+
+### GET /api/test/27
+GET {{baseUrl}}/api/test/27
+
+### POST /api/create-advert
+
+POST {{baseUrl}}/api/create-advert
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsInBzZXVkbyI6IlRoaXNtYWR1NTkiLCJpYXQiOjE2MTUzNzEzODIsImV4cCI6MTYxNTM3NDk4Mn0.GIDf0kaPn12n7HRbz-neCWMnIp85ScNr4cVF3cD7adY
+Content-Type: 'application/json'
+
+{
+    "title": "Location de Jungle speed",
+    "description": "je loue Risk , je me suis trompé",
+    "locationPrice": "10.00",
+    "advertImage": "http://urlencarton.com", 
+    "gameTitle": "Risk",
+    "gameAuthor": "Albert Lamorisse",
+    "gameReleaseYear": "1998",
+    "gameAvgDuration": "30 minutes",
+    "gameMinPlayers": 3,
+    "gameMaxPlayers": 5,
+    "gameSuggestedAge": 5,
+    "city": 4,
+    "gameId": "2",
+    "categories": [
+			{
+				"name": "stratégie"
+			},
+			{
+				"name": "ambiance"
+			}
+		  ]
+}
+
+
+### GET /adverts
+GET {{baseUrl}}/api/adverts?text=ris&categoriesId=5,2&localisationId=10
+
+### GET /alladverts
+GET {{baseUrl}}/api/alladverts
+
+### GET /categories
+GET {{baseUrl}}/api/categories
+
+### GET /adverts?7Won
+GET {{baseUrl}}/api/adverts?text=7Won&categoriesId=5&localisationId=4569
+
+### DELETE /adverts/:id
+DELETE {{baseUrl}}/api/adverts/15
+
+

@@ -1,0 +1,57 @@
+.header {
+  width: 100%;
+  margin: auto;
+  border-radius: 0 0 20px 20px;
+  background-color: rgb(230, 206, 75);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 5%, rgba(230,206,75,1) 82%);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  color: #321d53;
+  &__logo {
+    justify-content: flex-start;
+    display: flex;
+    margin-left: 1em;
+    &__svg {
+      width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+  &__nav {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    &__link,
+    &__link--connexion {
+      border: #321d53 2px solid;
+      border-radius: 10px;
+      margin: 0.5em;
+      padding: 0.25em;
+      width: 20%;
+      height: 20%;
+      font-weight: bolder;
+      font-size: 1.2em;
+    }
+    &__link:hover {
+      background-color: darkslateblue;
+      color: white;
+      cursor: pointer;
+      box-shadow: 7px 7px darken(#321d53, 20%), -7px -7px lighten(#321d53, 20%);
+      transition: 0.5s;
+      &::before {
+        border: 0px;
+      }
+    }
+    &__link--connexion:hover {
+      background-color: darkslateblue;
+      color: white;
+      cursor: pointer;
+      box-shadow: 7px 7px darken(#321d53, 20%), -7px -7px lighten(#321d53, 20%);
+      transition: 0.5s;
+      &::before {
+        border: 0px;
+      }
+    }
+  }
+}

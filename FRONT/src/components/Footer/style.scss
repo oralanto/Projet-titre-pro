@@ -1,0 +1,29 @@
+.footer {
+  // height: auto;
+  border: 1px solid black;
+  color: rgba(230,206,75,1);
+  background-color: rgb(64, 45, 77);
+  width: 100%;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  margin-top: 1em;
+  position: fixed;
+  bottom: 0;
+  &__link{
+    border: rgba(230,206,75,1) 2px solid;
+    border-radius: 10px;
+    padding: .5em;
+  }&__link:hover{
+    background-color: rgba(230,206,75,1);
+    color: rgb(64, 45, 77);
+    cursor: pointer;
+    box-shadow: 7px 7px darken(rgba(230,206,75,1), 10%), -7px -7px lighten(rgba(230,206,75,1), 10%);
+    transition: 0.3s;
+    &::before {
+    border: 0px ;
+    }
+  }
+}

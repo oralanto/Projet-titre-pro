@@ -1,0 +1,41 @@
+.DeleteProfil {
+  &__title{
+    margin: 1em auto 1em;
+    font-size: 2em;
+  }
+  &__subtitle{
+    margin: 1em auto 3em;
+  }
+  &__form{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 auto;
+    &__button{
+      line-height: 1.5;
+      border-radius: 5px;
+      border: 1px solid #000;
+      box-shadow: 1px 1px 1px #999;
+      padding: 0.6em 1em;
+      margin: auto;
+      background-color: purple;
+      color: white;
+      font-size: 1.25em;
+      border: none;
+      border-radius: 5px;
+      height: auto;
+      width: auto;
+      &:disabled {
+        opacity: 0.90;
+        background-color: #F0F;
+        color: black;
+      }
+    }
+    &__button:hover {
+      background-color: darkslateblue;
+      cursor: pointer;
+      }
+  }
+
+}

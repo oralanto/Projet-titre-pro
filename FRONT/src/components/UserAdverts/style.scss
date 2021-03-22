@@ -1,0 +1,44 @@
+.Adverts {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  &__title {
+    text-decoration: underline;
+    color: #3c1f42;
+    margin-bottom: 1em;
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    &__advert {
+      width: 30%;
+      // taille temporaire 
+      margin: 0.5rem;
+      border: 1px solid black;
+      border-radius: 5px;
+      box-shadow: 1px 3px 15px 1px #000000;
+      &__img {
+        min-width: 350px;
+        width: 100%;
+        min-height: 350px;
+        max-height: 370px
+      }
+      &__title {
+        width: 100%;
+        height: auto;
+      }
+      &__details {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0;
+        background-color: #3c1f42;
+        color: aliceblue;
+      }
+    }
+  }
+}
